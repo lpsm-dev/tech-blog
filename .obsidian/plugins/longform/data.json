@@ -1,0 +1,283 @@
+{
+  "version": 3,
+  "projects": {},
+  "selectedDraftVaultPath": "content/3 - Resources/Tools/Index.md",
+  "userScriptFolder": null,
+  "sessionStorage": "data",
+  "sessions": [
+    {
+      "start": "2025-01-11T00:53:24.928Z",
+      "total": 0,
+      "drafts": {
+        "content/2 - Areas/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/4 - Archives/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Tools/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/Kubernetes/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/Kubernetes/KCNA/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/Kubernetes/CKA/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/AWS/Security Specialty/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/AWS/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/AWS/DevOps Engineer Professional/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/AWS/AI Pratictioner/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/1 - Projects/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/0 - Inbox/Index.md": {
+          "total": 0,
+          "scenes": {}
+        }
+      }
+    },
+    {
+      "start": "2025-01-09T13:37:11.839Z",
+      "total": 0,
+      "drafts": {
+        "content/welcome/Index.md": {
+          "total": 16,
+          "scenes": {
+            "Introduction": 16
+          }
+        },
+        "content/Cloud/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Courses/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Kubernetes/Index.md": {
+          "total": 24,
+          "scenes": {
+            "Introduction": 12,
+            "Certifications": 12
+          }
+        },
+        "content/Cloud/AWS/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Cloud/AWS/Certifications/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Certifications/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Certifications/AWS/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Certifications/Kubernetes/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/About Me/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Certifications/AWS/AWS Certified AI Practitioner/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Certifications/AWS/AI Practitioner/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Certifications/AWS/AI Pratictioner/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Certifications/AWS/DevOps Engineer – Professional/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Certifications/AWS/DevOps Engineer/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Certifications/AWS/Security Specialty/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Certifications/AWS/DevOps Engineer Professional/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Certifications/Kubernetes/CKA - Kubernetes Administrator/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Certifications/Kubernetes/CKA/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Certifications/Kubernetes/KCNA/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Notes/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/Inbox/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/0 - Inbox/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/1 - Notes/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/1 - Projects/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/2 - Areas/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resource/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/4 - Archives/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/AWS/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/Kubernetes/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/AWS/AI Pratictioner/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/AWS/Security Specialty/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/AWS/DevOps Engineer Professional/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/Kubernetes/CKA/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/Kubernetes/KCNA/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Certifications/Index.md": {
+          "total": 0,
+          "scenes": {}
+        },
+        "content/3 - Resources/Tools/Index.md": {
+          "total": 0,
+          "scenes": {}
+        }
+      }
+    }
+  ],
+  "showWordCountInStatusBar": true,
+  "startNewSessionEachDay": true,
+  "sessionGoal": 500,
+  "applyGoalTo": "all",
+  "notifyOnGoal": true,
+  "countDeletionsForGoal": false,
+  "keepSessionCount": 30,
+  "sessionFile": "longform-sessions.json",
+  "numberScenes": false,
+  "sceneTemplate": null,
+  "workflows": {
+    "Default Workflow": {
+      "name": "Default Workflow",
+      "description": "A starter workflow. Feel free to edit, rename, or delete it and create your own.",
+      "steps": [
+        {
+          "id": "strip-frontmatter",
+          "optionValues": {}
+        },
+        {
+          "id": "remove-links",
+          "optionValues": {
+            "remove-wikilinks": true,
+            "remove-external-links": true
+          }
+        },
+        {
+          "id": "prepend-title",
+          "optionValues": {
+            "format": "$3{#} $1",
+            "separator": "\n\n"
+          }
+        },
+        {
+          "id": "concatenate-text",
+          "optionValues": {
+            "separator": "\\n\\n---\\n\\n"
+          }
+        },
+        {
+          "id": "write-to-note",
+          "optionValues": {
+            "target": "manuscript.md",
+            "open-after": true
+          }
+        }
+      ]
+    }
+  }
+}
