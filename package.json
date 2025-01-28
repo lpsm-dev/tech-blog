@@ -23,7 +23,7 @@
     "@astrojs/mdx": "^4.0.3",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
-    "astro-expressive-code": "^0.38.3",
+    "astro-expressive-code": "^0.40.0",
     "playwright": "^1.49.1",
     "remark-mermaid": "^0.2.0"
   }
