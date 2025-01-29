@@ -31,7 +31,7 @@ jobs:
         run: npm run build
         env:
           SITE_URL: https://obsidian-bloger.lpsm.cloud
-          BASE_URL: /tech-blog
+          BASE_URL: /
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
