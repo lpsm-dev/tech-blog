@@ -1,0 +1,193 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import { getUrl } from "../utils/url";
+
+type BlogData = CollectionEntry<"blog">["data"];
+
+interface Props extends BlogData {}
+
+const {
+  title,
+  subtitle,
+  description = "",
+  created_date,
+  updated_date,
+  featured_image,
+  featured_image_alt,
+  tags = [],
+  meta_title,
+  meta_description,
+  canonical_url,
+  og_title,
+  og_description,
+  og_image,
+  og_type,
+  twitter_title,
+  twitter_description,
+  twitter_image,
+  twitter_card,
+  keywords,
+  author,
+  no_index,
+} = Astro.props;
+
+const safeTags = tags ?? [];
+---
+
+<html lang="en">
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+      featured_image={featured_image}
+      featured_image_alt={featured_image_alt}
+      meta_title={meta_title}
+      meta_description={meta_description}
+      canonical_url={canonical_url}
+      og_title={og_title}
+      og_description={og_description}
+      og_image={og_image}
+      og_type={og_type}
+      twitter_title={twitter_title}
+      twitter_description={twitter_description}
+      twitter_image={twitter_image}
+      twitter_card={twitter_card}
+      keywords={[...safeTags, ...(keywords || [])]}
+      author={author}
+      no_index={no_index}
+    />
+    <style>
+      main {
+        width: calc(100% - 2em);
+        max-width: 100%;
+        margin: 0;
+      }
+      .hero-image {
+        width: 100%;
+      }
+      .hero-image img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 12px;
+        box-shadow: var(--box-shadow);
+      }
+      .prose {
+        width: 920px;
+        max-width: calc(100% - 2em);
+        margin: auto;
+        padding: 1em;
+        color: rgb(var(--gray-dark));
+      }
+      .title {
+        margin-bottom: 1em;
+        padding: 1em 0;
+        text-align: center;
+        line-height: 1;
+      }
+      .title h1 {
+        margin: 0 0 0.5em 0;
+      }
+      .subtitle {
+        color: rgb(var(--gray));
+        font-size: 1.25em;
+        margin-bottom: 1em;
+      }
+      .date {
+        margin-bottom: 0.5em;
+        color: rgb(var(--gray));
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        margin: 1em 0;
+        justify-content: center;
+      }
+      .tag {
+        background-color: rgba(var(--gray-light), 0.5);
+        color: rgb(var(--gray-dark));
+        padding: 0.2em 0.8em;
+        border-radius: 1em;
+        font-size: 0.9em;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+      .tag:hover {
+        background-color: rgba(var(--accent), 0.1);
+        color: rgb(var(--accent));
+        transform: translateY(-2px);
+      }
+      :global(.mermaid) {
+        background: rgb(248, 250, 252);
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        margin: 1rem 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <Header />
+    <main>
+      <article>
+        <div class="prose">
+          <div class="title">
+            {
+              created_date && (
+                <div class="date">
+                  <FormattedDate date={created_date} />
+                  {updated_date && updated_date > created_date && (
+                    <span>
+                      {" "}
+                      (Updated: <FormattedDate date={updated_date} />)
+                    </span>
+                  )}
+                </div>
+              )
+            }
+            <h1>{title}</h1>
+            {subtitle && <div class="subtitle">{subtitle}</div>}
+            {
+              safeTags.length > 0 && (
+                <div class="tags">
+                  {safeTags.map((tag) => (
+                    <a href={getUrl(`/tag/${tag}/`)} class="tag">
+                      #{tag}
+                    </a>
+                  ))}
+                </div>
+              )
+            }
+            {
+              featured_image && (
+                <div class="hero-image">
+                  <img
+                    width={1020}
+                    height={510}
+                    src={featured_image}
+                    alt={featured_image_alt || ""}
+                  />
+                </div>
+              )
+            }
+          </div>
+          <slot />
+        </div>
+      </article>
+    </main>
+    <Footer />
+    <script>
+      import mermaid from "mermaid";
+      document.addEventListener("astro:page-load", () => {
+        mermaid.initialize({
+          startOnLoad: true,
+          theme: "default",
+        });
+      });
+    </script>
+  </body>
+</html>

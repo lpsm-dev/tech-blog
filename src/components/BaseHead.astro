@@ -1,0 +1,125 @@
+---
+// Import the global.css file here so that it is included on
+// all pages through the use of the <BaseHead /> component.
+import "../styles/global.css";
+import { getUrl } from "../utils/url";
+import Fonts from "./Fonts.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  featured_image?: string;
+  featured_image_alt?: string;
+  meta_title?: string;
+  meta_description?: string;
+  canonical_url?: string;
+  og_title?: string;
+  og_description?: string;
+  og_image?: string;
+  og_type?: string;
+  twitter_title?: string;
+  twitter_description?: string;
+  twitter_image?: string;
+  twitter_card?: string;
+  keywords?: string[];
+  author?: string;
+  no_index?: boolean;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const {
+  title,
+  description,
+  featured_image = "/blog-placeholder-1.jpg",
+  featured_image_alt,
+  meta_title,
+  meta_description,
+  canonical_url,
+  og_title,
+  og_description,
+  og_image,
+  og_type = "article",
+  twitter_title,
+  twitter_description,
+  twitter_image,
+  twitter_card = "summary_large_image",
+  keywords = [],
+  author,
+  no_index = false,
+} = Astro.props;
+
+// Implement cascading fallbacks for all metadata fields
+const finalMetaTitle = meta_title || title;
+const finalMetaDescription = meta_description || description;
+
+// Open Graph fallbacks
+const finalOgTitle = og_title || finalMetaTitle;
+const finalOgDescription = og_description || finalMetaDescription;
+const finalOgImage = og_image || featured_image;
+
+// Twitter fallbacks (Twitter → Open Graph → Meta → Default)
+const finalTwitterTitle = twitter_title || finalOgTitle;
+const finalTwitterDescription = twitter_description || finalOgDescription;
+const finalTwitterImage = twitter_image || finalOgImage;
+
+// Ensure all image URLs are absolute
+const getAbsoluteImageUrl = (imageUrl: string) => {
+  try {
+    return new URL(imageUrl, Astro.url).toString();
+  } catch (e) {
+    return imageUrl;
+  }
+};
+
+const absoluteFeaturedImage = getAbsoluteImageUrl(featured_image);
+const absoluteOgImage = getAbsoluteImageUrl(finalOgImage);
+const absoluteTwitterImage = getAbsoluteImageUrl(finalTwitterImage);
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/png" href={getUrl("/icon.png")} />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Fonts -->
+<Fonts />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonical_url || canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{finalMetaTitle}</title>
+<meta name="title" content={finalMetaTitle} />
+<meta name="description" content={finalMetaDescription} />
+{keywords.length > 0 && <meta name="keywords" content={keywords.join(", ")} />}
+{author && <meta name="author" content={author} />}
+
+<!-- Robots Meta Tags -->
+{no_index && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={og_type} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={finalOgTitle} />
+<meta property="og:description" content={finalOgDescription} />
+<meta property="og:image" content={absoluteOgImage} />
+{
+  featured_image_alt && (
+    <meta property="og:image:alt" content={featured_image_alt} />
+  )
+}
+{author && <meta property="article:author" content={author} />}
+
+<!-- Twitter -->
+<meta property="twitter:card" content={twitter_card} />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={finalTwitterTitle} />
+<meta property="twitter:description" content={finalTwitterDescription} />
+<meta property="twitter:image" content={absoluteTwitterImage} />
+{
+  featured_image_alt && (
+    <meta property="twitter:image:alt" content={featured_image_alt} />
+  )
+}

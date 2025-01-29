@@ -1,11 +1,296 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
+import { getUrl } from "../utils/url";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const posts = (await getCollection("blog"))
+  .filter((post) => post.data.publish)
+  .sort((a, b) => {
+    const dateA = a.data.created_date?.valueOf() ?? 0;
+    const dateB = b.data.created_date?.valueOf() ?? 0;
+    return dateB - dateA;
+  })
+  .slice(0, 3);
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-badge">✨ The Markdown Magic</div>
+          <h1>
+            Write & Share Faster.<br /><span class="gradient-text"
+              >Obsidian to beautiful blog in seconds.</span>
+          </h1>
+          <p class="hero-description">
+            The simplest way to transform your Obsidian vault into a modern,
+            blazing-fast blog. No complex setup, just pure markdown magic.
+          </p>
+          <div class="cta-buttons">
+            <a
+              href={posts[0] ? getUrl(`/${posts[0].id}/`) : getUrl("/")}
+              class="primary-button"
+            >
+              Start Reading
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14m-7-7 7 7-7 7"></path>
+              </svg>
+            </a>
+            <a
+              href="https://github.com/Beingpax/Obsidian-Blogger"
+              class="secondary-button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                ></path>
+              </svg>
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Latest Blog Posts -->
+      <section class="latest-posts">
+        <h2>Latest Blog Posts</h2>
+        <div class="post-grid">
+          {
+            posts.map((post) => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description}
+                date={post.data.created_date}
+                slug={post.id}
+              />
+            ))
+          }
+        </div>
+        <div class="view-all">
+          <a href={getUrl("/blog")} class="secondary-button">View All Posts</a>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  main {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .hero {
+    padding: 8rem 1rem;
+    text-align: center;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at center,
+      rgba(var(--accent), 0.08) 0%,
+      rgba(var(--accent), 0.03) 25%,
+      transparent 50%
+    );
+    z-index: -1;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(var(--accent), 0.1);
+    color: var(--accent);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    transition: var(--theme-transition);
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    color: rgb(var(--black));
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      var(--accent) 0%,
+      var(--accent-dark) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    color: rgb(var(--gray));
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .primary-button,
+  .secondary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .primary-button {
+    background-color: var(--accent);
+    color: white;
+  }
+
+  .primary-button:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .primary-button svg {
+    transition: transform 0.2s ease;
+  }
+
+  .primary-button:hover svg {
+    transform: translateX(4px);
+  }
+
+  .secondary-button {
+    border: 2px solid rgba(var(--gray), 0.2);
+    color: rgb(var(--gray-dark));
+    background: rgba(var(--gray-light), 0.3);
+  }
+
+  .secondary-button:hover {
+    border-color: rgba(var(--gray), 0.3);
+    background: rgba(var(--gray-light), 0.5);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .secondary-button svg {
+    opacity: 0.8;
+  }
+
+  .latest-posts {
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .view-all {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 6rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+      padding: 0 1rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0 2rem;
+    }
+
+    .primary-button,
+    .secondary-button {
+      justify-content: center;
+    }
+
+    .latest-posts {
+      padding: 4rem 1rem;
+    }
+
+    .post-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .view-all {
+      margin-top: 1.5rem;
+    }
+  }
+</style>

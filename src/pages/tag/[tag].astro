@@ -1,0 +1,166 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => {
+    return data.publish !== false;
+  });
+
+  // Get all unique tags
+  const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))];
+
+  // Add "all" tag that shows all posts
+  return [
+    {
+      params: { tag: "all" },
+      props: { posts, tag: "all" },
+    },
+    ...tags.map((tag) => ({
+      params: { tag },
+      props: {
+        posts: posts.filter((post) => post.data.tags?.includes(tag)),
+        tag,
+      },
+    })),
+  ];
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+
+// Sort posts by date
+const sortedPosts = [...posts].sort((a, b) => {
+  const dateA = a.data.created_date ?? new Date(0);
+  const dateB = b.data.created_date ?? new Date(0);
+  return dateB.valueOf() - dateA.valueOf();
+});
+
+const isAllPosts = tag === "all";
+const title = isAllPosts ? "All Posts" : `Posts tagged with #${tag}`;
+const description = isAllPosts
+  ? "Browse all articles and insights from our blog."
+  : `Browse all articles and insights related to ${tag}.`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <style>
+      /* Ensure the body takes up at least the full viewport height */
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+      }
+
+      main {
+        flex: 1;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .tag-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 3rem 1rem;
+        background: linear-gradient(
+          180deg,
+          rgba(var(--accent), 0.08) 0%,
+          rgba(var(--accent), 0.02) 100%
+        );
+        border-radius: 1.5rem;
+      }
+
+      .tag-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: rgb(var(--black));
+        margin-bottom: 0.75rem;
+      }
+
+      .tag-description {
+        font-size: 1.1rem;
+        color: rgb(var(--gray));
+        max-width: 600px;
+        line-height: 1.6;
+        margin: 0 auto;
+      }
+
+      .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 2rem;
+        flex: 1;
+        margin-bottom: 2rem;
+      }
+
+      /* Empty state for when there are no posts */
+      .no-posts {
+        text-align: center;
+        padding: 4rem 1rem;
+        color: rgb(var(--gray));
+        font-size: 1.25rem;
+        flex: 1;
+      }
+
+      @media (max-width: 768px) {
+        .tag-header {
+          padding: 2rem 1rem;
+          margin-bottom: 2rem;
+        }
+
+        .tag-title {
+          font-size: 2rem;
+        }
+
+        .tag-description {
+          font-size: 1rem;
+          padding: 0 1rem;
+        }
+
+        .posts-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="tag-header">
+        <h1 class="tag-title">{title}</h1>
+        <p class="tag-description">{description}</p>
+      </div>
+      {
+        sortedPosts.length > 0 ? (
+          <div class="posts-grid">
+            {sortedPosts.map((post) => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description ?? undefined}
+                date={post.data.created_date}
+                slug={post.data.slug ?? post.id}
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="no-posts">
+            No posts found with tag #{tag}. Check back soon!
+          </div>
+        )
+      }
+    </main>
+    <Footer />
+  </body>
+</html>

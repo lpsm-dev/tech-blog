@@ -1,0 +1,105 @@
+---
+const today = new Date();
+---
+
+<footer>
+  <div class="footer-content">
+    <div class="social-links">
+      <a
+        href="https://twitter.com/joshipax"
+        target="_blank"
+        class="social-link"
+        aria-label="Twitter"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+          ></path>
+        </svg>
+      </a>
+      <a
+        href="https://youtube.com/@beingpax"
+        target="_blank"
+        class="social-link"
+        aria-label="YouTube"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="copyright">
+      &copy; {today.getFullYear()} Obsidian Blogger. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding: 3rem 1rem;
+    background: rgba(var(--gray-light), 0.5);
+    color: rgb(var(--gray));
+    border-top: 1px solid rgba(var(--gray), 0.1);
+  }
+
+  .footer-content {
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: rgb(var(--gray-dark));
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+    background: rgba(var(--gray-light), 0.5);
+  }
+
+  .social-link:hover {
+    color: rgb(var(--black));
+    background: rgba(var(--gray), 0.1);
+    transform: translateY(-2px);
+  }
+
+  .social-link svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .copyright {
+    font-size: 0.9rem;
+    color: rgb(var(--gray));
+  }
+
+  @media (max-width: 720px) {
+    footer {
+      padding: 2rem 1rem;
+    }
+
+    .social-link {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+
+    .social-link svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+</style>

@@ -1,0 +1,146 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+// Helper function to get a valid timestamp or fallback
+function getValidTimestamp(date: Date | null | undefined): number {
+  if (!date) return 0;
+  const timestamp = date.getTime();
+  return isNaN(timestamp) ? 0 : timestamp;
+}
+
+const posts = (await getCollection("blog"))
+  .filter((post) => post.data.publish)
+  .sort((a, b) => {
+    const dateA = getValidTimestamp(a.data.created_date);
+    const dateB = getValidTimestamp(b.data.created_date);
+    return dateB - dateA;
+  });
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Blog - Ideas & Insights"
+      description="Explore our collection of articles, ideas, insights, and everything in between."
+    />
+    <style>
+      /* Ensure the body takes up at least the full viewport height */
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+      }
+
+      main {
+        flex: 1;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .blog-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding: 4rem 1rem;
+        background: linear-gradient(
+          180deg,
+          rgba(var(--accent), 0.08) 0%,
+          rgba(var(--accent), 0.02) 100%
+        );
+        border-radius: 1.5rem;
+      }
+
+      .blog-title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: rgb(var(--black));
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .blog-description {
+        font-size: 1.25rem;
+        color: rgb(var(--gray));
+        max-width: 600px;
+        line-height: 1.6;
+        margin: 0 auto;
+      }
+
+      .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 2rem;
+        flex: 1;
+        margin-bottom: 2rem;
+      }
+
+      /* Empty state for when there are no posts */
+      .no-posts {
+        text-align: center;
+        padding: 4rem 1rem;
+        color: rgb(var(--gray));
+        font-size: 1.25rem;
+        flex: 1;
+      }
+
+      @media (max-width: 768px) {
+        .blog-header {
+          padding: 3rem 1rem;
+          margin-bottom: 3rem;
+        }
+
+        .blog-title {
+          font-size: 2.25rem;
+        }
+
+        .blog-description {
+          font-size: 1.125rem;
+          padding: 0 1rem;
+        }
+
+        .posts-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="blog-header">
+        <h1 class="blog-title">Ideas & Insights</h1>
+        <p class="blog-description">
+          Explore our collection of articles, thoughts, and everything in
+          between.
+        </p>
+      </div>
+      {
+        posts.length > 0 ? (
+          <div class="posts-grid">
+            {posts.map((post) => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description ?? undefined}
+                date={post.data.created_date ?? undefined}
+                slug={post.data.slug ?? post.id}
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="no-posts">No posts found. Check back soon!</div>
+        )
+      }
+    </main>
+    <Footer />
+  </body>
+</html>

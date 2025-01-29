@@ -1,0 +1,273 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE } from "../consts";
+
+const title = `404 Not Found - ${SITE_TITLE}`;
+const description =
+  "Oops! The page you're looking for has wandered off into the digital wilderness.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="error-container">
+        <div class="error-content">
+          <div class="error-badge">404 Error</div>
+          <h1>Page Not Found</h1>
+          <p class="error-message">
+            Oops! Looks like this page has wandered off into the digital
+            wilderness.
+          </p>
+          <div class="error-illustration">
+            <svg class="lost-file" width="120" height="120" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2ZM14 4L18 8H14V4ZM9.995 16.886C9.625 16.886 9.315 16.806 9.065 16.646C8.815 16.486 8.62 16.266 8.48 15.986C8.34 15.706 8.27 15.396 8.27 15.056C8.27 14.716 8.34 14.406 8.48 14.126C8.62 13.846 8.815 13.626 9.065 13.466C9.315 13.306 9.625 13.226 9.995 13.226C10.365 13.226 10.675 13.306 10.925 13.466C11.175 13.626 11.37 13.846 11.51 14.126C11.65 14.406 11.72 14.716 11.72 15.056C11.72 15.396 11.65 15.706 11.51 15.986C11.37 16.266 11.175 16.486 10.925 16.646C10.675 16.806 10.365 16.886 9.995 16.886ZM14.995 16.886C14.625 16.886 14.315 16.806 14.065 16.646C13.815 16.486 13.62 16.266 13.48 15.986C13.34 15.706 13.27 15.396 13.27 15.056C13.27 14.716 13.34 14.406 13.48 14.126C13.62 13.846 13.815 13.626 14.065 13.466C14.315 13.306 14.625 13.226 14.995 13.226C15.365 13.226 15.675 13.306 15.925 13.466C16.175 13.626 16.37 13.846 16.51 14.126C16.65 14.406 16.72 14.716 16.72 15.056C16.72 15.396 16.65 15.706 16.51 15.986C16.37 16.266 16.175 16.486 15.925 16.646C15.675 16.806 15.365 16.886 14.995 16.886Z"
+              ></path>
+            </svg>
+            <div class="lost-face">
+              <div class="eyes"></div>
+              <div class="mouth"></div>
+            </div>
+          </div>
+          <div class="action-buttons">
+            <a href="/" class="home-button">
+              Take Me Home
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14m-7-7 7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+          <p class="help-text">
+            Looking for something urgent? <a
+              href="/contact"
+              class="contact-link">Contact us</a
+            >
+          </p>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .error-container {
+    min-height: calc(100vh - 16rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .error-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    background: linear-gradient(
+      180deg,
+      rgba(var(--gray-light), 0.5) 0%,
+      rgba(var(--gray-light), 0.2) 100%
+    );
+    border-radius: 1.5rem;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .error-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(var(--accent), 0.1);
+    color: var(--accent);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: rgb(var(--black));
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .error-message {
+    font-size: 1.125rem;
+    color: rgb(var(--gray));
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .error-illustration {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2rem;
+  }
+
+  .lost-file {
+    color: rgb(var(--gray));
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .lost-face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+  }
+
+  .eyes {
+    position: relative;
+    top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .eyes::before,
+  .eyes::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgb(var(--gray-dark));
+    animation: blink 3s ease-in-out infinite;
+  }
+
+  .mouth {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgb(var(--gray-dark));
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .action-buttons {
+    margin-bottom: 1.5rem;
+  }
+
+  .home-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background-color: var(--accent);
+    color: white;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .home-button:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+  }
+
+  .home-button svg {
+    transition: transform 0.2s ease;
+  }
+
+  .home-button:hover svg {
+    transform: translateX(4px);
+  }
+
+  .help-text {
+    font-size: 0.875rem;
+    color: rgb(var(--gray));
+    margin: 0;
+  }
+
+  .contact-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  .contact-link:hover {
+    border-bottom-color: var(--accent);
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    95% {
+      transform: scaleY(0.1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .error-content {
+      padding: 2rem 1.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .error-message {
+      font-size: 1rem;
+    }
+
+    .error-illustration {
+      width: 100px;
+      height: 100px;
+    }
+
+    .lost-file {
+      width: 100px;
+      height: 100px;
+    }
+
+    .help-text {
+      font-size: 0.8125rem;
+    }
+  }
+</style>

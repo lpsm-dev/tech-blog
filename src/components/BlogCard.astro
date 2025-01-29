@@ -1,0 +1,191 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+import { getUrl } from "../utils/url";
+
+interface Props {
+  title: string;
+  description?: string;
+  date?: Date;
+  slug: string;
+}
+
+const { title, description, date, slug } = Astro.props;
+---
+
+<article class="blog-card">
+  <a href={getUrl(`/${slug}/`)} class="card-link">
+    <div class="card-content">
+      <div class="main-content">
+        <h2 class="title">{title}</h2>
+        {description && <p class="description">{description}</p>}
+      </div>
+
+      <div class="footer">
+        {
+          date && (
+            <time class="date">
+              <FormattedDate date={date} />
+            </time>
+          )
+        }
+        <div class="read-more">
+          Read More
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M5 12h14m-7-7 7 7-7 7"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </a>
+</article>
+
+<style>
+  .blog-card {
+    position: relative;
+    border-radius: 20px;
+    background: rgb(var(--card-bg));
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .blog-card {
+      background: rgb(var(--card-bg));
+    }
+  }
+
+  .blog-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(var(--accent), 0.02) 0%,
+      rgba(var(--accent), 0.04) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .blog-card:hover::after {
+    opacity: 1;
+  }
+
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    height: 100%;
+  }
+
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 0.5rem;
+    color: rgb(var(--black));
+    transition: color 0.2s ease;
+  }
+
+  .blog-card:hover .title {
+    color: rgb(var(--accent));
+  }
+
+  .description {
+    color: rgb(var(--gray));
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(var(--black), 0.06);
+  }
+
+  .date {
+    font-size: 0.875rem;
+    color: rgb(var(--gray));
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(var(--accent));
+    transition: gap 0.3s ease;
+  }
+
+  .read-more svg {
+    transition: transform 0.3s ease;
+  }
+
+  .blog-card:hover .read-more {
+    gap: 0.75rem;
+  }
+
+  .blog-card:hover .read-more svg {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 768px) {
+    .blog-card {
+      border-radius: 16px;
+    }
+
+    .card-content {
+      padding: 1.25rem;
+      gap: 1rem;
+    }
+
+    .title {
+      font-size: 1.25rem;
+    }
+
+    .footer {
+      padding-top: 0.875rem;
+    }
+  }
+</style>

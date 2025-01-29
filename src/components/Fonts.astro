@@ -1,0 +1,36 @@
+---
+import { getUrl } from "../utils/url";
+
+const fonts = {
+  regular: getUrl("/fonts/atkinson-regular.woff"),
+  bold: getUrl("/fonts/atkinson-bold.woff"),
+};
+---
+
+<!-- Font styles -->
+<style is:global>
+  @font-face {
+    font-family: "Atkinson";
+    src: url("{fonts.regular}") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Atkinson";
+    src: url("{fonts.bold}") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
+
+<!-- Preload font files -->
+<link
+  rel="preload"
+  href={fonts.regular}
+  as="font"
+  type="font/woff"
+  crossorigin
+/>
+<link rel="preload" href={fonts.bold} as="font" type="font/woff" crossorigin />
