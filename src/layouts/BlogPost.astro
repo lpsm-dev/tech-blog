@@ -1,4 +1,5 @@
 ---
+// Import necessary components and types
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
@@ -6,10 +7,13 @@ import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getUrl } from "../utils/url";
 
+// Define the BlogData type
 type BlogData = CollectionEntry<"blog">["data"];
 
+// Define the Props interface
 interface Props extends BlogData {}
 
+// Get the props
 const {
   title,
   subtitle,
@@ -35,6 +39,7 @@ const {
   no_index,
 } = Astro.props;
 
+// Ensure tags are safe
 const safeTags = tags ?? [];
 ---
 
@@ -121,7 +126,11 @@ const safeTags = tags ?? [];
         color: rgb(var(--accent));
         transform: translateY(-2px);
       }
-      :global(.mermaid) {
+      .mermaid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
         background: rgb(248, 250, 252);
         padding: 1.5rem;
         border-radius: 0.5rem;
