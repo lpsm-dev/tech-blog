@@ -14,7 +14,7 @@ const dateSchema = z.preprocess((val) => {
 }, z.date().nullable().default(new Date()));
 
 const blog = defineCollection({
-  loader: glob({ base: "content", pattern: "**/*.{md,mdx}" }),
+  loader: glob({ base: "content/pt-br", pattern: "**/*.{md,mdx}" }),
   schema: z.object({
     title: z.string(),
     subtitle: z.string().optional().nullable(),
