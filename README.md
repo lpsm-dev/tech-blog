@@ -53,7 +53,7 @@ Nesse repositótio, organizo a estrutura do meu blog pessoal, onde compartilho c
 
 Links relevantes para essa documentação:
 
-- [Obsidian](https://obsidian.md/)
+-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
