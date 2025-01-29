@@ -3,7 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import BlogCard from "../components/BlogCard.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { SITE_TITLE, SITE_DESCRIPTION, GITHUB_REPO_URL } from "../consts";
 import { getCollection } from "astro:content";
 import { getUrl } from "../utils/url";
 
@@ -31,7 +31,8 @@ const posts = (await getCollection("blog"))
           <div class="hero-badge">✨ The Markdown Magic</div>
           <h1>
             Write & Share Faster.<br /><span class="gradient-text"
-              >Obsidian to beautiful blog in seconds.</span>
+              >Obsidian to beautiful blog in seconds.</span
+            >
           </h1>
           <p class="hero-description">
             The simplest way to transform your Obsidian vault into a modern,
@@ -57,10 +58,7 @@ const posts = (await getCollection("blog"))
                 <path d="M5 12h14m-7-7 7 7-7 7"></path>
               </svg>
             </a>
-            <a
-              href="https://github.com/Beingpax/Obsidian-Blogger"
-              class="secondary-button"
-            >
+            <a href={GITHUB_REPO_URL} class="secondary-button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
