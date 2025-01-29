@@ -1,0 +1,35 @@
+---
+import type { Heading } from "./TableOfContents.astro";
+
+const { heading } = Astro.props;
+
+const getHeadingClasses = (depth: number) => {
+  const baseClasses =
+    "toc block py-1 hover:text-secondary-800 transition-colors duration-200";
+  switch (depth) {
+    case 2:
+      return `${baseClasses} text-lg font-medium`;
+    case 3:
+      return `${baseClasses} text-base pl-4`;
+    default:
+      return `${baseClasses} text-sm pl-${depth * 4}`; // Increased indentation
+  }
+};
+---
+
+<li>
+  <a href={"#" + heading.slug} class={getHeadingClasses(heading.depth)}>
+    {heading.text}
+  </a>
+  {
+    heading.subheadings.length > 0 && (
+      <ul class="ml-4">
+        {" "}
+        {/* Added left margin for nested lists */}
+        {heading.subheadings.map((subheading: Heading) => (
+          <Astro.self heading={subheading} />
+        ))}
+      </ul>
+    )
+  }
+</li>

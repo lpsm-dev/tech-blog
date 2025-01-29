@@ -1,0 +1,100 @@
+---
+import TableOfContentsHeading from "./TableOfContentsHeading.astro";
+
+const { headings } = Astro.props;
+
+export interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+function buildToc(headings: Heading[]) {
+  const toc: Heading[] = [];
+  const parentHeadings = new Map();
+  headings.forEach((h: Heading) => {
+    const heading = { ...h, subheadings: [] };
+    parentHeadings.set(heading.depth, heading);
+    if (heading.depth === 2) {
+      toc.push(heading);
+    } else {
+      if (!parentHeadings.get(heading.depth - 1)) {
+        console.log("heading.depth - 1 not found: " + heading.text);
+      } else {
+        parentHeadings.get(heading.depth - 1).subheadings.push(heading);
+      }
+    }
+  });
+  return toc;
+}
+
+const toc = buildToc(headings);
+---
+
+{
+  toc.length > 0 && (
+    <nav class="toc">
+      <div class="sticky top-24">
+        <div class="pb-4 text-2xl font-bold text-secondary-800">
+          Table of Contents
+        </div>
+        <ul class="font-sans">
+          {toc.map((heading: Heading) => (
+            <TableOfContentsHeading heading={heading} />
+          ))}
+        </ul>
+      </div>
+    </nav>
+  )
+}
+
+<script>
+  function updateActiveHeading() {
+    const headings = document.querySelectorAll("h2, h3, h4, h5, h6");
+    const tocLinks = document.querySelectorAll(".toc a");
+
+    let currentActiveIndex = 0;
+
+    const isAtBottom =
+      window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
+
+    if (isAtBottom) {
+      currentActiveIndex = headings.length - 1;
+    } else {
+      headings.forEach((heading, index) => {
+        const rect = heading.getBoundingClientRect();
+        if (rect.top <= 100) {
+          currentActiveIndex = index;
+        }
+      });
+    }
+
+    tocLinks.forEach((link, index) => {
+      if (index === currentActiveIndex) {
+        link.classList.remove("text-gray-600", "hover:text-gray-800");
+        link.classList.add(
+          "bg-blue-100",
+          "text-blue-800",
+          "font-bold",
+          "border-l-4",
+          "border-blue-500",
+          "pl-2",
+        );
+      } else {
+        link.classList.remove(
+          "bg-blue-100",
+          "text-blue-800",
+          "font-bold",
+          "border-l-4",
+          "border-blue-500",
+          "pl-2",
+        );
+        link.classList.add("text-gray-600", "hover:text-gray-800");
+      }
+    });
+  }
+
+  document.addEventListener("scroll", updateActiveHeading);
+  window.addEventListener("resize", updateActiveHeading);
+  updateActiveHeading();
+</script>
