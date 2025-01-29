@@ -11,8 +11,6 @@ tags:
   - finops
 ---
 
-![Alt text](./public/assets/finops.png)
-
 # Visão Geral
 
 No dia a dia de quem trabalha com _AWS_, é comum nos depararmos com cenários onde precisamos agir rapidamente. Seja ao acessar a conta de um cliente para propor reduções de custo, ou ao identificar oportunidades de economia durante ações rotineiras. Mas como transformar essas oportunidades em resultados concretos de forma rápida e assertiva? A resposta está nos _quick wins_.
