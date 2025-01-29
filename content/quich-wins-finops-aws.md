@@ -1,6 +1,6 @@
 ---
 title: "Quick Wins de FinOps na AWS"
-description: "Neste artigo, vamos explicar o que são quick wins e como podemos usá-los para gerar economias na AWS, conectando essa ideia ao conceito de FinOps."
+description: "Neste artigo, vamos explicar o que são _quick wins_ e como podemos usá-los para gerar economias na _AWS_, conectando essa ideia ao conceito de _FinOps_."
 publish: true
 featured_image: https://obsidian.md/images/banner.png
 created_date: 2025-01-29
