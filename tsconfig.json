@@ -3,13 +3,13 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
-    "strict": false, // Disable all strict type-checking options
-    "strictNullChecks": false, // Disable strict null checks specifically
-    "noImplicitAny": false, // Disable implicit any checks
-    "noImplicitThis": false, // Disable implicit this checks
-    "strictFunctionTypes": false, // Disable strict function types
-    "strictBindCallApply": false, // Disable strict bind/call/apply checks
-    "alwaysStrict": false, // Disable always strict mode
-    "strictPropertyInitialization": false // Disable strict property initialization
+    "strict": false,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "strictFunctionTypes": false,
+    "strictBindCallApply": false,
+    "alwaysStrict": false,
+    "strictPropertyInitialization": false
   }
 }

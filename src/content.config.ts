@@ -1,27 +1,20 @@
 import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 
-// Custom date schema that handles invalid dates gracefully
-const dateSchema = z.preprocess(
-  (val) => {
-    // Ensure val is a type that can be passed to new Date()
-    if (
-      typeof val === "string" ||
-      typeof val === "number" ||
-      val instanceof Date
-    ) {
-      const date = new Date(val);
-      return isNaN(date.getTime()) ? null : date;
-    }
-    return null;
-  },
-  z.date().nullable().default(new Date()), // Provide a valid date object as the default value
-);
+const dateSchema = z.preprocess((val) => {
+  if (
+    typeof val === "string" ||
+    typeof val === "number" ||
+    val instanceof Date
+  ) {
+    const date = new Date(val);
+    return isNaN(date.getTime()) ? null : date;
+  }
+  return null;
+}, z.date().nullable().default(new Date()));
 
 const blog = defineCollection({
-  // Load Markdown and MDX files in the `src/content/blog/` directory.
   loader: glob({ base: "content", pattern: "**/*.{md,mdx}" }),
-  // Type-check frontmatter using a schema
   schema: z.object({
     title: z.string(),
     subtitle: z.string().optional().nullable(),
@@ -33,7 +26,6 @@ const blog = defineCollection({
     featured_image_alt: z.string().optional().nullable(),
     slug: z.string().optional().nullable(),
     tags: z.array(z.string()).default([]).nullable(),
-    // SEO specific fields
     meta_title: z.string().optional().nullable(),
     meta_description: z.string().optional().nullable(),
     canonical_url: z.string().optional().nullable(),
