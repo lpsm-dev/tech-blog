@@ -1,7 +1,5 @@
 ---
 extends: default
-ignore: |
-  *charts*
 rules:
   line-length:
     max: 400

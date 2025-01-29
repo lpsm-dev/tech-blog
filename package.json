@@ -1,5 +1,5 @@
 {
-  "name": "tech-blog",
+  "name": "",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@astrojs/rss": "^4.0.10",
     "astro": "^5.1.10",
     "gray-matter": "^4.0.3",
@@ -26,5 +27,8 @@
     "astro-expressive-code": "^0.40.0",
     "playwright": "^1.49.1",
     "remark-mermaid": "^0.2.0"
+=======
+    "astro": "^5.1.10"
+>>>>>>> b2bc9de (chore: rm files and organize agian)
   }
 }

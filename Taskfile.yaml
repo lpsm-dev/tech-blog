@@ -11,7 +11,6 @@ vars:
   PATH_ERROR: is not installed or correctly configured in PATH.
 
 includes:
-  latex: .github/taskfiles/latex.yaml
   precommit: .github/taskfiles/pre-commit.yaml
 
 tasks:
