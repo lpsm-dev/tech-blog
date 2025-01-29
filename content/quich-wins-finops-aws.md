@@ -2,6 +2,7 @@
 title: "Quick Wins de FinOps na AWS"
 description: "Neste artigo, vamos explicar o que são quick wins e como podemos usá-los para gerar economias na AWS, conectando essa ideia ao conceito de FinOps."
 publish: true
+featured_image: https://obsidian.md/images/banner.png
 created_date: 2025-01-29
 slug: quick-wins-finops-aws
 tags:
@@ -10,27 +11,6 @@ tags:
   - finops
   - blog-post
 ---
-
-# Summary
-
-- [Visão Geral](#Visão%20Geral)
-- [Objetivo](#Objetivo)
-- [Quick wins](#Quick%20wins)
-  - [O que são?](##O%20que%20são?)
-  - [Por que são importantes?](##Por%20que%20são%20importantes?)
-  - [Características](##Características)
-  - [Ciclo de Vida](##Ciclo%20de%20Vida)
-- [FinOps](#FinOps)
-  - [O que é?](##O%20que%20é?)
-  - [Quick Wins](##Quick%20Wins)
-  - [Tarefas](##Tarefas)
-    - [Instances](###Instances)
-    - [RDS](###RDS)
-    - [S3](###S3)
-    - [ECR](###ECR)
-    - [Discos](###Discos)
-  - [Desafios](##Desafios)
-- [Conclusão](#Conclusão)
 
 # Visão Geral
 
