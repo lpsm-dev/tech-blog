@@ -1,4 +1,5 @@
 ---
+import { LINKEDIN_URL } from "../consts";
 const today = new Date();
 ---
 
@@ -6,34 +7,21 @@ const today = new Date();
   <div class="footer-content">
     <div class="social-links">
       <a
-        href="https://twitter.com/joshipax"
+        href={LINKEDIN_URL}
         target="_blank"
         class="social-link"
-        aria-label="Twitter"
+        aria-label="LinkedIn"
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path
             fill="currentColor"
-            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-          ></path>
-        </svg>
-      </a>
-      <a
-        href="https://youtube.com/@beingpax"
-        target="_blank"
-        class="social-link"
-        aria-label="YouTube"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            fill="currentColor"
-            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+            d="M20.447 2H3.553C2.693 2 2 2.693 2 3.553v16.895C2 21.307 2.693 22 3.553 22h16.895C21.307 22 22 21.307 22 20.447V3.553C22 2.693 21.307 2 20.447 2zM7.75 19.25H4.75V9h3v10.25zm-1.5-11.5a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5zM19.25 19.25h-3V14c0-1.25-.5-2-1.75-2s-1.75.75-1.75 2v5.25h-3V9h3v1.5h.05c.35-.65 1.25-1.5 2.45-1.5 1.8 0 3.25 1.5 3.25 3.75v6.5z"
           ></path>
         </svg>
       </a>
     </div>
     <div class="copyright">
-      &copy; {today.getFullYear()} Obsidian Blogger. All rights reserved.
+      &copy; {today.getFullYear()} Obsidian Blogger. Todos os direitos reservados.
     </div>
   </div>
 </footer>
