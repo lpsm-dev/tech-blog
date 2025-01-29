@@ -14,13 +14,16 @@
 [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://semantic-release.gitbook.io/semantic-release/usage/configuration)
 [![Built with Devbox](https://jetpack.io/img/devbox/shield_galaxy.svg)](https://jetpack.io/devbox/docs/contributor-quickstart/)
 
-Nesse projeto, organizo meu blog sobre tecnologia.
+Nesse repositótio, organizo a estrutura do meu blog pessoal, onde compartilho conhecimento sobre tecnologia, DevOps, Cloud, SRE, entre outros.
 
 </div>
 
 # Sumário
 
 - [Sumário](#sumário)
+- [Visão Geral](#visão-geral)
+- [Estrutura de Pastas](#estrutura-de-pastas)
+- [Tecnologias](#tecnologias)
 - [Referências](#referências)
 - [Versionamento](#versionamento)
 - [Troubleshooting](#troubleshooting)
@@ -28,7 +31,19 @@ Nesse projeto, organizo meu blog sobre tecnologia.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+# Visão Geral
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 # Estrutura de Pastas
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# Tecnologias
+
+- [Astro](https://astro.build/)
+- [Obsidian](https://obsidian.md/)
+- [Markdown](https://www.markdownguide.org/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
