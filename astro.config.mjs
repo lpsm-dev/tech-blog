@@ -1,5 +1,31 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
+import expressiveCode from "astro-expressive-code";
+import remarkMermaid from "remark-mermaid";
 
 // https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  site: "https://obsidian-bloger.lpsm.cloud",
+  base: "/",
+  markdown: {
+    remarkPlugins: [
+      [
+        remarkMermaid,
+        {
+          simple: true,
+          wrap: null,
+          mermaidConfig: {
+            theme: "default",
+            securityLevel: "loose",
+            startOnLoad: true,
+          },
+        },
+      ],
+    ],
+  },
+  integrations: [expressiveCode(), mdx(), sitemap(), tailwind()],
+  output: "static",
+});
