@@ -2,7 +2,6 @@
 title: "FinOps Quick Wins na AWS"
 description: "Neste artigo, vamos explicar o que são quick wins e como podemos usá-los para gerar economias na AWS, conectando essa ideia ao conceito de FinOps."
 publish: true
-featured_image: https://github.com/lpsm-dev/tech-blog/blob/1363250084e6e071fca77c9a0229e6da7e5840ea/public/assets/finops.png
 created_date: 2025-01-29
 slug: quick-wins-finops-aws
 tags:
@@ -11,6 +10,8 @@ tags:
   - cloud
   - finops
 ---
+
+![Alt text](./public/assets/finops.png)
 
 # Visão Geral
 
