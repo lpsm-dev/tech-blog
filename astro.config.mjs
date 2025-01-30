@@ -6,6 +6,9 @@ import tailwind from "@astrojs/tailwind";
 import expressiveCode from "astro-expressive-code";
 import remarkMermaid from "remark-mermaid";
 
+import sentry from "@sentry/astro";
+import spotlightjs from "@spotlightjs/astro";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://obsidian-bloger.lpsm.cloud",
@@ -26,6 +29,13 @@ export default defineConfig({
       ],
     ],
   },
-  integrations: [expressiveCode(), mdx(), sitemap(), tailwind()],
+  integrations: [
+    expressiveCode(),
+    mdx(),
+    sitemap(),
+    tailwind(),
+    sentry(),
+    spotlightjs(),
+  ],
   output: "static",
 });
