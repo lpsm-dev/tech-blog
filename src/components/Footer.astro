@@ -1,4 +1,5 @@
 ---
+// Importar a URL do LinkedIn
 import { LINKEDIN_URL } from "../consts";
 const today = new Date();
 ---
@@ -19,6 +20,26 @@ const today = new Date();
           ></path>
         </svg>
       </a>
+      <a href="/rss.xml" target="_blank" class="social-link" aria-label="RSS">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M4.5 3A1.5 1.5 0 0 0 3 4.5v1A1.5 1.5 0 0 0 4.5 7h1A1.5 1.5 0 0 0 7 5.5v-1A1.5 1.5 0 0 0 5.5 3h-1zM3 9a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H3zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H3zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H3zm4-8a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H7zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H7zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H7zm4-8a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1zm4-8a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="scroll-to-top">
+      <button
+        id="scroll-to-top"
+        class="scroll-button"
+        aria-label="Scroll to top"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"
+          ></path>
+        </svg>
+      </button>
     </div>
     <div class="copyright">
       &copy; {today.getFullYear()} Obsidian Blogger. Todos os direitos reservados.
@@ -32,12 +53,14 @@ const today = new Date();
     background: rgba(var(--gray-light), 0.5);
     color: rgb(var(--gray));
     border-top: 1px solid rgba(var(--gray), 0.1);
+    position: relative;
   }
 
   .footer-content {
     max-width: 920px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
   }
 
   .social-links {
@@ -70,6 +93,37 @@ const today = new Date();
     height: 1.5rem;
   }
 
+  .scroll-to-top {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .scroll-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .scroll-button:hover {
+    background: black;
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .scroll-button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
   .copyright {
     font-size: 0.9rem;
     color: rgb(var(--gray));
@@ -89,5 +143,26 @@ const today = new Date();
       width: 1.25rem;
       height: 1.25rem;
     }
+
+    .scroll-to-top {
+      right: 0.5rem;
+      bottom: 0.5rem;
+    }
+
+    .scroll-button {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+
+    .scroll-button svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
   }
 </style>
+
+<script>
+  document.getElementById("scroll-to-top").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
