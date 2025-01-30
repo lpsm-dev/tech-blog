@@ -30,7 +30,7 @@ jobs:
       - name: Build website
         run: npm run build
         env:
-          SITE_URL: https://obsidian-bloger.lpsm.cloud
+          SITE_URL: https://blogger.lpsm.cloud
           BASE_URL: /
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

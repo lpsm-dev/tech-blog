@@ -11,7 +11,7 @@ import spotlightjs from "@spotlightjs/astro";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://obsidian-bloger.lpsm.cloud",
+  site: "https://blogger.lpsm.cloud",
   base: "/",
   markdown: {
     remarkPlugins: [
