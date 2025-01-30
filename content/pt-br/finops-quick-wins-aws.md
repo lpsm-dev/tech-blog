@@ -75,11 +75,15 @@ Aqui estão alguns exemplos de *quick wins* que podem ser implementados rapida
 
 ### Instances
 
-- Alterar tipo de instância EC2
+- Alterar tipo de instância EC2.
+- Desligar instâncias EC2.
+- Adotar Spot Instances.
 
 ### RDS
 
-- Redimensionar instância RDS
+- Alterar tipo de instância EC2.
+- Habilitar parada automática para instâncias de desenvolvimento/teste fora do horário comercial.
+- Excluir snapshots antigos de RDS (>30 dias) não vinculados a políticas de backup.
 
 ### S3
 
