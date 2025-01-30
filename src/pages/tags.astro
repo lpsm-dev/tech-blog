@@ -12,9 +12,9 @@ const posts = await getCollection("blog", ({ data }) => data.publish !== false);
 const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))];
 
 // Define the page title and description
-const title = "Explore nossas tags";
+const title = "Explore as tags";
 const description =
-    "Navegue por todas as tags e explore os artigos relacionados a cada tópico";
+    "Navegue pelas tags e busque os artigos relacionados a cada tag";
 ---
 
 <!doctype html>
