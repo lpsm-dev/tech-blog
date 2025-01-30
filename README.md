@@ -49,6 +49,13 @@ Nesse repositótio, organizo a estrutura do meu blog pessoal, onde compartilho c
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+# Features
+
+- Dark Mode: Built-in dark mode support.
+- Date-based Sorting: Chronological post organization
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 # Referências
 
 Links relevantes para essa documentação:
