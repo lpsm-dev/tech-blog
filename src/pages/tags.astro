@@ -12,9 +12,10 @@ const posts = await getCollection("blog", ({ data }) => data.publish !== false);
 const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))];
 
 // Define the page title and description
-const title = "Tags - Explore todos os tópicos";
+const title = "Explore nossas tags";
 const description =
-    "Navegue por todas as tags e explore os artigos relacionados a cada tópico";
+    "Navegue 
+    por todas as tags e explore os artigos relacionados a cada tópico";
 ---
 
 <!doctype html>
@@ -22,7 +23,6 @@ const description =
     <head>
         <BaseHead title={title} description={description} />
         <style>
-            /* Ensure the body takes up at least the full viewport height */
             body {
                 min-height: 100vh;
                 display: flex;
