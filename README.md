@@ -52,7 +52,7 @@ Nesse repositótio, organizo a estrutura do meu blog pessoal, onde compartilho c
 # Features
 
 - Dark Mode: Built-in dark mode support.
-- Date-based Sorting: Chronological post organization
+- Date-based Sorting: Chronological post organization.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
