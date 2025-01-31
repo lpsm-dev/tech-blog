@@ -7,7 +7,7 @@
 
 <img alt="image-header" src="https://github.com/lpsm-dev/lpsm-dev/blob/e5163de8877e63a74976f0c8371c8890762c0aa4/.github/assets/obsidian-with-astro.png" width="225"/>
 
-Meu blog pessoal - blog.lpsm.cloud! :rocket:
+Nesse reposiório, organizo a estrutura do meu blog pessoal.
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://www.conventionalcommits.org/en/v1.0.0/)
 [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://semantic-release.gitbook.io/semantic-release/usage/configuration)
@@ -28,10 +28,12 @@ Meu blog pessoal - blog.lpsm.cloud! :rocket:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+> [!WARNING]
+> Ainda estou desenvolvendo esse projeto, portanto, não o utilize antes da primeira versão.
+
 # Visão Geral
 
-Nesse repositótio, organizo a estrutura do meu blog pessoal, onde compartilho conhecimento sobre tecnologia, DevOps, Cloud, SRE, entre outros.
-
+Sempre quis ter um blog pessoal para compartilhar o que aprendo e, ao mesmo tempo, praticar minhas habilidades de escrita, porém nunca tive tempo. Além disso, queria ter uma experiência desenvolvendo ele do zero, sem utilizar plataformas prontas como Medium, Dev.to, etc. E aqui estamos, bem-vindo ao meu Tech Blog!
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Estrutura de Pastas
