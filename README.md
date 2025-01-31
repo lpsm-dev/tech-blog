@@ -1,14 +1,11 @@
 <!-- BEGIN_DOCS -->
+<div align="center">
 
 <a name="readme-top"></a>
-
-<div align="center">
 
 **Tech Blog**
 
 <img alt="image-header" src="https://github.com/lpsm-dev/lpsm-dev/blob/08a1fc3a3b0c5d7c07511a89ed622e31a4dacdef/.github/assets/obsidian.png" width="225"/>
-
-<br>
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://www.conventionalcommits.org/en/v1.0.0/)
 [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://semantic-release.gitbook.io/semantic-release/usage/configuration)
@@ -20,7 +17,6 @@ Meu blog pessoal - blogger.lpsm.cloud! :rocket:
 
 # Sumário
 
-- [Sumário](#sumário)
 - [Visão Geral](#visão-geral)
 - [Estrutura de Pastas](#estrutura-de-pastas)
 - [Tecnologias](#tecnologias)
@@ -38,6 +34,28 @@ Nesse repositótio, organizo a estrutura do meu blog pessoal, onde compartilho c
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Estrutura de Pastas
+
+A estrutura de pastas do projeto é organizada da seguinte forma:
+
+- Na raiz do projeto, você encontrará arquivos de configuração gerais de diversas ferramentas, além do arquivos essenciais para a construção e gerenciamentos de pacotes dessa aplicação.
+- Na pasta [src](src), você encontrará os arquivos de código-fonte da aplicação.
+- Na pasta [.github](github), você encontrará mais arquivos de configuração, mas que não estão diretamente relacionados ao código-fonte da aplicação, além da pasta [workflows](.github/workflows) que contém os arquivos de configuração dos workflows de CI/CD.
+
+Falando sobre a estrutura do projeto Astro, temos:
+
+```
+obsidian-blogger/
+├── src/
+│   ├── components/    # Reusable components
+│   ├── content/       # Blog posts and content
+│   ├── layouts/       # Page layouts
+│   ├── pages/         # Route components
+│   ├── styles/        # Global styles
+│   └── utils/         # Utility functions
+├── public/           # Static assets
+├── astro.config.mjs  # Astro configuration
+└── package.json      # Project dependencies
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
