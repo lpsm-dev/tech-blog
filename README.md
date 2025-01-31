@@ -19,7 +19,6 @@ Nesse repositório, organizo a estrutura do meu blog pessoal
 
 - [Visão Geral](#visão-geral)
 - [Estrutura de Pastas](#estrutura-de-pastas)
-- [Tecnologias](#tecnologias)
 - [Features](#features)
 - [Referências](#referências)
 - [Versionamento](#versionamento)
@@ -66,14 +65,6 @@ obsidian-blogger/
 ├── astro.config.mjs  # Astro configuration
 └── package.json      # Project dependencies
 ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-# Tecnologias
-
-- [Astro](https://astro.build/)
-- [Obsidian](https://obsidian.md/)
-- [Markdown](https://www.markdownguide.org/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
