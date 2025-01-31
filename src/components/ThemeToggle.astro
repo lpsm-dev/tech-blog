@@ -98,7 +98,7 @@
   // Listen for system theme changes, but only if no theme is saved
   window
     .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (e) => {
+    .addEventListener("change", (_e) => {
       if (!localStorage.getItem("theme")) {
         setTheme("dark");
       }

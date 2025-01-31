@@ -5,7 +5,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import BlogCard from "../components/BlogCard.astro";
 import { getUrl } from "../utils/url";
-import { SITE_TITLE, SITE_DESCRIPTION, GITHUB_REPO_URL } from "../consts";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const posts = (await getCollection("blog"))
   .filter((post) => post.data.publish)

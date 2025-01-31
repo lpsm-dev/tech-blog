@@ -1,5 +1,5 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
@@ -10,6 +10,11 @@
     "strictFunctionTypes": false,
     "strictBindCallApply": false,
     "alwaysStrict": false,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      },
+    ],
   }
 }
