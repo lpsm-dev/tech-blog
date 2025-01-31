@@ -4,6 +4,7 @@ description: "Nesse artigo, vamos explicar o que são quick wins e como podemos 
 slug: finops-quick-wins-aws
 created_date: 2025-01-29
 featured_image: https://github.com/lpsm-dev/tech-blog/raw/main/public/images/finops.png
+featured_image_alt: "finops"
 tags:
   - aws
   - cloud
