@@ -3,8 +3,10 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import pagefind from "astro-pagefind";
+
 import icon from "astro-icon";
 import expressiveCode from "astro-expressive-code";
+
 import { mermaid } from "./src/plugins/astro-mermaid";
 
 // https://astro.build/config
