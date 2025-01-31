@@ -20,7 +20,6 @@ const posts = (await getCollection("blog"))
   <head>
     <BaseHead title="Posts" description="Explore a minha coleção de artigos." />
     <style>
-      /* Ensure the body takes up at least the full viewport height */
       body {
         min-height: 100vh;
         display: flex;
@@ -74,7 +73,6 @@ const posts = (await getCollection("blog"))
         margin-bottom: 2rem;
       }
 
-      /* Empty state for when there are no posts */
       .no-posts {
         text-align: center;
         padding: 4rem 1rem;
@@ -105,6 +103,7 @@ const posts = (await getCollection("blog"))
       }
     </style>
   </head>
+
   <body>
     <Header />
     <main>

@@ -1,0 +1,184 @@
+---
+// components/GithubInfo.astro
+import { Icon } from "astro-icon/components";
+const { url } = Astro.props;
+---
+
+<github-info class="github-card" data-url={url}>
+  <a href={url} target="_blank" rel="noopener noreferrer" class="card-link">
+    <div class="card-header">
+      <img class="pixelated-image" src="" alt="Repo image" />
+      <div class="repo-info">
+        <h3 class="repo-name">
+          <span>
+            <span class="loading loading-spinner loading-xs"></span>
+          </span>
+        </h3>
+        <div class="repo-owner">
+          <Icon name="ri:user-line" class="icon" />
+          <span>
+            <span class="loading loading-spinner loading-xs"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-stats">
+      <div class="stat-item">
+        <Icon name="ri:star-line" class="icon" />
+        <span class="stat-value">
+          <span class="loading loading-spinner loading-xs"></span>
+        </span>
+      </div>
+      <div class="stat-item">
+        <Icon name="ri:git-fork-line" class="icon" />
+        <span class="stat-value">
+          <span class="loading loading-spinner loading-xs"></span>
+        </span>
+      </div>
+    </div>
+  </a>
+</github-info>
+
+<script>
+  import { formatNumber } from "../utils/format";
+  import { getRepoInfoFromUrl } from "../utils/github";
+
+  class GithubInfo extends HTMLElement {
+    connectedCallback() {
+      const repoUrl = this.dataset.url;
+      if (!repoUrl) return;
+
+      const { owner, repo } = getRepoInfoFromUrl(repoUrl);
+      const apiUrl = `https://api.github.com/repos/${owner}/${repo}`;
+
+      fetch(apiUrl)
+        .then((response) => {
+          if (!response.ok) throw new Error("Failed to fetch repository info.");
+          return response.json();
+        })
+        .then((data) => {
+          this.querySelector(".repo-name span")!.textContent = data.name;
+          this.querySelector(".repo-owner span")!.textContent =
+            data.owner.login;
+          this.querySelectorAll(".stat-value").forEach((span, index) => {
+            span.textContent = formatNumber(
+              index === 0 ? data.stargazers_count : data.forks_count,
+            );
+          });
+
+          const img = this.querySelector("img")!;
+          img.src = data.owner.avatar_url;
+        })
+        .catch((error) => {
+          console.error("Error fetching repository info:", error);
+        });
+    }
+  }
+
+  customElements.define("github-info", GithubInfo);
+</script>
+
+<style>
+  .github-card {
+    position: relative;
+    border-radius: 20px;
+    background: rgb(var(--card-bg));
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    padding: 1.5rem;
+  }
+
+  .github-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(var(--accent), 0.02) 0%,
+      rgba(var(--accent), 0.04) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .github-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .github-card:hover::after {
+    opacity: 1;
+  }
+
+  .repo-name {
+    color: rgb(var(--black)) !important;
+    transition: color 0.2s ease;
+  }
+
+  .github-card:hover .repo-name {
+    color: rgb(var(--accent)) !important;
+  }
+
+  .repo-owner {
+    color: rgb(var(--gray)) !important;
+  }
+
+  .stat-item {
+    color: rgb(var(--gray)) !important;
+  }
+
+  .stat-value {
+    color: rgb(var(--black)) !important;
+  }
+
+  /* Mantenha o restante do CSS original */
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .pixelated-image {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    image-rendering: pixelated;
+    object-fit: cover;
+  }
+
+  .repo-info {
+    flex: 1;
+  }
+
+  .card-stats {
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(var(--black), 0.06);
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    color: rgb(var(--gray));
+  }
+
+  @media (max-width: 768px) {
+    .github-card {
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+  }
+</style>

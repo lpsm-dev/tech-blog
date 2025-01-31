@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import { getUrl } from "../utils/url";
 import Fonts from "./Fonts.astro";
+import { getAbsoluteImageUrl } from "../utils/image";
 
 interface Props {
   title: string;
@@ -60,15 +61,6 @@ const finalOgImage = og_image || featured_image;
 const finalTwitterTitle = twitter_title || finalOgTitle;
 const finalTwitterDescription = twitter_description || finalOgDescription;
 const finalTwitterImage = twitter_image || finalOgImage;
-
-// Ensure all image URLs are absolute
-const getAbsoluteImageUrl = (imageUrl: string) => {
-  try {
-    return new URL(imageUrl, Astro.url).toString();
-  } catch (e) {
-    return imageUrl;
-  }
-};
 
 const absoluteFeaturedImage = getAbsoluteImageUrl(featured_image);
 console.log(absoluteFeaturedImage);

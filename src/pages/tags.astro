@@ -11,14 +11,13 @@ const posts = await getCollection("blog", ({ data }) => data.publish !== false);
 // Extract unique tags from the posts
 const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))];
 
-// Define the page title and description
 const title = "Explore as tags";
 const description =
   "Navegue pelas tags e busque os artigos relacionados a cada tag";
 ---
 
 <!doctype html>
-<html lang="en">
+<html>
   <head>
     <BaseHead title={title} description={description} />
     <style>

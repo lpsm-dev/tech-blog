@@ -504,3 +504,15 @@ li {
   margin-bottom: 1em;
   border-top: 1px solid rgba(var(--gray), 0.2);
 }
+
+a.card-link {
+  cursor: pointer;
+}
+
+a.card-link:hover .repo-name {
+  color: rgb(var(--accent));
+}
+
+a.card-link:hover .stat-value {
+  color: rgb(var(--accent));
+}

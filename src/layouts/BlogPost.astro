@@ -43,7 +43,7 @@ const {
 const safeTags = tags ?? [];
 ---
 
-<html lang="en">
+<html>
   <head>
     <BaseHead
       title={title}
@@ -202,7 +202,7 @@ const safeTags = tags ?? [];
         for (const graph of graphs) {
           const content = graph.getAttribute("data-content");
           if (!content) continue;
-          let svg = document.createElement("svg");
+          const svg = document.createElement("svg");
           const id = (svg.id = "mermaid-" + Math.round(Math.random() * 100000));
           graph.appendChild(svg);
           mermaid.render(id, content).then((result) => {

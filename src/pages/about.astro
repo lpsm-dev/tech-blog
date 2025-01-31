@@ -1,12 +1,12 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
+
+const title = "Hey! Eu sou o Lucca";
+const description =
+  "Transforme suas notas do Obsidian em um belo blog com facilidade";
 ---
 
-<Layout
-  title="Hey! Eu sou o Lucca"
-  description="Transforme suas notas do Obsidian em um belo blog com facilidade"
-  created_date={new Date()}
->
+<Layout title={title} description={description} created_date={new Date()}>
   <h2>Resume</h2>
   <p>
     Engenheiro DevOps com mais de cinco anos de experiência no mercado de
