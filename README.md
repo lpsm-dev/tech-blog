@@ -51,7 +51,7 @@ A estrutura de pastas do projeto é organizada da seguinte forma:
 - Na pasta [src](src), você encontrará os arquivos de código-fonte da aplicação, cuja sua organização será detalhada mais adiante.
 - Na pasta [.github](github), você encontrará mais arquivos de configuração, mas que não estão diretamente relacionados ao código-fonte da aplicação. Além disso, temos a pasta [workflows](.github/workflows) que contém os arquivos de configuração dos workflows de CI/CD.
 
-Detalhando agora a estrutura da pasta do projeto Astra que fica `src`, temos:
+Detalhando agora a estrutura do projeto Astra que fica em `src`, temos:
 
 ```
 obsidian-blogger/
