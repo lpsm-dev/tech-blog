@@ -6,6 +6,7 @@ created_date: 2025-01-30
 slug: kubernetes-10-mistakes
 tags:
   - kubernetes
+  - medium
 ---
 
 # Overview
