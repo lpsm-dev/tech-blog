@@ -9,7 +9,7 @@ import { mermaid } from "./src/plugins/astro-mermaid";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://blogger.lpsm.cloud",
+  site: "https://blog.lpsm.cloud",
   base: "/",
   markdown: {
     remarkPlugins: [mermaid],
