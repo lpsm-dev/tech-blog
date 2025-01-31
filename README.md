@@ -37,7 +37,9 @@ Sempre quis ter um blog pessoal para compartilhar o que aprendo e, ao mesmo temp
 
 Como já uso o [Obsidian](https://obsidian.md/) para organizar minhas notas e ideias (em markdown), pensei que seria uma ótima oportunidade para finalmente colocar esse projeto em prática e sair da procrastinação.
 
-Além disso, queria ter uma experiência desenvolvendo ele do zero, sem utilizar plataformas prontas como Medium, Dev.to, etc. E aqui estamos, bem-vindo ao meu Tech Blog!
+Além disso, queria ter uma experiência desenvolvendo ele do zero, sem utilizar plataformas prontas como Medium, Dev.to, etc. E sim, eu sei que isso pode ser um pouco mais trabalhoso, mas acredito que o aprendizado e a experiência valerão a pena.
+
+E aqui estamos, bem-vindo ao meu Tech Blog!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
