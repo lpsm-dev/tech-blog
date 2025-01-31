@@ -1,13 +1,9 @@
-// @ts-check
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import expressiveCode from "astro-expressive-code";
 import remarkMermaid from "remark-mermaid";
-
-import sentry from "@sentry/astro";
-import spotlightjs from "@spotlightjs/astro";
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,13 +25,6 @@ export default defineConfig({
       ],
     ],
   },
-  integrations: [
-    expressiveCode(),
-    mdx(),
-    sitemap(),
-    tailwind(),
-    sentry(),
-    spotlightjs(),
-  ],
+  integrations: [expressiveCode(), mdx(), sitemap(), tailwind()],
   output: "static",
 });

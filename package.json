@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.10",
-    "@sentry/astro": "^8.52.0",
-    "@spotlightjs/astro": "^2.4.3",
     "astro": "^5.1.10",
     "gray-matter": "^4.0.3",
     "mermaid": "^11.4.1",
