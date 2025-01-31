@@ -1,5 +1,4 @@
 ---
-// Import necessary components and types
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
@@ -7,13 +6,10 @@ import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getUrl } from "../utils/url";
 
-// Define the BlogData type
 type BlogData = CollectionEntry<"blog">["data"];
 
-// Define the Props interface
 interface Props extends BlogData {}
 
-// Get the props
 const {
   title,
   subtitle,
@@ -39,16 +35,18 @@ const {
   no_index,
 } = Astro.props;
 
-// Ensure tags are safe
 const safeTags = tags ?? [];
+const featuredImageUrl = featured_image
+  ? getUrl(`/content/pt-br/assets/${featured_image}`)
+  : null;
 ---
 
-<html lang="en">
+<html>
   <head>
     <BaseHead
       title={title}
       description={description}
-      featured_image={featured_image}
+      featured_image={featuredImageUrl}
       featured_image_alt={featured_image_alt}
       meta_title={meta_title}
       meta_description={meta_description}
@@ -172,12 +170,12 @@ const safeTags = tags ?? [];
               )
             }
             {
-              featured_image && (
+              featuredImageUrl && (
                 <div class="hero-image">
                   <img
                     width={1020}
                     height={510}
-                    src={featured_image}
+                    src={featuredImageUrl}
                     alt={featured_image_alt || ""}
                   />
                 </div>

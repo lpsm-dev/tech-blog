@@ -31,7 +31,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const {
   title,
   description,
-  featured_image = "/blog-placeholder-1.jpg",
+  featured_image,
   featured_image_alt,
   meta_title,
   meta_description,
@@ -73,6 +73,7 @@ const getAbsoluteImageUrl = (imageUrl: string) => {
 };
 
 const absoluteFeaturedImage = getAbsoluteImageUrl(featured_image);
+console.log(absoluteFeaturedImage);
 const absoluteOgImage = getAbsoluteImageUrl(finalOgImage);
 const absoluteTwitterImage = getAbsoluteImageUrl(finalTwitterImage);
 ---
