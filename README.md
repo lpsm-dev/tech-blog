@@ -33,7 +33,10 @@ Nesse repositório, organizo a estrutura do meu blog pessoal
 
 # Visão Geral
 
-Sempre quis ter um blog pessoal para compartilhar o que aprendo e, ao mesmo tempo, praticar minhas habilidades de escrita, porém nunca tive tempo. Além disso, queria ter uma experiência desenvolvendo ele do zero, sem utilizar plataformas prontas como Medium, Dev.to, etc. E aqui estamos, bem-vindo ao meu Tech Blog!
+Sempre quis ter um blog pessoal para compartilhar o que aprendo e, ao mesmo tempo, praticar minhas habilidades de escrita. Porém, sabe como é, normalmente a gente acaba adiando esse tipo de projeto por falta de tempo ou prioridade. Mas, recentemente, descobri o [Astro](https://astro.build/), um novo framework para construção de sites estáticos que me chamou bastante atenção. Achei que seria uma ótima oportunidade para finalmente colocar esse projeto em prática.
+
+Além disso, queria ter uma experiência desenvolvendo ele do zero, sem utilizar plataformas prontas como Medium, Dev.to, etc. E aqui estamos, bem-vindo ao meu Tech Blog!
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Estrutura de Pastas
