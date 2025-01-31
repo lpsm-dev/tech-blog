@@ -2,7 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import GitHubInfo from "../components/GitHubInfo.astro";
+import GithubInfo from "../components/GithubInfo.astro";
 
 const title = "Explore meus projetos";
 const description =
@@ -89,15 +89,15 @@ const description =
         <p class="project-description">{description}</p>
       </div>
       <div class="projects-grid">
-        <GitHubInfo
+        <GithubInfo
           url="https://github.com/lpsm-dev/kubernetes-metacontroller"
         />
-        <GitHubInfo
+        <GithubInfo
           url="https://github.com/lpsm-dev/terraform-opsgenie-security-hub"
         />
-        <GitHubInfo url="https://github.com/lpsm-dev/docker-crypto-miner" />
-        <GitHubInfo url="https://github.com/lpsm-dev/loli" />
-        <GitHubInfo url="https://github.com/lpsm-dev/lpsm-dev" />
+        <GithubInfo url="https://github.com/lpsm-dev/docker-crypto-miner" />
+        <GithubInfo url="https://github.com/lpsm-dev/loli" />
+        <GithubInfo url="https://github.com/lpsm-dev/lpsm-dev" />
       </div>
     </main>
     <Footer />
