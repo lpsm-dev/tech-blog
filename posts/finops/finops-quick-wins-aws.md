@@ -51,15 +51,6 @@ O ciclo de vida de um _quick win_ segue um processo estruturado com cinco etapas
 4. **Validação**: Após a execução, é hora de verificar se os resultados estão de acordo com o esperado. A validação inclui medir o impacto direto da mudança e confirmar que não houve efeitos negativos imprevistos.
 5. **Automatização**: Quando um _quick win_ se revela eficiente, a próxima etapa é torná-lo repetível e contínuo, sempre que possível. A automação pode garantir que os mesmos resultados sejam alcançados de forma regular, sem necessidade de intervenção manual.
 
-```mermaid
-graph TD;
-    A[Identificar] --> B[Analisar];
-    B --> C[Executar];
-    C --> D[Validar];
-    D --> E[Automatizar];
-    E -->|Ciclo contínuo| A;
-```
-
 <div align="center">
 
 <img src="https://github.com/lpsm-dev/tech-blog/raw/main/public/images/fluxo-quick-wins.png"/>
