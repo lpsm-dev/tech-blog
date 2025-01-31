@@ -52,9 +52,7 @@ O ciclo de vida de um _quick win_ segue um processo estruturado com cinco etapas
 5. **Automatização**: Quando um _quick win_ se revela eficiente, a próxima etapa é torná-lo repetível e contínuo, sempre que possível. A automação pode garantir que os mesmos resultados sejam alcançados de forma regular, sem necessidade de intervenção manual.
 
 <div align="center">
-
-<img src="https://github.com/lpsm-dev/tech-blog/raw/main/public/images/fluxo-quick-wins.png"/>
-
+<img src="https://github.com/lpsm-dev/tech-blog/raw/main/public/images/fluxo-quick-wins.png" width="500"/>
 </div>
 
 Ao estruturar os _quick wins_ dentro desse ciclo de vida, é possível garantir uma estratégia contínua de melhoria e otimização. Cada etapa do ciclo não apenas contribui para a obtenção de resultados rápidos, mas também cria uma base para ajustes e aperfeiçoamentos constantes.
