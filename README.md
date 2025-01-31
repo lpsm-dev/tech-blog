@@ -79,7 +79,9 @@ obsidian-blogger/
 
 Links relevantes para essa documentação:
 
--
+- [Astro](https://astro.build/)
+- [Obsidian](https://obsidian.md/)
+- [Markdown](https://www.markdownguide.org/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
