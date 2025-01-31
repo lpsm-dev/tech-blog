@@ -20,6 +20,7 @@ Meu blog pessoal - blogger.lpsm.cloud! :rocket:
 - [Visão Geral](#visão-geral)
 - [Estrutura de Pastas](#estrutura-de-pastas)
 - [Tecnologias](#tecnologias)
+- [Features](#features)
 - [Referências](#referências)
 - [Versionamento](#versionamento)
 - [Troubleshooting](#troubleshooting)
