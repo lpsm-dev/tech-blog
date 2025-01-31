@@ -14,9 +14,16 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [mermaid],
   },
-  integrations: [expressiveCode(), mdx(), sitemap(), icon(), tailwind(), pagefind()],
+  integrations: [
+    expressiveCode(),
+    mdx(),
+    sitemap(),
+    icon(),
+    tailwind(),
+    pagefind(),
+  ],
   output: "static",
   prefetch: {
-    defaultStrategy: 'tap'
-  }
+    defaultStrategy: "tap",
+  },
 });

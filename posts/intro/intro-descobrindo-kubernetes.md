@@ -34,7 +34,7 @@ O Kubernetes também oferece recursos de segurança e gerenciamento de contêine
   - Kubelet: responsável por garantir que os contêineres dentro dos pods estejam saudáveis e em execução. obs: o kubelet não gerencia contêineres que não foram criados pelo kubernetes.
   - Kube-proxy: implementa regras de rede nos Nodes proporcionando acesso aos pods através de sessões de rede externas ou internas.
   - Container runtime: software responsável pela execução dos contêineres, realiza tarefas como baixar imagem do container registry.
- 
+
 # Objetos
 
 Os objetos do kubernetes são entidades persistentes e representam o estado do cluster, ou seja, ao criar objetos você está falando ao kubernetes como deseja que o cluster seja, isso se chama estado desejado.

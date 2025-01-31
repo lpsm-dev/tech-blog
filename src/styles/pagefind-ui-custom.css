@@ -1,33 +1,33 @@
 @media (prefers-color-scheme: dark) {
-    .pagefind-ui {
-      --pagefind-ui-text: #ffffff;
-      --pagefind-ui-primary: #38bdf8; /* Azul-ciano para melhor destaque */
-      --pagefind-ui-background: #111827; /* Fundo mais escuro */
-      --pagefind-ui-border: #4b5563; /* Bordas mais visíveis */
-      --pagefind-ui-tag: #4b5563;
-    }
+  .pagefind-ui {
+    --pagefind-ui-text: #ffffff;
+    --pagefind-ui-primary: #38bdf8; /* Azul-ciano para melhor destaque */
+    --pagefind-ui-background: #111827; /* Fundo mais escuro */
+    --pagefind-ui-border: #4b5563; /* Bordas mais visíveis */
+    --pagefind-ui-tag: #4b5563;
+  }
 }
 
 .pagefind-ui {
-    @apply dark:text-white dark:bg-gray-900 dark:border-gray-700;
+  @apply dark:text-white dark:bg-gray-900 dark:border-gray-700;
 }
 
 .pagefind-ui__search-input {
-    @apply dark:text-white dark:bg-gray-800 dark:border-gray-600;
+  @apply dark:text-white dark:bg-gray-800 dark:border-gray-600;
 }
 
 .pagefind-ui__result-title {
-    @apply dark:text-blue-400; /* Azul para destacar títulos */
+  @apply dark:text-blue-400; /* Azul para destacar títulos */
 }
 
 .pagefind-ui__result-excerpt {
-    @apply dark:text-gray-300;
+  @apply dark:text-gray-300;
 }
 
 .pagefind-ui__result {
-    @apply dark:bg-gray-800 dark:border-gray-700 dark:shadow-lg;
+  @apply dark:bg-gray-800 dark:border-gray-700 dark:shadow-lg;
 }
 
 .pagefind-ui__result:hover {
-    @apply dark:bg-gray-700 dark:border-gray-500;
+  @apply dark:bg-gray-700 dark:border-gray-500;
 }

@@ -123,13 +123,13 @@ import { Icon } from "astro-icon/components";
   function initSearch() {
     // Get DOM elements with proper typing
     const searchTrigger = document.getElementById(
-      "search-trigger"
+      "search-trigger",
     ) as HTMLButtonElement | null;
     const searchDialog = document.getElementById(
-      "search-dialog"
+      "search-dialog",
     ) as HTMLDialogElement | null;
     const closeButton = document.getElementById(
-      "close-search"
+      "close-search",
     ) as HTMLButtonElement | null;
 
     // Open dialog
@@ -138,7 +138,7 @@ import { Icon } from "astro-icon/components";
       searchTrigger.setAttribute("aria-expanded", "true");
       // Focus the search input when dialog opens
       const searchInput = document.querySelector<HTMLInputElement>(
-        ".pagefind-ui__search-input"
+        ".pagefind-ui__search-input",
       );
       searchInput?.focus();
     });

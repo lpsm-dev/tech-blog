@@ -65,209 +65,208 @@ const description =
       </div>
     </main>
     <Footer />
+    <style>
+      .error-container {
+        min-height: calc(100vh - 16rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .error-content {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+        background: linear-gradient(
+          180deg,
+          rgba(var(--gray-light), 0.5) 0%,
+          rgba(var(--gray-light), 0.2) 100%
+        );
+        border-radius: 1.5rem;
+        box-shadow: var(--box-shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .error-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: rgba(var(--accent), 0.1);
+        color: var(--accent);
+        border-radius: 2rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: rgb(var(--black));
+        font-family: var(--font-heading);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .error-message {
+        font-size: 1.125rem;
+        color: rgb(var(--gray));
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .error-illustration {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 2rem;
+      }
+
+      .lost-file {
+        color: rgb(var(--gray));
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .lost-face {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        pointer-events: none;
+      }
+
+      .eyes {
+        position: relative;
+        top: 25px;
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .eyes::before,
+      .eyes::after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgb(var(--gray-dark));
+        animation: blink 3s ease-in-out infinite;
+      }
+
+      .mouth {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgb(var(--gray-dark));
+        border-radius: 50%;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        transform: translateX(-50%) rotate(45deg);
+      }
+
+      .action-buttons {
+        margin-bottom: 1.5rem;
+      }
+
+      .home-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.875rem 1.5rem;
+        background-color: var(--accent);
+        color: white;
+        border-radius: 0.75rem;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+
+      .home-button:hover {
+        background-color: var(--accent-dark);
+        transform: translateY(-2px);
+      }
+
+      .home-button svg {
+        transition: transform 0.2s ease;
+      }
+
+      .home-button:hover svg {
+        transform: translateX(4px);
+      }
+
+      .help-text {
+        font-size: 0.875rem;
+        color: rgb(var(--gray));
+        margin: 0;
+      }
+
+      .contact-link {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border-bottom: 1px solid transparent;
+      }
+
+      .contact-link:hover {
+        border-bottom-color: var(--accent);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        95% {
+          transform: scaleY(0.1);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .error-content {
+          padding: 2rem 1.5rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .error-message {
+          font-size: 1rem;
+        }
+
+        .error-illustration {
+          width: 100px;
+          height: 100px;
+        }
+
+        .lost-file {
+          width: 100px;
+          height: 100px;
+        }
+
+        .help-text {
+          font-size: 0.8125rem;
+        }
+      }
+    </style>
   </body>
 </html>
-
-<style>
-  .error-container {
-    min-height: calc(100vh - 16rem);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
-  .error-content {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 3rem 2rem;
-    background: linear-gradient(
-      180deg,
-      rgba(var(--gray-light), 0.5) 0%,
-      rgba(var(--gray-light), 0.2) 100%
-    );
-    border-radius: 1.5rem;
-    box-shadow: var(--box-shadow);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .error-badge {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: rgba(var(--accent), 0.1);
-    color: var(--accent);
-    border-radius: 2rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: rgb(var(--black));
-    font-family: var(--font-heading);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
-  .error-message {
-    font-size: 1.125rem;
-    color: rgb(var(--gray));
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-
-  .error-illustration {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 2rem;
-  }
-
-  .lost-file {
-    color: rgb(var(--gray));
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .lost-face {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    pointer-events: none;
-  }
-
-  .eyes {
-    position: relative;
-    top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-  }
-
-  .eyes::before,
-  .eyes::after {
-    content: "";
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgb(var(--gray-dark));
-    animation: blink 3s ease-in-out infinite;
-  }
-
-  .mouth {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgb(var(--gray-dark));
-    border-radius: 50%;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-left-color: transparent;
-    transform: translateX(-50%) rotate(45deg);
-  }
-
-  .action-buttons {
-    margin-bottom: 1.5rem;
-  }
-
-  .home-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.5rem;
-    background-color: var(--accent);
-    color: white;
-    border-radius: 0.75rem;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s ease;
-  }
-
-  .home-button:hover {
-    background-color: var(--accent-dark);
-    transform: translateY(-2px);
-  }
-
-  .home-button svg {
-    transition: transform 0.2s ease;
-  }
-
-  .home-button:hover svg {
-    transform: translateX(4px);
-  }
-
-  .help-text {
-    font-size: 0.875rem;
-    color: rgb(var(--gray));
-    margin: 0;
-  }
-
-  .contact-link {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border-bottom: 1px solid transparent;
-  }
-
-  .contact-link:hover {
-    border-bottom-color: var(--accent);
-  }
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
-
-  @keyframes blink {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    95% {
-      transform: scaleY(0.1);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .error-content {
-      padding: 2rem 1.5rem;
-    }
-
-    h1 {
-      font-size: 2rem;
-    }
-
-    .error-message {
-      font-size: 1rem;
-    }
-
-    .error-illustration {
-      width: 100px;
-      height: 100px;
-    }
-
-    .lost-file {
-      width: 100px;
-      height: 100px;
-    }
-
-    .help-text {
-      font-size: 0.8125rem;
-    }
-  }
-</style>

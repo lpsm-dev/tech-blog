@@ -57,194 +57,193 @@ const posts = (await getCollection("blog"))
       </section>
     </main>
     <Footer />
+    <style>
+      main {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .hero {
+        padding: 4rem 1rem;
+        text-align: center;
+        background: transparent;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle at center,
+          rgba(var(--accent), 0.08) 0%,
+          rgba(var(--accent), 0.03) 25%,
+          transparent 50%
+        );
+        z-index: -1;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: rgba(var(--accent), 0.1);
+        color: var(--accent);
+        border-radius: 2rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
+        transition: var(--theme-transition);
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        color: rgb(var(--black));
+        font-family: var(--font-heading);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .gradient-text {
+        background: linear-gradient(
+          135deg,
+          var(--accent) 0%,
+          var(--accent-dark) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-description {
+        font-size: 1.25rem;
+        margin-bottom: 2.5rem;
+        color: rgb(var(--gray));
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .primary-button,
+      .secondary-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.875rem 1.5rem;
+        border-radius: 0.75rem;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+
+      .primary-button {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      .primary-button:hover {
+        background-color: var(--accent-dark);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+
+      .primary-button svg {
+        transition: transform 0.2s ease;
+      }
+
+      .primary-button:hover svg {
+        transform: translateX(4px);
+      }
+
+      .secondary-button {
+        border: 2px solid rgba(var(--gray), 0.2);
+        color: rgb(var(--gray-dark));
+        background: rgba(var(--gray-light), 0.3);
+      }
+
+      .secondary-button:hover {
+        border-color: rgba(var(--gray), 0.3);
+        background: rgba(var(--gray-light), 0.5);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+
+      .latest-posts {
+        padding: 2rem 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .post-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .view-all {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding: 6rem 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-description {
+          font-size: 1.125rem;
+          padding: 0 1rem;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: stretch;
+          padding: 0 2rem;
+        }
+
+        .primary-button,
+        .secondary-button {
+          justify-content: center;
+        }
+
+        .latest-posts {
+          padding: 4rem 1rem;
+        }
+
+        .post-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .view-all {
+          margin-top: 1.5rem;
+        }
+      }
+    </style>
   </body>
 </html>
-
-<style>
-  main {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  .hero {
-    padding: 4rem 1rem;
-    text-align: center;
-    background: transparent;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(
-      circle at center,
-      rgba(var(--accent), 0.08) 0%,
-      rgba(var(--accent), 0.03) 25%,
-      transparent 50%
-    );
-    z-index: -1;
-  }
-
-  .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: rgba(var(--accent), 0.1);
-    color: var(--accent);
-    border-radius: 2rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    margin-bottom: 2rem;
-    transition: var(--theme-transition);
-  }
-
-  .hero h1 {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    color: rgb(var(--black));
-    font-family: var(--font-heading);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
-  .gradient-text {
-    background: linear-gradient(
-      135deg,
-      var(--accent) 0%,
-      var(--accent-dark) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-  }
-
-  .hero-description {
-    font-size: 1.25rem;
-    margin-bottom: 2.5rem;
-    color: rgb(var(--gray));
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-  }
-
-  .cta-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .primary-button,
-  .secondary-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.5rem;
-    border-radius: 0.75rem;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s ease;
-  }
-
-  .primary-button {
-    background-color: var(--accent);
-    color: white;
-  }
-
-  .primary-button:hover {
-    background-color: var(--accent-dark);
-    transform: translateY(-2px);
-    text-decoration: none;
-  }
-
-  .primary-button svg {
-    transition: transform 0.2s ease;
-  }
-
-  .primary-button:hover svg {
-    transform: translateX(4px);
-  }
-
-  .secondary-button {
-    border: 2px solid rgba(var(--gray), 0.2);
-    color: rgb(var(--gray-dark));
-    background: rgba(var(--gray-light), 0.3);
-  }
-
-  .secondary-button:hover {
-    border-color: rgba(var(--gray), 0.3);
-    background: rgba(var(--gray-light), 0.5);
-    transform: translateY(-2px);
-    text-decoration: none;
-  }
-
-  .latest-posts {
-    padding: 2rem 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .post-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  .view-all {
-    text-align: center;
-    margin-top: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    .hero {
-      padding: 6rem 1rem;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-    }
-
-    .hero-description {
-      font-size: 1.125rem;
-      padding: 0 1rem;
-    }
-
-    .cta-buttons {
-      flex-direction: column;
-      align-items: stretch;
-      padding: 0 2rem;
-    }
-
-    .primary-button,
-    .secondary-button {
-      justify-content: center;
-    }
-
-    .latest-posts {
-      padding: 4rem 1rem;
-    }
-
-    .post-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .view-all {
-      margin-top: 1.5rem;
-    }
-  }
-</style>

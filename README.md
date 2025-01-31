@@ -9,9 +9,7 @@
 
 Nesse repositório, organizo a estrutura do meu blog pessoal
 
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://www.conventionalcommits.org/en/v1.0.0/)
-[![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://semantic-release.gitbook.io/semantic-release/usage/configuration)
-[![Built with Devbox](https://jetpack.io/img/devbox/shield_galaxy.svg)](https://jetpack.io/devbox/docs/contributor-quickstart/)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://www.conventionalcommits.org/en/v1.0.0/) [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://semantic-release.gitbook.io/semantic-release/usage/configuration) [![Built with Devbox](https://jetpack.io/img/devbox/shield_galaxy.svg)](https://jetpack.io/devbox/docs/contributor-quickstart/)
 
 </div>
 
@@ -27,8 +25,7 @@ Nesse repositório, organizo a estrutura do meu blog pessoal
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-> [!WARNING]
-> Ainda estou desenvolvendo esse projeto, portanto, não o utilize antes da primeira versão.
+> [!WARNING] Ainda estou desenvolvendo esse projeto, portanto, não o utilize antes da primeira versão.
 
 # Visão Geral
 
