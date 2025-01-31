@@ -6,7 +6,6 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getUrl } from "../utils/url";
-import { resizeImage } from "../utils/imageUtils";
 
 // Define the BlogData type
 type BlogData = CollectionEntry<"blog">["data"];
@@ -42,14 +41,9 @@ const {
 
 // Ensure tags are safe
 const safeTags = tags ?? [];
-
-let resizedImageUrl = featured_image;
-if (featured_image) {
-  resizedImageUrl = await resizeImage(featured_image, 400, 400);
-}
 ---
 
-<html>
+<html lang="en">
   <head>
     <BaseHead
       title={title}
@@ -178,12 +172,12 @@ if (featured_image) {
               )
             }
             {
-              resizedImageUrl && (
+              featured_image && (
                 <div class="hero-image">
                   <img
-                    width={400}
-                    height={400}
-                    src={resizedImageUrl}
+                    width={1020}
+                    height={510}
+                    src={featured_image}
                     alt={featured_image_alt || ""}
                   />
                 </div>
