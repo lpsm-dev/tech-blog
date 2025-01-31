@@ -39,3 +39,11 @@ tasks:
         msg: yamllint {{.PATH_ERROR}}
     cmds:
       - yamllint --config-file={{.ROOT_DIR}}/.github/config/.yamllint.yaml .
+
+  resize:
+    desc: Resize images in the images directory
+    preconditions:
+      - sh: which caire
+        msg: caire {{.PATH_ERROR}}
+    cmds:
+      - caire -in {{.ROOT_DIR}}/public/images/{{.FILENAME}} -out {{.ROOT_DIR}}/public/images/resize-{{.FILENAME}} -width 400 -height 400
