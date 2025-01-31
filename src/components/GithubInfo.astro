@@ -5,38 +5,41 @@ const { url } = Astro.props;
 ---
 
 <github-info class="github-card" data-url={url}>
-  <a href={url} target="_blank" rel="noopener noreferrer" class="card-link">
-    <div class="card-header">
-      <img class="pixelated-image" src="" alt="Repo image" />
-      <div class="repo-info">
-        <h3 class="repo-name">
-          <span>
-            <span class="loading loading-spinner loading-xs"></span>
-          </span>
-        </h3>
-        <div class="repo-owner">
-          <Icon name="ri:user-line" class="icon" />
-          <span>
-            <span class="loading loading-spinner loading-xs"></span>
-          </span>
-        </div>
+  <div class="card-header">
+    <img class="pixelated-image" src="" alt="Repo image" />
+    <div class="repo-info">
+      <h3 class="repo-name">
+        <span>
+          <span class="loading loading-spinner loading-xs"></span>
+        </span>
+      </h3>
+      <div class="repo-owner">
+        <Icon name="ri:user-line" class="icon" />
+        <span>
+          <span class="loading loading-spinner loading-xs"></span>
+        </span>
       </div>
     </div>
+  </div>
 
-    <div class="card-stats">
-      <div class="stat-item">
-        <Icon name="ri:star-line" class="icon" />
-        <span class="stat-value">
-          <span class="loading loading-spinner loading-xs"></span>
-        </span>
-      </div>
-      <div class="stat-item">
-        <Icon name="ri:git-fork-line" class="icon" />
-        <span class="stat-value">
-          <span class="loading loading-spinner loading-xs"></span>
-        </span>
-      </div>
+  <div class="card-stats">
+    <div class="stat-item">
+      <Icon name="ri:star-line" class="icon" />
+      <span class="stat-value">
+        <span class="loading loading-spinner loading-xs"></span>
+      </span>
     </div>
+    <div class="stat-item">
+      <Icon name="ri:git-fork-line" class="icon" />
+      <span class="stat-value">
+        <span class="loading loading-spinner loading-xs"></span>
+      </span>
+    </div>
+  </div>
+
+  <a href={url} target="_blank" rel="noopener noreferrer" class="github-button">
+    <Icon name="ri:github-fill" class="button-icon" />
+    View on GitHub
   </a>
 </github-info>
 
@@ -81,48 +84,22 @@ const { url } = Astro.props;
 
 <style>
   .github-card {
+    display: flex;
+    flex-direction: column;
     position: relative;
     border-radius: 20px;
     background: rgb(var(--card-bg));
     box-shadow:
       0 4px 6px -1px rgba(0, 0, 0, 0.05),
       0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     padding: 1.5rem;
-  }
-
-  .github-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      160deg,
-      rgba(var(--accent), 0.02) 0%,
-      rgba(var(--accent), 0.04) 100%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .github-card:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  }
-
-  .github-card:hover::after {
-    opacity: 1;
+    text-decoration: none;
+    color: inherit;
   }
 
   .repo-name {
     color: rgb(var(--black)) !important;
-    transition: color 0.2s ease;
-  }
-
-  .github-card:hover .repo-name {
-    color: rgb(var(--accent)) !important;
   }
 
   .repo-owner {
@@ -137,7 +114,6 @@ const { url } = Astro.props;
     color: rgb(var(--black)) !important;
   }
 
-  /* Mantenha o restante do CSS original */
   .card-header {
     display: flex;
     align-items: center;
@@ -160,6 +136,7 @@ const { url } = Astro.props;
     display: flex;
     gap: 1.5rem;
     padding-top: 1rem;
+    margin-bottom: 1rem;
     border-top: 1px solid rgba(var(--black), 0.06);
   }
 
@@ -175,10 +152,44 @@ const { url } = Astro.props;
     color: rgb(var(--gray));
   }
 
+  .github-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: rgb(var(--accent));
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-top: auto;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border: 2px solid transparent;
+  }
+
+  .github-button:hover {
+    background-color: rgb(var(--accent-dark));
+    border-color: rgb(var(--accent));
+  }
+
+  .button-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
   @media (max-width: 768px) {
     .github-card {
       border-radius: 16px;
       padding: 1.25rem;
+    }
+
+    .github-button {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.9rem;
     }
   }
 </style>
