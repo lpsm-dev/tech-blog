@@ -5,7 +5,7 @@
 
 **Tech Blog**
 
-<img alt="image-header" src="https://github.com/lpsm-dev/lpsm-dev/blob/08a1fc3a3b0c5d7c07511a89ed622e31a4dacdef/.github/assets/obsidian.png" width="225"/>
+<img alt="image-header" src="https://github.com/lpsm-dev/lpsm-dev/blob/e5163de8877e63a74976f0c8371c8890762c0aa4/.github/assets/obsidian-with-astro.png" width="225"/>
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://www.conventionalcommits.org/en/v1.0.0/)
 [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://semantic-release.gitbook.io/semantic-release/usage/configuration)
