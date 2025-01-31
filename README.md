@@ -48,7 +48,7 @@ E aqui estamos... Sejam muito bem-vindos ao meu Blog! 👋
 A estrutura de pastas do projeto é organizada da seguinte forma:
 
 - Na raiz do projeto, você encontrará arquivos de configuração gerais de diversas ferramentas, além do arquivos essenciais para a construção e gerenciamentos dos pacotes de desenvolvimento dessa aplicação.
-- Na pasta [src](src), você encontrará os arquivos de código-fonte da aplicação.
+- Na pasta [src](src), você encontrará os arquivos de código-fonte da aplicação, cuja sua organização será detalhada mais adiante.
 - Na pasta [.github](github), você encontrará mais arquivos de configuração, mas que não estão diretamente relacionados ao código-fonte da aplicação, além da pasta [workflows](.github/workflows) que contém os arquivos de configuração dos workflows de CI/CD.
 
 Falando sobre a estrutura do projeto Astro, temos:
