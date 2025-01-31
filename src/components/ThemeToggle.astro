@@ -47,7 +47,6 @@
     transition: transform 0.2s ease;
   }
 
-  /* Show/hide icons based on theme */
   .sun-icon {
     display: none;
   }
@@ -89,13 +88,10 @@
     }
   }
 
-  // Add click event listener
   themeToggle?.addEventListener("click", toggleTheme);
 
-  // Initialize theme on page load
   document.addEventListener("DOMContentLoaded", initializeTheme);
 
-  // Listen for system theme changes, but only if no theme is saved
   window
     .matchMedia("(prefers-color-scheme: dark)")
     .addEventListener("change", (_e) => {

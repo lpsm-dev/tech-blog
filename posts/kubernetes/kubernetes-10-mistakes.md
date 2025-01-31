@@ -1,5 +1,5 @@
 ---
-title: "[Kubernetes] - 10 erros comuns ☄️"
+title: "[Kubernetes] - 10 erros comuns"
 description: "Nesse post vamos falar sobre 10 erros comuns que são cometidos ao administrar clusters Kubernetes."
 publish: true
 created_date: 2025-01-30
