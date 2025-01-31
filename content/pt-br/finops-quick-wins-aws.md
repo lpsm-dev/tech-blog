@@ -7,8 +7,9 @@ featured_image: https://github.com/lpsm-dev/tech-blog/raw/main/content/assets/fi
 tags:
   - aws
   - cloud
-  - finops
   - cost-optimization
+  - finops
+  - quick-wins
 publish: true
 ---
 
