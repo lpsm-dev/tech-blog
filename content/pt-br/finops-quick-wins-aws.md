@@ -13,11 +13,11 @@ tags:
 
 # Visão Geral
 
-No dia a dia de quem trabalha com _AWS_, é comum nos depararmos com cenários onde precisamos agir rapidamente. Seja ao acessar a conta de um cliente para propor reduções de custo, ou ao identificar oportunidades de economia durante ações rotineiras. Mas como transformar essas oportunidades em resultados concretos de forma rápida e assertiva? A resposta está nos _quick wins_.
+No dia a dia de quem trabalha com _AWS_, é comum nos depararmos com cenários onde precisamos agir rapidamente. Seja ao acessar a conta de um cliente para propor reduções de custo, ou ao identificar oportunidades de economia durante ações rotineiras. Mas como transformar essas oportunidades em resultados concretos de forma rápida e assertiva? A resposta que irei trazér está na ideia de _quick wins_.
 
 # Objetivo
 
-Neste artigo, vamos explicar o que são _quick wins_ e como podemos usá-los para gerar economias na _AWS_, conectando essa ideia ao conceito de _FinOps_.
+Nesse artigo, vou explicar o que são _quick wins_ e como podemos usá-los para gerar economias na _AWS_, conectando essa ideia ao conceito de _FinOps_.
 
 # Quick wins
 
@@ -73,30 +73,50 @@ Incorporando _quick wins_ como parte do ciclo de vida de FinOps, as empresas pod
 
 Aqui estão alguns exemplos de *quick wins* que podem ser implementados rapidamente para otimizar custos na _AWS_:
 
-### Instances
+### Compute Optimization
 
-- Alterar tipo de instância EC2.
-- Desligar instâncias EC2.
-- Adotar Spot Instances.
+#### EC2 Instances
 
-### RDS
+- Modificar tipo de instância EC2: Alterar instâncias sub-utilizadas para tipos adequados (ex: t3.medium → t4g.medium).
+- Adotar Spot Instances: Substituir instâncias On-Demand por Spot Instances em workloads tolerantes a interrupções.
+- Habilitar parada automática para instâncias: Desligar instâncias fora do horário comercial (ex: 19h–7h).
+- Terminate Zombie Instances: Terminar instância que estão rodando por mais que 30 dias com menos de 5% de utilizaçãod e CPU).
+- Identificar e Excluir Snapshots Antigos: Snapshots antigos de AMI geram custos desnecessários.
 
-- Alterar tipo de instância EC2.
-- Habilitar parada automática para instâncias de desenvolvimento/teste fora do horário comercial.
-- Excluir snapshots antigos de RDS (>30 dias) não vinculados a políticas de backup.
+### Database Optimization
 
-### S3
+#### RDS
 
-- Configuração de políticas de ciclo de Vida S3
+- Modificar tipo de instância RDS: Alterar instâncias superprovisionadas para tipos adequados (ex: db.m5.large → db.t3.medium).
+- Habilitar parada automática para instâncias: Desligar instâncias fora do horário comercial (ex: 19h–7h).
+- Excluir snapshots antigos de RDS (>30 dias) não vinculados a políticas de backup: Remover snapshots manuais não vinculados a políticas de backup.
 
-### ECR
+### Storage Optimization
 
-- Configuração de políticas de ciclo de vida ECR
+#### S3
 
-### Discos
+- Configuração de Lifecycle Policies no S3: Transicionar objetos para S3 Glacier após 90 dias e deletar após 365 dias.
+- Remover Buckets de S3 Ociosos: Buckets vazios ou não utilizados ainda podem gerar custos dependendo da configuração.
 
-- Mudar tipo de volume EBS (por exemplo, de gp2 para gp3)
-- Excluir volumes EBS não utilizados
+#### ECR
+
+- Configuração de Lifecycle Policies no ECR: Remover imagens não utilizadas (ex: reter apenas as últimas 5 versões).
+
+#### EBS
+
+- Identificar e Mover Volumes EBS de gp2 para gp3: Volumes gp2 são mais caros que gp3 e a conversão pode reduzir custos em até 20% sem impacto de performance.
+- Excluir volumes não utilizados: Identificar volumes com estado available via CLI e deletar.
+- Identificar e Excluir Snapshots Antigos: Snapshots antigos de EBS geram custos desnecessários.
+
+### Networking & Connectivity
+
+#### Elastic Load Balancers (ELB)
+
+- Excluir ALB/NLB não utilizados: Remover load balancers sem targets ativos.
+
+#### Elastic IP
+
+- Identificar e eliminar Elastic IPs não utilizados: Elastic IPs que não estão associados a instâncias geram cobranças desnecessárias.
 
 ## Desafios
 
