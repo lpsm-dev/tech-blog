@@ -60,6 +60,12 @@ graph TD;
     E -->|Ciclo contínuo| A;
 ```
 
+<div align="center">
+
+<img src="https://github.com/lpsm-dev/tech-blog/raw/main/public/images/fluxo-quick-wins.png"/>
+
+</div>
+
 Ao estruturar os _quick wins_ dentro desse ciclo de vida, é possível garantir uma estratégia contínua de melhoria e otimização. Cada etapa do ciclo não apenas contribui para a obtenção de resultados rápidos, mas também cria uma base para ajustes e aperfeiçoamentos constantes.
 
 # FinOps
