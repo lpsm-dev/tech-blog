@@ -39,7 +39,7 @@ Como já uso o [Obsidian](https://obsidian.md/) para organizar minhas notas e id
 
 Além disso, queria ter uma experiência desenvolvendo ele do zero, sem utilizar plataformas prontas como Medium, Dev.to, etc. E sim, eu sei que isso pode ser um pouco mais trabalhoso, mas acredito que o aprendizado e a experiência valerão a pena.
 
-E aqui estamos... Sejam bem-vindos ao meu Blog! 👋
+E aqui estamos... Sejam muito bem-vindos ao meu Blog! 👋
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
