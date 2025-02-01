@@ -1,0 +1,259 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import {
+  EMAIL,
+  PAGE_SERVICES_TITLE,
+  PAGE_SERVICES_DESCRIPTION,
+} from "../consts";
+---
+
+<!doctype html>
+<html>
+  <head>
+    <BaseHead
+      title={PAGE_SERVICES_TITLE}
+      description={PAGE_SERVICES_DESCRIPTION}
+    />
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+      }
+      main {
+        flex: 1;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 2rem 1rem;
+        background: linear-gradient(
+          180deg,
+          rgba(var(--accent), 0.08) 0%,
+          rgba(var(--accent), 0.02) 100%
+        );
+        border-radius: 1.5rem;
+      }
+
+      .project-title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: rgb(var(--black));
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .project-description {
+        font-size: 1.25rem;
+        color: rgb(var(--gray));
+        max-width: 600px;
+        line-height: 1.6;
+        margin: 0 auto;
+      }
+
+      h1 {
+        color: rgb(var(--accent));
+        font-size: 2.5rem;
+        margin: 2rem 0 1.5rem;
+      }
+
+      h2 {
+        color: rgb(var(--black));
+        font-size: 2rem;
+        margin: 2rem 0 1.2rem;
+        border-bottom: 2px solid rgba(var(--accent), 0.1);
+        padding-bottom: 0.5rem;
+      }
+
+      h3 {
+        color: rgb(var(--gray));
+        font-size: 1.5rem;
+        margin: 1.5rem 0 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .project-title {
+          font-size: 2rem;
+        }
+
+        .project-description {
+          font-size: 1rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.75rem;
+        }
+
+        h3 {
+          font-size: 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="project-header">
+        <h1 class="project-title">{PAGE_SERVICES_TITLE}</h1>
+        <p class="project-description">{PAGE_SERVICES_DESCRIPTION}</p>
+      </div>
+      <section>
+        <!-- Introdução Forte -->
+        <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem;">
+          Com 10+ anos resolvendo desafios complexos em cloud e DevOps, ofereço
+          não apenas consultoria, mas <strong>resultados mensuráveis</strong>:
+          <ul style="margin: 1rem 0 2rem; padding-left: 1.5rem;">
+            <li>▶︎ Redução de 40-70% em custos de infraestrutura</li>
+            <li>▶︎ Deploy até 15x mais rápido com pipelines otimizados</li>
+            <li>▶︎ Zero downtime em migrações críticas</li>
+          </ul>
+          Minha abordagem hands-on em <strong>Kubernetes, AWS e GitOps</strong> transforma
+          sua stack tecnológica em vantagem competitiva.
+        </p>
+
+        <!-- Seção Por Que Eu -->
+        <h2>
+          🚀 Por que minha consultoria é a escolha certa para o seu negócio?
+        </h2>
+        <p>
+          Se sua empresa busca reduzir custos, otimizar operações e modernizar
+          sua infraestrutura sem dores de cabeça, minha consultoria entrega
+          soluções sob medida para acelerar resultados.
+        </p>
+
+        <div>
+          <h3>☁️ Arquitetura Cloud Eficiente</h3>
+          <p>
+            Infraestruturas escaláveis, resilientes e otimizadas para
+            performance e custo. Planejamento e implementação estratégica para
+            garantir alta disponibilidade e eficiência financeira.
+          </p>
+        </div>
+
+        <div>
+          <h3>⚙️ DevOps que Impulsiona a Entrega</h3>
+          <p>
+            Automação inteligente para fluxos de CI/CD, reduzindo tempo de
+            deploy e aumentando a confiabilidade dos lançamentos. Processos
+            otimizados para que sua equipe foque no que realmente importa:
+            inovação.
+          </p>
+        </div>
+
+        <div>
+          <h3>🔄 Modernização sem Interrupções</h3>
+          <p>
+            Transformação para arquiteturas cloud-native e microserviços sem
+            impacto nas operações. Transições planejadas para garantir
+            continuidade e maximizar a eficiência do seu stack tecnológico.
+          </p>
+        </div>
+
+        <div>
+          <h3>🚢 Kubernetes e GitOps na Prática</h3>
+          <p>
+            Orquestração avançada de contêineres com Kubernetes para
+            escalabilidade e resiliência. Implementação de GitOps para garantir
+            entregas contínuas, infraestrutura declarativa e total
+            rastreabilidade das mudanças.
+          </p>
+        </div>
+
+        <div>
+          <h3>🔐 Segurança e Compliance sem Barreiras</h3>
+          <p>
+            Implementação de políticas de segurança alinhadas às melhores
+            práticas do mercado, garantindo compliance sem comprometer a
+            produtividade. Segurança integrada, sem atritos.
+          </p>
+        </div>
+
+        <!-- Serviços -->
+        <!-- Metodologia de Trabalho -->
+        <h2>🛠️ Minha Metodologia</h2>
+        <p>
+          Uma abordagem estratégica e prática para transformar sua
+          infraestrutura com eficiência e previsibilidade.
+        </p>
+
+        <ul
+          style="border-left: 4px solid rgb(var(--accent)); padding-left: 1.5rem;"
+        >
+          <li style="margin-bottom: 1.5rem;">
+            <strong>🔍 Diagnóstico Preciso:</strong> Análise técnica aprofundada
+            aliada à visão de negócios para identificar desafios críticos e oportunidades
+            de otimização.
+          </li>
+          <li style="margin-bottom: 1.5rem;">
+            <strong>🗺️ Roadmap Estratégico:</strong> Planejamento estruturado com
+            milestones claros e ações priorizadas para garantir eficiência e previsibilidade
+            na execução.
+          </li>
+          <li style="margin-bottom: 1.5rem;">
+            <strong>⚙️ Execução Hands-On:</strong> Muito além de consultoria, atuo
+            diretamente na implementação, garantindo entregas ágeis e funcionais.
+          </li>
+          <li>
+            <strong>📈 Suporte Contínuo:</strong> Acompanhamento pós-entrega por
+            6 meses para garantir que a solução se mantenha eficiente e alinhada
+            às necessidades do negócio.
+          </li>
+        </ul>
+
+        <br />
+
+        <!-- CTA Forte -->
+        <div>
+          <h2>⏳ Não adie mais, maximize seus resultados agora</h2>
+          <p>
+            A cada semana sem otimização, sua empresa perde tempo, dinheiro e
+            eficiência.
+            <strong>Vamos transformar sua infraestrutura juntos?</strong>
+            Agende agora uma <strong>consultoria gratuita</strong> e descubra como
+            reduzir custos e escalar com segurança.
+          </p>
+          <div style="margin-top: 1.5rem; text-align: center;">
+            <div
+              style="
+                  background: white;
+                  color: black;
+                  padding: 0.5rem;
+                  border-radius: 12px;
+                  display: inline-block;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"
+            >
+              <a
+                href="mailto:cloud-craft-solutions@proton.me?subject=Quero%20otimizar%20minha%20infraestrutura&body=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria.%20Podemos%20marcar%20uma%20conversa?"
+                style="background: rgb(var(--accent));
+                       color: black;
+                       padding: 0.5rem 1rem;
+                       border-radius: 30px;
+                       text-decoration: none;
+                       font-weight: bold;
+                       font-size: 0.9rem;
+                       display: inline-block;"
+              >
+                📩 Entrar em contato →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
