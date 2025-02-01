@@ -1,5 +1,5 @@
 /**
- *
+ * Get repository information from a GitHub URL
  * @param repoUrl
  * @returns
  */

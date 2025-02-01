@@ -15,7 +15,6 @@ const escapeHtml = (str: string) =>
 export const mermaid: RemarkPlugin<[]> = () => (tree) => {
   visit(tree, "code", (node) => {
     if (node.lang !== "mermaid") return;
-
     // @ts-expect-error - We're modifying the node in place
     node.type = "html";
     node.value = `<div class="mermaid" data-content="${escapeHtml(

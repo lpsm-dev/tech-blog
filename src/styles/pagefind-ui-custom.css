@@ -1,9 +1,9 @@
 @media (prefers-color-scheme: dark) {
   .pagefind-ui {
     --pagefind-ui-text: #ffffff;
-    --pagefind-ui-primary: #38bdf8; /* Azul-ciano para melhor destaque */
-    --pagefind-ui-background: #111827; /* Fundo mais escuro */
-    --pagefind-ui-border: #4b5563; /* Bordas mais visíveis */
+    --pagefind-ui-primary: #38bdf8;
+    --pagefind-ui-background: #111827;
+    --pagefind-ui-border: #4b5563;
     --pagefind-ui-tag: #4b5563;
   }
 }
@@ -17,7 +17,7 @@
 }
 
 .pagefind-ui__result-title {
-  @apply dark:text-blue-400; /* Azul para destacar títulos */
+  @apply dark:text-blue-400;
 }
 
 .pagefind-ui__result-excerpt {

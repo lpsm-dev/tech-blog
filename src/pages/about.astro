@@ -1,12 +1,13 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
-
-const title = "Hey! Eu sou o Lucca";
-const description =
-  "Transforme suas notas do Obsidian em um belo blog com facilidade";
+import { PAGE_ABOUT_TITLE, PAGE_ABOUT_DESCRIPTION } from "../consts";
 ---
 
-<Layout title={title} description={description} created_date={new Date()}>
+<Layout
+  title={PAGE_ABOUT_TITLE}
+  description={PAGE_ABOUT_DESCRIPTION}
+  created_date={new Date()}
+>
   <h2>Resume</h2>
   <p>
     Engenheiro DevOps com mais de cinco anos de experiência no mercado de
