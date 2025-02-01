@@ -1,5 +1,5 @@
 /**
- *
+ * Format number to K or M
  * @param num
  * @returns
  */
