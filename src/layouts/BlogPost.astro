@@ -7,13 +7,8 @@ import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getUrl } from "../utils/url";
 
-// Define the BlogData type
 type BlogData = CollectionEntry<"blog">["data"];
-
-// Define the Props interface
 interface Props extends BlogData {}
-
-// Get the props
 const {
   title,
   subtitle,
@@ -38,8 +33,6 @@ const {
   author,
   no_index,
 } = Astro.props;
-
-// Ensure tags are safe
 const safeTags = tags ?? [];
 ---
 
@@ -138,7 +131,6 @@ const safeTags = tags ?? [];
       }
     </style>
   </head>
-
   <body>
     <Header />
     <main>
@@ -164,7 +156,7 @@ const safeTags = tags ?? [];
               safeTags.length > 0 && (
                 <div class="tags">
                   {safeTags.map((tag) => (
-                    <a href={getUrl(`/tag/${tag}/`)} class="tag">
+                    <a href={getUrl(`/tags/${tag}/`)} class="tag">
                       #{tag}
                     </a>
                   ))}

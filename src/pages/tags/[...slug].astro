@@ -9,11 +9,7 @@ export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => {
     return data.publish !== false;
   });
-
-  // Get all unique tags
   const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))];
-
-  // Add "all" tag that shows all posts
   return [
     {
       params: { tag: "all" },
@@ -51,7 +47,6 @@ const description = isAllPosts
   <head>
     <BaseHead title={title} description={description} />
     <style>
-      /* Ensure the body takes up at least the full viewport height */
       body {
         min-height: 100vh;
         display: flex;
@@ -104,7 +99,6 @@ const description = isAllPosts
         margin-bottom: 2rem;
       }
 
-      /* Empty state for when there are no posts */
       .no-posts {
         text-align: center;
         padding: 4rem 1rem;

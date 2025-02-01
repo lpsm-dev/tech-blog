@@ -4,11 +4,8 @@ import { render } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
-  // Get all blog posts
   const posts = await getCollection("blog");
-  // Generate paths with the /blog prefix
   return posts.map((post) => {
-    // Use explicit slug if provided, otherwise generate from the file path
     const slug = post.data.slug || post.id.replace(/\.[^/.]+$/, "");
     return {
       params: { slug },

@@ -1,25 +1,19 @@
 ---
+import { getCollection } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { getCollection } from "astro:content";
 import { getUrl } from "../utils/url";
+import { PAGE_TAGS_TITLE, PAGE_TAGS_DESCRIPTION } from "../consts";
 
-// Fetch all blog posts
 const posts = await getCollection("blog", ({ data }) => data.publish !== false);
-
-// Extract unique tags from the posts
 const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))];
-
-const title = "Explore as tags";
-const description =
-  "Navegue pelas tags e busque os artigos relacionados a cada tag";
 ---
 
 <!doctype html>
 <html>
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={PAGE_TAGS_TITLE} description={PAGE_TAGS_DESCRIPTION} />
     <style>
       body {
         min-height: 100vh;
@@ -113,7 +107,7 @@ const description =
 
         .tags-grid {
           grid-template-columns: 1fr;
-          gap: 0.75rem; /* Reduzir o gap entre os cards no mobile */
+          gap: 0.75rem;
         }
       }
     </style>
@@ -122,20 +116,20 @@ const description =
     <Header />
     <main>
       <div class="tags-header">
-        <h1 class="tags-title">{title}</h1>
-        <p class="tags-description">{description}</p>
+        <h1 class="tags-title">{PAGE_TAGS_TITLE}</h1>
+        <p class="tags-description">{PAGE_TAGS_DESCRIPTION}</p>
       </div>
       {
         tags.length > 0 ? (
           <div class="tags-grid">
             {tags.map((tag) => (
-              <a href={getUrl(`/tag/${tag}/`)} class="tag-card">
+              <a href={getUrl(`/tags/${tag}/`)} class="tag-card">
                 #{tag}
               </a>
             ))}
           </div>
         ) : (
-          <div class="no-tags">No tags found. Check back soon!</div>
+          <div class="no-tags">Nenhuma tag encontrada ☠️</div>
         )
       }
     </main>
