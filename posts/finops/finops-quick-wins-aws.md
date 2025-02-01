@@ -8,9 +8,7 @@ featured_image_alt: "finops"
 tags:
   - aws
   - cloud
-  - cost-optimization
   - finops
-  - quick-wins
 publish: true
 ---
 
