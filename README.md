@@ -17,6 +17,7 @@ Nesse repositório, organizo a estrutura do meu blog pessoal 🌐
 
 - [Visão Geral](#visão-geral)
 - [Estrutura de Pastas](#estrutura-de-pastas)
+- [Writing](#writing)
 - [Features](#features)
 - [Pipeline](#pipeline)
 - [Referências](#referências)
@@ -28,11 +29,11 @@ Nesse repositório, organizo a estrutura do meu blog pessoal 🌐
 
 > [!WARNING]
 >
-> Ainda estou desenvolvendo esse projeto, portanto, não o utilize antes da primeira versão.
+> Ainda estou desenvolvendo esse projeto, portanto, não o utilize antes da primeira release lançada.
 
 # Visão Geral
 
-Sempre quis ter um blog pessoal para compartilhar o que aprendo e, ao mesmo tempo, praticar minhas habilidades de escrita. Porém, sabe como é, normalmente a gente acaba adiando esse tipo de projeto por falta de tempo ou prioridade. Mas, recentemente, descobri o [Astro](https://astro.build/), um framework para construção de sites estáticos com markdown que me chamou bastante atenção. Não sou desenvolvedor front-end, mas a proposta do Astro me pareceu bem interessante e intuitiva.
+Sempre quis ter um blog pessoal para compartilhar o que aprendo e, ao mesmo tempo, praticar minhas habilidades de escrita. Porém, sabe como é, normalmente a gente acaba adiando esse tipo de projeto por falta de tempo ou prioridade. Mas, recentemente, descobri o [Astro](https://astro.build/), um framework para construção de sites estáticos que me chamou bastante atenção. Detalhe, não sou desenvolvedor front-end, mas a proposta do Astro me pareceu bem interessante.
 
 Como já uso o [Obsidian](https://obsidian.md/) para organizar minhas notas e ideias (em markdown), pensei que seria uma ótima oportunidade para finalmente colocar esse projeto em prática e sair da procrastinação.
 
@@ -69,6 +70,19 @@ obsidian-blogger/
 ├── astro.config.mjs  # Astro configuration
 └── package.json      # Project dependencies
 ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# Writing
+
+Os posts estão localizados no diretório [posts](./posts) e são escritos em Markdown. Para editar ou criar um novo post, basta seguir as instruções abaixo:
+
+- Crie um novo arquivo `.md` no diretório [posts](./posts).
+- Adicione o conteúdo do post no arquivo criado.
+- Adicione o frontmatter no início do arquivo. O frontmatter é um bloco de metadados que contém informações sobre o post, como título, data de publicação, autor, etc. Abaixo, um exemplo de frontmatter:
+- Salve o arquivo e faça um commit com a mensagem no formato [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+- Faça um push do commit para o repositório remoto.
+- Aguarde o pipeline de CI/CD ser acionado e o site ser atualizado.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
