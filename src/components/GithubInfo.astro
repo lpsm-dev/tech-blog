@@ -1,22 +1,28 @@
 ---
+// Import necessary components and utilities
 import { Icon } from "astro-icon/components";
 const { url } = Astro.props;
 ---
 
 <github-info class="github-card" data-url={url}>
   <div class="card-header">
-    <img class="pixelated-image" src="" alt="Repo image" />
     <div class="repo-info">
       <h3 class="repo-name">
         <span>
           <span class="loading loading-spinner loading-xs"></span>
         </span>
       </h3>
-      <div class="repo-owner">
-        <Icon name="ri:user-line" class="icon" />
-        <span>
-          <span class="loading loading-spinner loading-xs"></span>
-        </span>
+      <p class="repo-description">
+        <span class="loading loading-spinner loading-xs"></span>
+      </p>
+      <div class="repo-language">
+        <p>
+          <Icon name="ri:code-line" class="icon" />
+          Linguagem:
+          <span>
+            <span class="loading loading-spinner loading-xs"></span>
+          </span>
+        </p>
       </div>
     </div>
   </div>
@@ -38,7 +44,7 @@ const { url } = Astro.props;
 
   <a href={url} target="_blank" rel="noopener noreferrer" class="github-button">
     <Icon name="ri:github-fill" class="button-icon" />
-    View on GitHub
+    Olhe no GitHub
   </a>
 </github-info>
 
@@ -61,16 +67,15 @@ const { url } = Astro.props;
         })
         .then((data) => {
           this.querySelector(".repo-name span")!.textContent = data.name;
-          this.querySelector(".repo-owner span")!.textContent =
-            data.owner.login;
+          this.querySelector(".repo-description span")!.textContent =
+            data.description || "No description provided.";
+          this.querySelector(".repo-language span")!.textContent =
+            data.language || "N/A";
           this.querySelectorAll(".stat-value").forEach((span, index) => {
             span.textContent = formatNumber(
               index === 0 ? data.stargazers_count : data.forks_count,
             );
           });
-
-          const img = this.querySelector("img")!;
-          img.src = data.owner.avatar_url;
         })
         .catch((error) => {
           console.error("Error fetching repository info:", error);
@@ -101,8 +106,23 @@ const { url } = Astro.props;
     color: rgb(var(--black)) !important;
   }
 
-  .repo-owner {
+  .repo-description {
     color: rgb(var(--gray)) !important;
+    margin-top: 0.5rem;
+  }
+
+  .repo-language {
+    color: rgb(var(--gray)) !important;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .repo-language p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
   }
 
   .stat-item {
@@ -117,14 +137,6 @@ const { url } = Astro.props;
     display: flex;
     align-items: center;
     gap: 1rem;
-  }
-
-  .pixelated-image {
-    width: 64px;
-    height: 64px;
-    border-radius: 8px;
-    image-rendering: pixelated;
-    object-fit: cover;
   }
 
   .repo-info {
