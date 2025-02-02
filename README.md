@@ -90,7 +90,7 @@ Os posts estão localizados no diretório [posts](./posts) e são escritos em Ma
 
 # Frontmatter
 
-O frontmatter é um bloco de metadados que contém informações sobre o post. Ele é escrito no formato YAML e deve ser colocado no início do arquivo, antes do conteúdo do post. Aqui está um modelo de frontmatter para seu blog Astro, seguindo o esquema fornecido:
+O frontmatter é um bloco de metadados que contém informações sobre o post. Ele é escrito no formato YAML e deve ser colocado no início do arquivo, antes do conteúdo do post. Nesse projeto, o frontmatter é usado da seguinte forma:
 
 ```yaml
 ---
