@@ -19,7 +19,7 @@ Nesse repositório, organizo a estrutura do meu blog pessoal
 - [Estrutura de Pastas](#estrutura-de-pastas)
 - [Comandos](#comandos)
 - [Features](#features)
-- [Pipeline](#pipeline)
+- [Pipeline Process](#pipeline-process)
 - [Referências](#referências)
 - [Versionamento](#versionamento)
 - [Troubleshooting](#troubleshooting)
@@ -89,7 +89,7 @@ Todos os comandos que podemos executados a partir da raiz do projeto em um termi
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Pipeline
+# Pipeline Process
 
 A forma como o projeto é construído e entregue é através de um pipeline de CI/CD utilizando o GitHub Actions. A seguir, temos um diagrama que ilustra o fluxo de trabalho desse pipeline:
 
