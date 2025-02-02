@@ -138,7 +138,7 @@ no_index: false
 ---
 ```
 
-````
+Aqui está a descrição de cada campo do frontmatter:
 
 | Campo | Descrição | Obrigatório? | Dicas/Formato |
 | --- | --- | --- | --- |
