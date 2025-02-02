@@ -27,7 +27,9 @@ Nesse repositório, organizo a estrutura do meu blog pessoal
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-> [!WARNING] Ainda estou desenvolvendo esse projeto, portanto, não o utilize antes da primeira versão.
+> [!WARNING]
+>
+> Ainda estou desenvolvendo esse projeto, portanto, não o utilize antes da primeira versão.
 
 # Visão Geral
 
