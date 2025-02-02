@@ -154,6 +154,26 @@ no_index: false
 | `reading_time` | Tempo estimado de leitura em minutos | Não | Pode ser calculado automaticamente |
 | `no_index` | Impede indexação por motores de busca | Não | Padrão: `false` (só habilitar para posts privados/rascunhos) |
 
+> [!NOTE]
+>
+> 1. **Campos obrigatórios**: `title`, `created_date` e `updated_date` devem sempre ser preenchidos
+> 2. **Formatação de datas**: Usar sempre no formato ISO 8601: `"2024-01-01T14:30:00.000Z"` (data/hora UTC) `"2024-01-01"` (apenas data, sem hora)
+> 3. **Imagens**:
+>
+> - Armazenar na pasta `public` do projeto Astro
+> - Usar caminhos relativos (ex: `/images/post-cover.jpg`)
+> - Otimizar para web (formato WebP recomendado)
+>
+> 4. **SEO**:
+>
+> - `meta_title` e `meta_description` têm prioridade sobre `title` e `description`
+> - `canonical_url` é essencial para conteúdo republicado
+> - `keywords` auxilia mecanismos de busca antigos
+>
+> 5. **Redes Sociais**:
+>
+> - Se campos específicos de redes (`og_*`, `twitter_*`) não forem preenchidos, usarão os valores gerais (`title`, `description`, etc)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Features
