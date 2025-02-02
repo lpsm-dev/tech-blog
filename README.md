@@ -19,6 +19,7 @@ Nesse repositório, organizo a estrutura do meu blog pessoal
 - [Estrutura de Pastas](#estrutura-de-pastas)
 - [Comandos](#comandos)
 - [Features](#features)
+- [Pipeline](#pipeline)
 - [Referências](#referências)
 - [Versionamento](#versionamento)
 - [Troubleshooting](#troubleshooting)
@@ -77,12 +78,46 @@ Todos os comandos que podemos executados a partir da raiz do projeto em um termi
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
 # Features
 
 - Dark Mode: Built-in dark mode support.
 - Date-based Sorting: Chronological post organization.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# Pipeline
+
+A forma como o projeto é construído e entregue é através de um pipeline de CI/CD utilizando o GitHub Actions. A seguir, temos um diagrama que ilustra o fluxo de trabalho desse pipeline:
+
+```mermaid
+graph
+    subgraph Developer Local
+        Change[New post, site or source change] --> Commit[<pre>git commit</pre> & <pre>git push</pre>]
+    end
+
+    Commit --> GHRepo["GitHub Repository"]
+    GHRepo --> Checkout
+
+    subgraph GitHub Actions CI/CD
+        Checkout -->
+        Install[Install dependencies: <pre>npm ci</pre>] -->
+        Build[Build: <pre>npm run build</pre>] -->
+        Deploy[Deploy to GitHub Pages]
+    end
+
+    Deploy --> GHPages[GitHub Edge Servers]
+
+    subgraph End user
+        Client[Web Browser]
+    end
+
+    Client-- Visits deployed website at --> GHPages
+    Client-- Retrieves the website built in --> GHRepo
+```
+
+Todo processo é detalhado para pensar em como as peças desse quebra-cabeça se encaixam. A ideia é que, a partir de um commit no repositório, o pipeline seja acionado e o site seja construído e entregue para o usuário final.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
