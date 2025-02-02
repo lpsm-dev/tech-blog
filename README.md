@@ -51,6 +51,8 @@ A estrutura geral de pastas do projeto é organizada da seguinte forma:
 
 - Na raiz do projeto, você encontrará arquivos de configuração gerais de diversas ferramentas, além do arquivos essenciais para a construção e gerenciamentos dos pacotes de desenvolvimento dessa aplicação.
 - Na pasta [src](src), você encontrará os arquivos de código-fonte da aplicação, cuja sua organização será detalhada mais adiante.
+- Na pasta [public](public), você encontrará os arquivos estáticos da aplicação, como imagens, fontes, etc.
+- Na pasta [posts](posts), você encontrará os arquivos de posts do blog, escritos em Markdown.
 - Na pasta [.github](github), você encontrará mais arquivos de configuração, mas que não estão diretamente relacionados ao código-fonte da aplicação. Além disso, temos a pasta [workflows](.github/workflows) que contém os arquivos de configuração dos workflows de CI/CD.
 
 ## Micro
