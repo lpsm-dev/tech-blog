@@ -15,7 +15,7 @@ export const PAGE_ABOUT_DESCRIPTION =
  */
 export const PAGE_PROJECTS_TITLE = "Explore meus projetos";
 export const PAGE_PROJECTS_DESCRIPTION =
-  "Aqui temos os projetos pessoais que desenvolvi ao longo do tempo.";
+  "Conheça os projetos que desenvolvi e contribui";
 /*
  * Services - Page titles and descriptions
  */
