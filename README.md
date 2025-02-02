@@ -18,8 +18,8 @@ Nesse repositório, organizo a estrutura do meu blog pessoal 🌐
 - [Visão Geral](#visão-geral)
 - [Estrutura de Pastas](#estrutura-de-pastas)
 - [Writing](#writing)
-- [Features](#features)
 - [Pipeline](#pipeline)
+- [Features](#features)
 - [Referências](#referências)
 - [Versionamento](#versionamento)
 - [Troubleshooting](#troubleshooting)
@@ -182,13 +182,6 @@ no_index: false
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Features
-
-- Dark Mode: Built-in dark mode support.
-- Date-based Sorting: Chronological post organization.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 # Pipeline
 
 A forma como o projeto é construído e entregue é através de um pipeline de CI/CD utilizando o GitHub Actions. A seguir, temos um diagrama que ilustra o fluxo de trabalho desse pipeline:
@@ -220,6 +213,13 @@ graph
 ```
 
 Todo processo é detalhado para pensar em como as peças desse quebra-cabeça se encaixam. A ideia é que, a partir de um commit no repositório, o pipeline seja acionado e o site seja construído e entregue para o usuário final.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# Features
+
+- Dark Mode: Built-in dark mode support.
+- Date-based Sorting: Chronological post organization.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
