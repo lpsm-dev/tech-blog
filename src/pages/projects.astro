@@ -1,103 +1,33 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import GithubInfo from "../components/GithubInfo.astro";
 import { PAGE_PROJECTS_TITLE, PAGE_PROJECTS_DESCRIPTION } from "../consts";
 ---
 
-<!doctype html>
-<html>
-  <head>
-    <BaseHead
-      title={PAGE_PROJECTS_TITLE}
-      description={PAGE_PROJECTS_DESCRIPTION}
-    />
-    <style>
-      body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-      }
-      main {
-        flex: 1;
-        width: 100%;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-      }
+<BaseLayout title={PAGE_PROJECTS_TITLE} description={PAGE_PROJECTS_DESCRIPTION}>
+  <section>
+    <div class="projects-grid">
+      <GithubInfo url="https://github.com/lpsm-dev/kubernetes-metacontroller" />
+      <GithubInfo url="https://github.com/lpsm-dev/docker-crypto-miner" />
+      <GithubInfo url="https://github.com/lpsm-dev/loli" />
+      <GithubInfo url="https://github.com/lpsm-dev/tech-blog" />
+      <GithubInfo url="https://github.com/lpsm-dev/tech-notes" />
+    </div>
+  </section>
+</BaseLayout>
 
-      .project-header {
-        text-align: center;
-        margin-bottom: 4rem;
-        padding: 4rem 1rem;
-        background: linear-gradient(
-          180deg,
-          rgba(var(--accent), 0.08) 0%,
-          rgba(var(--accent), 0.02) 100%
-        );
-        border-radius: 1.5rem;
-      }
+<style>
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+    padding: 0 1rem;
+  }
 
-      .project-title {
-        font-size: 3rem;
-        font-weight: 800;
-        color: rgb(var(--black));
-        margin-bottom: 1rem;
-        line-height: 1.2;
-      }
-
-      .project-description {
-        font-size: 1.25rem;
-        color: rgb(var(--gray));
-        max-width: 600px;
-        line-height: 1.6;
-        margin: 0 auto;
-      }
-
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        width: 100%;
-        padding: 0 1rem;
-      }
-
-      @media (max-width: 768px) {
-        .projects-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .project-title {
-          font-size: 2rem;
-        }
-
-        .project-description {
-          font-size: 1rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <main>
-      <div class="project-header">
-        <h1 class="project-title">{PAGE_PROJECTS_TITLE}</h1>
-        <p class="project-description">{PAGE_PROJECTS_DESCRIPTION}</p>
-      </div>
-      <div class="projects-grid">
-        <GithubInfo
-          url="https://github.com/lpsm-dev/kubernetes-metacontroller"
-        />
-        <GithubInfo url="https://github.com/lpsm-dev/docker-crypto-miner" />
-        <GithubInfo url="https://github.com/lpsm-dev/loli" />
-        <GithubInfo url="https://github.com/lpsm-dev/tech-blog" />
-        <GithubInfo url="https://github.com/lpsm-dev/tech-notes" />
-      </div>
-    </main>
-    <Footer />
-  </body>
-</html>
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
