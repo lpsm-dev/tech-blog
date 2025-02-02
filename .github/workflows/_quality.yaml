@@ -20,7 +20,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Running commit:lLint
-        uses: wagoid/commitlint-github-action@v5
+        uses: wagoid/commitlint-github-action@v6
         continue-on-error: true
       - name: Running secret:detection
         uses: gitleaks/gitleaks-action@v2
