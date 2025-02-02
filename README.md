@@ -48,6 +48,8 @@ Sendo assim, sejam muito bem-vindos a esse repositório. Fiquem à vontade para 
 
 # Estrutura de Pastas
 
+Para organizar o projeto, dividi a estrutura de pastas em duas partes: macro e micro.
+
 ## Macro
 
 A estrutura geral de pastas do projeto é organizada da seguinte forma:
