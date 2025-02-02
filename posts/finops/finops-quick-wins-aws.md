@@ -10,7 +10,7 @@ tags:
   - cloud
   - finops
 publish: true
-reading_time: 10min
+reading_time: 10
 ---
 
 # Visão Geral
