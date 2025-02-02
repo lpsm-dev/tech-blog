@@ -235,6 +235,7 @@ Todo processo é detalhado para pensar em como as peças desse quebra-cabeça se
 - Dark Mode: Alternância entre temas claro e escuro.
 - SEO: Otimização para mecanismos de busca.
 - Responsividade: Layout adaptável para diferentes dispositivos.
+- CSS Tailwind: Estilização com o framework Tailwind CSS.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
