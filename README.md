@@ -231,6 +231,7 @@ Links relevantes para essa documentação:
 - [Obsidian](https://obsidian.md/)
 - [Markdown](https://www.markdownguide.org/)
 - [Jamstack Architecture](https://jamstack.org/)
+- [Frontmatter](https://hexo.io/pt-br/docs/front-matter)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
