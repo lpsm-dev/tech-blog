@@ -17,13 +17,13 @@ Ao desenvolver um sistema, é importante ter em mente que ele deve ser escaláve
 
 # Objetivo
 
-Nesse artigo, vou explicar o que é Atomic Design e como ele pode ser aplicado no desenvolvimento de sistemas. Muito mais na visão de alguém que está começando a estudar sobre o assunto.
+Nesse artigo, vou explicar o que é Atomic Design e como ele pode ser aplicado no desenvolvimento de sistemas, na visão de alguém que está começando a estudar sobre o assunto.
 
 # Atomic Design
 
 ## O que é?
 
-Atomic Design é uma metodologia de design que divide a interface do usuário em componentes menores e mais simples, chamados de átomos, moléculas, organismos, templates e páginas. Esses componentes são combinados para criar interfaces mais complexas e reutilizáveis.
+O Atomic Design é uma metodologia de design que divide a interface do usuário em componentes menores e mais simples, chamados de átomos, moléculas, organismos, templates e páginas. Esses componentes são combinados para criar interfaces mais complexas e reutilizáveis.
 
 ## Por que é importante?
 
