@@ -9,7 +9,7 @@ tags:
   - aws
   - cloud
   - finops
-publish: true
+publish: false
 ---
 
 # Visão Geral
