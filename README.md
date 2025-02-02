@@ -17,7 +17,6 @@ Nesse repositório, organizo a estrutura do meu blog pessoal 🌐
 
 - [Visão Geral](#visão-geral)
 - [Estrutura de Pastas](#estrutura-de-pastas)
-- [Comandos](#comandos)
 - [Features](#features)
 - [Pipeline](#pipeline)
 - [Referências](#referências)
@@ -72,19 +71,6 @@ obsidian-blogger/
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-# Comandos
-
-Todos os comandos que podemos executados a partir da raiz do projeto em um terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
 # Features
 
