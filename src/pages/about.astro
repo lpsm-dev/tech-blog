@@ -1,202 +1,309 @@
 ---
-import Layout from "../layouts/BlogPost.astro";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import { PAGE_ABOUT_TITLE, PAGE_ABOUT_DESCRIPTION } from "../consts";
 ---
 
-<Layout
-  title={PAGE_ABOUT_TITLE}
-  description={PAGE_ABOUT_DESCRIPTION}
-  created_date={new Date()}
->
-  <h2>Resume</h2>
-  <p>
-    Engenheiro DevOps com mais de cinco anos de experiência no mercado de
-    tecnologia. Participei e liderei projetos de Cloud/DevOps que transformaram
-    a entrega de soluções para diversos clientes de diferentes nichos. Minha
-    paixão por automação e meu background com desenvolvimento (participação em
-    maratonas de programação) me ajudaram a criar processos robustos e
-    inovadores, focando sempre na qualidade e segurança. Sou um entusiasta de
-    tecnologias de código aberto e sempre busco aprender e compartilhar
-    conhecimento com a comunidade. Atualmente, estou focado em projetos que
-    envolvem Cloud, Kubernetes, CI/CD, IaC e Engenharia de Plataform.
-  </p>
+<!doctype html>
+<html>
+  <head>
+    <BaseHead title={PAGE_ABOUT_TITLE} description={PAGE_ABOUT_DESCRIPTION} />
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+      }
+      main {
+        flex: 1;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+      }
 
-  <h2>Experience</h2>
-  <h3>DevOps Engineer</h3>
-  <p>
-    <strong>Nuage IT's everywhere</strong> - Brazil - Jan 2023 - Presente
-  </p>
-  <ul>
-    <li>
-      Lead the implementation of a new CI/CD pipeline using GitLab CI and
-      Kubernetes, reducing the deployment time by 50%.
-    </li>
-    <li>
-      Developed a monitoring solution using Prometheus and Grafana to track the
-      performance of the applications and infrastructure.
-    </li>
-    <li>
-      Implemented a centralized logging system using ELK stack to aggregate logs
-      from different services and applications.
-    </li>
-    <li>
-      Created an IaC solution using Terraform to manage the cloud infrastructure
-      and reduce the manual intervention in the provisioning process.
-    </li>
-  </ul>
+      .project-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 2rem 1rem;
+        background: linear-gradient(
+          180deg,
+          rgba(var(--accent), 0.08) 0%,
+          rgba(var(--accent), 0.02) 100%
+        );
+        border-radius: 1.5rem;
+      }
 
-  <h3>DevOps Analyst</h3>
-  <p>
-    <strong>Nuage IT's everywhere</strong> - Brazil - Mar 2021 - Jan 2023
-  </p>
-  <ul>
-    <li>
-      Lead the implementation of a new CI/CD pipeline using GitLab CI and
-      Kubernetes, reducing the deployment time by 50%.
-    </li>
-    <li>
-      Developed a monitoring solution using Prometheus and Grafana to track the
-      performance of the applications and infrastructure.
-    </li>
-    <li>
-      Implemented a centralized logging system using ELK stack to aggregate logs
-      from different services and applications.
-    </li>
-    <li>
-      Created an IaC solution using Terraform to manage the cloud infrastructure
-      and reduce the manual intervention in the provisioning process.
-    </li>
-  </ul>
+      .project-title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: rgb(var(--black));
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
 
-  <h3>Cloud Analyst</h3>
-  <p>
-    <strong>Stefanini Group</strong> - Brazil - Jan 2020 - Ago 2021
-  </p>
-  <ul>
-    <li>
-      Gerenciei ambientes AWS, incluindo instâncias EC2, ECS, RDS, VPC e
-      serviços relacionados, garantindo alta disponibilidade e desempenho.
-    </li>
-    <li>
-      Criei ferramentas CLI personalizadas em Python e Go para otimizar fluxos
-      de trabalho e aumentar a produtividade da equipe.
-    </li>
-    <li>
-      Integrei ambiente de Kubernetes com um processo de monitoramento e
-      observabilidade utilizando Prometheus, Grafana, Alertmanager, Graylog e
-      EFK.
-    </li>
-    <li>
-      Criei um processo para padronizar os catálogos Helm necessários para
-      implantar cargas de trabalho no Kubernetes para vários clientes.
-    </li>
-    <li>
-      Automatizei o provisionamento de infraestrutura utilizando Terraform,
-      reduzindo o tempo de configuração de ambientes e garantindo consistência
-      entre implantações.
-    </li>
-    <li>
-      Aprimorei o modelo de CI/CD "Infinity Deploy", introduzindo tecnologias
-      como SAST (com SonarQube), testes de desempenho (com Locust), varredura de
-      contêineres (com Clair) e linting de Dockerfiles (com Hadolint) e secrets
-      detection (com GitLeaks).
-    </li>
-    <li>
-      Fazia troubleshooting de problemas de infraestrutura e aplicação, tanto no
-      Kubernetes, quanto no ambiente da AWS.
-    </li>
-  </ul>
+      .project-description {
+        font-size: 1.25rem;
+        color: rgb(var(--gray));
+        max-width: 600px;
+        line-height: 1.6;
+        margin: 0 auto;
+      }
 
-  <h3>Estagiário de Cloud</h3>
-  <p>
-    <strong>Stefanini Group</strong> - Brazil - Abr 2019 - Jan 2020
-  </p>
-  <ul>
-    <li>
-      Desenvolvi o modelo CI/CD "Infinity Deploy", reduzindo o tempo setup de
-      pipelines com padronização e reutilização de templates.
-    </li>
-    <li>
-      Adquiri experiência prática com tecnologias de orquestração de
-      contêineres, como Kubernetes, Rancher e Docker, gerenciando múltiplos
-      ambientes de desenvolvimento, teste e produção.
-    </li>
-    <li>
-      Criei e configurei pipelines CI/CD no GitLab CI para vários projetos em
-      diversas stacks tecnológicas, incluindo Android, NodeJS, React, PHP, Java
-      e Python.
-    </li>
-    <li>
-      Desenvolvi scripts de automação utilizando linguagens como Python, Ruby,
-      Shell Script e PowerShell
-    </li>
-    <li>
-      Configurei e gerenciei ambientes de desenvolvimento utilizando Helm
-      charts, reduzindo drasticamente o tempo de setup de aplicações no
-      Kubernetes.
-    </li>
-    <li>
-      Implementei soluções de monitoramento e alertas utilizando ferramentas
-      como Zabbix, Zoho e Telegram, aumentando a detecção proativa de falhas.
-    </li>
-  </ul>
+      h1 {
+        color: rgb(var(--accent));
+        font-size: 2.5rem;
+        margin: 2rem 0 1.5rem;
+      }
 
-  <h3>Estagiário de Suporte</h3>
-  <p>
-    <strong>Ativu Tecnologia</strong> - Brazil - Jul 2018 - Mar 2019
-  </p>
-  <ul>
-    <li>
-      Prestei suporte técnico de para usuários internos e externos, solucionando
-      problemas de hardware, software e redes.
-    </li>
-    <li>
-      Desenvolvi e mantive relatórios e dashboards utilizando ferramentas de
-      visualização de dados como Power BI, QlikView e QlikSense, contribuindo
-      para a análise e tomada de decisões estratégicas.
-    </li>
-    <li>
-      Criei e otimizei scripts de automação para tarefas repetitivas, aumentando
-      a eficiência operacional da equipe.
-    </li>
-    <li>
-      Elaborei consultas SQL para extração e manipulação de dados, garantindo a
-      integridade e precisão das informações.
-    </li>
-    <li>
-      Desenvolvi um fluxo de trabalho com scripts em Python para manipulação de
-      planilhas do Excel, reduzindo significativamente o tempo e a complexidade
-      de tarefas manuais.
-    </li>
-    <li>
-      Colaborei com a equipe de TI na implementação e manutenção de sistemas,
-      realizando testes e documentando processos.
-    </li>
-    <li>
-      Auxiliei na elaboração de manuais e tutoriais técnicos para facilitar o
-      uso de ferramentas e sistemas pelos usuários.
-    </li>
-  </ul>
+      h2 {
+        color: rgb(var(--black));
+        font-size: 2rem;
+        margin: 2rem 0 1.2rem;
+        border-bottom: 2px solid rgba(var(--accent), 0.1);
+        padding-bottom: 0.5rem;
+      }
 
-  <h2>Skills</h2>
-  <p>
-    CLI Development (Golang, Python), Programming script (Ruby, Shell Script,
-    PowerShell), Backend develop with Flask/NodeJS, SQL with
-    Postgres/MySQL/MariaDB, NoSQL with MongoDB/Redis/ArangoDB, Message Broker
-    with RabbitMQ/Mosquitto, DevOps with GitLab CI/GitHub Actions/Azure Devops,
-    Cloud providers AWS/GCP, Observability with ELK/EFK/Graylog, Monitoring with
-    Zabbix/Prometheus/Grafana, IAC with Terraform/Crossplane/Packer/Ansible,
-    Docker and Cloud Native Buildpacks, Kubernetes/Rancher/Helm.
-  </p>
+      h3 {
+        color: rgb(var(--gray));
+        font-size: 1.5rem;
+        margin: 1.5rem 0 1rem;
+      }
 
-  <h2>Certifications</h2>
-  <ol>
-    <li>AWS Certified Cloud Practitioner</li>
-    <li>AWS Certified SysOps Administrator</li>
-    <li>Certified Kubernetes Application Developer</li>
-    <li>Certified Argo Project Associate</li>
-    <li>Source Control Management with Git</li>
-    <li>HashiCorp Certified: Terraform Associate</li>
-    <li>GitHub Foundations Certified</li>
-  </ol>
-</Layout>
+      @media (max-width: 768px) {
+        .project-title {
+          font-size: 2rem;
+        }
+
+        .project-description {
+          font-size: 1rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.75rem;
+        }
+
+        h3 {
+          font-size: 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="project-header">
+        <h1 class="project-title">{PAGE_ABOUT_TITLE}</h1>
+        <p class="project-description">{PAGE_ABOUT_DESCRIPTION}</p>
+      </div>
+      <section>
+        <!-- Section 1 - Resume -->
+        <h2>Resume</h2>
+        <p>
+          Engenheiro DevOps com mais de cinco anos de experiência no mercado de
+          tecnologia. Participei e liderei projetos de Cloud/DevOps que
+          transformaram a entrega de soluções para diversos clientes de
+          diferentes nichos. Minha paixão por automação e meu background com
+          desenvolvimento (participação em maratonas de programação) me ajudaram
+          a criar processos robustos e inovadores, focando sempre na qualidade e
+          segurança. Sou um entusiasta de tecnologias de código aberto e sempre
+          busco aprender e compartilhar conhecimento com a comunidade.
+          Atualmente, estou focado em projetos que envolvem Cloud, Kubernetes,
+          CI/CD, IaC e Engenharia de Plataform.
+        </p>
+        <!-- Section 2 - Experience -->
+        <h2>Experience</h2>
+        <h3>DevOps Engineer</h3>
+        <p>
+          <strong>Nuage IT's everywhere</strong> - Brazil - Jan 2023 - Presente
+        </p>
+        <ul>
+          <li>
+            Lead the implementation of a new CI/CD pipeline using GitLab CI and
+            Kubernetes, reducing the deployment time by 50%.
+          </li>
+          <li>
+            Developed a monitoring solution using Prometheus and Grafana to
+            track the performance of the applications and infrastructure.
+          </li>
+          <li>
+            Implemented a centralized logging system using ELK stack to
+            aggregate logs from different services and applications.
+          </li>
+          <li>
+            Created an IaC solution using Terraform to manage the cloud
+            infrastructure and reduce the manual intervention in the
+            provisioning process.
+          </li>
+        </ul>
+
+        <h3>DevOps Analyst</h3>
+        <p>
+          <strong>Nuage IT's everywhere</strong> - Brazil - Mar 2021 - Jan 2023
+        </p>
+        <ul>
+          <li>
+            Lead the implementation of a new CI/CD pipeline using GitLab CI and
+            Kubernetes, reducing the deployment time by 50%.
+          </li>
+          <li>
+            Developed a monitoring solution using Prometheus and Grafana to
+            track the performance of the applications and infrastructure.
+          </li>
+          <li>
+            Implemented a centralized logging system using ELK stack to
+            aggregate logs from different services and applications.
+          </li>
+          <li>
+            Created an IaC solution using Terraform to manage the cloud
+            infrastructure and reduce the manual intervention in the
+            provisioning process.
+          </li>
+        </ul>
+
+        <h3>Cloud Analyst</h3>
+        <p>
+          <strong>Stefanini Group</strong> - Brazil - Jan 2020 - Ago 2021
+        </p>
+        <ul>
+          <li>
+            Gerenciei ambientes AWS, incluindo instâncias EC2, ECS, RDS, VPC e
+            serviços relacionados, garantindo alta disponibilidade e desempenho.
+          </li>
+          <li>
+            Criei ferramentas CLI personalizadas em Python e Go para otimizar
+            fluxos de trabalho e aumentar a produtividade da equipe.
+          </li>
+          <li>
+            Integrei ambiente de Kubernetes com um processo de monitoramento e
+            observabilidade utilizando Prometheus, Grafana, Alertmanager,
+            Graylog e EFK.
+          </li>
+          <li>
+            Criei um processo para padronizar os catálogos Helm necessários para
+            implantar cargas de trabalho no Kubernetes para vários clientes.
+          </li>
+          <li>
+            Automatizei o provisionamento de infraestrutura utilizando
+            Terraform, reduzindo o tempo de configuração de ambientes e
+            garantindo consistência entre implantações.
+          </li>
+          <li>
+            Aprimorei o modelo de CI/CD "Infinity Deploy", introduzindo
+            tecnologias como SAST (com SonarQube), testes de desempenho (com
+            Locust), varredura de contêineres (com Clair) e linting de
+            Dockerfiles (com Hadolint) e secrets detection (com GitLeaks).
+          </li>
+          <li>
+            Fazia troubleshooting de problemas de infraestrutura e aplicação,
+            tanto no Kubernetes, quanto no ambiente da AWS.
+          </li>
+        </ul>
+
+        <h3>Estagiário de Cloud</h3>
+        <p>
+          <strong>Stefanini Group</strong> - Brazil - Abr 2019 - Jan 2020
+        </p>
+        <ul>
+          <li>
+            Desenvolvi o modelo CI/CD "Infinity Deploy", reduzindo o tempo setup
+            de pipelines com padronização e reutilização de templates.
+          </li>
+          <li>
+            Adquiri experiência prática com tecnologias de orquestração de
+            contêineres, como Kubernetes, Rancher e Docker, gerenciando
+            múltiplos ambientes de desenvolvimento, teste e produção.
+          </li>
+          <li>
+            Criei e configurei pipelines CI/CD no GitLab CI para vários projetos
+            em diversas stacks tecnológicas, incluindo Android, NodeJS, React,
+            PHP, Java e Python.
+          </li>
+          <li>
+            Desenvolvi scripts de automação utilizando linguagens como Python,
+            Ruby, Shell Script e PowerShell
+          </li>
+          <li>
+            Configurei e gerenciei ambientes de desenvolvimento utilizando Helm
+            charts, reduzindo drasticamente o tempo de setup de aplicações no
+            Kubernetes.
+          </li>
+          <li>
+            Implementei soluções de monitoramento e alertas utilizando
+            ferramentas como Zabbix, Zoho e Telegram, aumentando a detecção
+            proativa de falhas.
+          </li>
+        </ul>
+
+        <h3>Estagiário de Suporte</h3>
+        <p>
+          <strong>Ativu Tecnologia</strong> - Brazil - Jul 2018 - Mar 2019
+        </p>
+        <ul>
+          <li>
+            Prestei suporte técnico de para usuários internos e externos,
+            solucionando problemas de hardware, software e redes.
+          </li>
+          <li>
+            Desenvolvi e mantive relatórios e dashboards utilizando ferramentas
+            de visualização de dados como Power BI, QlikView e QlikSense,
+            contribuindo para a análise e tomada de decisões estratégicas.
+          </li>
+          <li>
+            Criei e otimizei scripts de automação para tarefas repetitivas,
+            aumentando a eficiência operacional da equipe.
+          </li>
+          <li>
+            Elaborei consultas SQL para extração e manipulação de dados,
+            garantindo a integridade e precisão das informações.
+          </li>
+          <li>
+            Desenvolvi um fluxo de trabalho com scripts em Python para
+            manipulação de planilhas do Excel, reduzindo significativamente o
+            tempo e a complexidade de tarefas manuais.
+          </li>
+          <li>
+            Colaborei com a equipe de TI na implementação e manutenção de
+            sistemas, realizando testes e documentando processos.
+          </li>
+          <li>
+            Auxiliei na elaboração de manuais e tutoriais técnicos para
+            facilitar o uso de ferramentas e sistemas pelos usuários.
+          </li>
+        </ul>
+        <!-- Section 3 - Skills -->
+        <h2>Skills</h2>
+        <p>
+          CLI Development (Golang, Python), Programming script (Ruby, Shell
+          Script, PowerShell), Backend develop with Flask/NodeJS, SQL with
+          Postgres/MySQL/MariaDB, NoSQL with MongoDB/Redis/ArangoDB, Message
+          Broker with RabbitMQ/Mosquitto, DevOps with GitLab CI/GitHub
+          Actions/Azure Devops, Cloud providers AWS/GCP, Observability with
+          ELK/EFK/Graylog, Monitoring with Zabbix/Prometheus/Grafana, IAC with
+          Terraform/Crossplane/Packer/Ansible, Docker and Cloud Native
+          Buildpacks, Kubernetes/Rancher/Helm.
+        </p>
+        <!-- Section 4 - Certifications -->
+        <h2>Certifications</h2>
+        <ol>
+          <li>AWS Certified Cloud Practitioner</li>
+          <li>AWS Certified SysOps Administrator</li>
+          <li>Certified Kubernetes Application Developer</li>
+          <li>Certified Argo Project Associate</li>
+          <li>Source Control Management with Git</li>
+          <li>HashiCorp Certified: Terraform Associate</li>
+          <li>GitHub Foundations Certified</li>
+        </ol>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
