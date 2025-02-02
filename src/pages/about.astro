@@ -7,7 +7,7 @@ import { PAGE_ABOUT_TITLE, PAGE_ABOUT_DESCRIPTION } from "../consts";
   <section>
     <!-- Section 1 - Resume -->
     <p>
-      Engenheiro DevOps com mais de cinco anos de experiência no mercado de
+      Engenheiro DevOps com mais de seis anos de experiência no mercado de
       tecnologia. Participei e liderei projetos de Cloud/DevOps que
       transformaram a entrega de soluções para diversos clientes de diferentes
       nichos. Minha paixão por automação e meu background com desenvolvimento
@@ -15,9 +15,59 @@ import { PAGE_ABOUT_TITLE, PAGE_ABOUT_DESCRIPTION } from "../consts";
       robustos e inovadores, focando sempre na qualidade e segurança. Sou um
       entusiasta de tecnologias de código aberto e sempre busco aprender e
       compartilhar conhecimento com a comunidade. Atualmente, estou focado em
-      projetos que envolvem Cloud, Kubernetes, CI/CD, IaC e Engenharia de
-      Plataform.
+      projetos que envolvem Cloud, Kubernetes, CI/CD, IaC e IDP e busco uma
+      oportunidade para me consolidar como Engenheiro de Plataforma.
     </p>
+    <!-- Section 4 - Certifications -->
+    <h2>Certificações</h2>
+    <div class="certifications">
+      <ul>
+        <li>
+          <a
+            href="https://www.credly.com/badges/b0c0fcc0-dffa-4bcc-9bdb-1c1f0f6101b2"
+            target="_blank">AWS Certified Cloud Practitioner</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.credly.com/badges/028637d3-b11e-42c5-bae0-73f08afb8f4b"
+            target="_blank">AWS Certified SysOps Administrator</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.credly.com/badges/26d70dd2-b56b-4341-8131-8834b37bc666"
+            target="_blank">CKAD: Certified Kubernetes Application Developer</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.credly.com/badges/4a69cc85-24c0-49d5-a580-f31c23aaec1b"
+            target="_blank">CAPA: Certified Argo Project Associate</a
+          >
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a
+            href="https://www.credly.com/badges/1efaf3e3-2681-435e-ab88-49d1f00e8ff7"
+            target="_blank">HashiCorp Certified: Terraform Associate (002)</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.credly.com/badges/9a43b812-c467-49aa-b584-59ee8a808d2e"
+            target="_blank">SC102: Source Control Management with Git</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.credly.com/badges/7f10e522-85f3-4b0b-8a24-9e021965355a"
+            target="_blank">GitHub Foundations Certified</a
+          >
+        </li>
+      </ul>
+    </div>
     <!-- Section 2 - Experience -->
     <h2>Experiência</h2>
     <h3>DevOps Engineer</h3>
@@ -212,56 +262,17 @@ import { PAGE_ABOUT_TITLE, PAGE_ABOUT_DESCRIPTION } from "../consts";
         </li>
       </ul>
     </div>
-    <!-- Section 4 - Certifications -->
-    <h2>Certificações</h2>
-    <div class="certifications">
-      <ul>
-        <li>
-          <a
-            href="https://www.credly.com/badges/b0c0fcc0-dffa-4bcc-9bdb-1c1f0f6101b2"
-            target="_blank"
-            >AWS Certified Cloud Practitioner - Amazon Web Services</a>
-        </li>
-        <li>
-          <a
-            href="https://www.credly.com/badges/028637d3-b11e-42c5-bae0-73f08afb8f4b"
-            target="_blank"
-            >AWS Certified SysOps Administrator – Associate - Amazon Web
-            Services</a>
-        </li>
-        <li>
-          <a
-            href="https://www.credly.com/badges/26d70dd2-b56b-4341-8131-8834b37bc666"
-            target="_blank"
-            >CKAD: Certified Kubernetes Application Developer - The Linux
-            Foundation</a>
-        </li>
-        <li>
-          <a
-            href="https://www.credly.com/badges/4a69cc85-24c0-49d5-a580-f31c23aaec1b"
-            target="_blank"
-            >CAPA: Certified Argo Project Associate - The Linux Foundation</a>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <a
-            href="https://www.credly.com/badges/9a43b812-c467-49aa-b584-59ee8a808d2e"
-            target="_blank"
-            >SC102: Source Control Management with Git - The Linux Foundation</a>
-        </li>
-        <li>
-          <a
-            href="https://www.credly.com/badges/1efaf3e3-2681-435e-ab88-49d1f00e8ff7"
-            target="_blank"
-            >HashiCorp Certified: Terraform Associate (002) - HashiCorp</a>
-        </li>
-        <li>
-          <a
-            href="https://www.credly.com/badges/7f10e522-85f3-4b0b-8a24-9e021965355a"
-            target="_blank">GitHub Foundations Certified</a>
-        </li>
-      </ul>
+    <!-- Section 5 - Idiomas -->
+    <h2>Idiomas</h2>
+    <div class="languages-grid">
+      <div class="language">
+        <h3>Português</h3>
+        <p>Nativo</p>
+      </div>
+      <div class="language">
+        <h3>Inglês</h3>
+        <p>Intermediário Técnico</p>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -289,5 +300,29 @@ import { PAGE_ABOUT_TITLE, PAGE_ABOUT_DESCRIPTION } from "../consts";
   .skills li,
   .certifications li {
     margin: 5px 0;
+  }
+
+  .education {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .degree-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  .institution {
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+
+  .languages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
   }
 </style>
