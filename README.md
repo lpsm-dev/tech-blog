@@ -280,4 +280,3 @@ Feito com 💜 pelo **Time de DevOps** :wave: inspirado no [readme-md-generator]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- END_DOCS -->
-````
