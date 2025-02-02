@@ -162,7 +162,9 @@ no_index: false
 >
 > 2. **Formatação de datas**:
 >
-> Usar sempre no formato ISO 8601: `"2024-01-01T14:30:00.000Z"` (data/hora UTC) `"2024-01-01"` (apenas data, sem hora) 3. **Imagens**:
+> Usar sempre no formato ISO 8601: `"2024-01-01T14:30:00.000Z"` (data/hora UTC) `"2024-01-01"` (apenas data, sem hora)
+>
+> 3. **Imagens**:
 >
 > - Armazenar na pasta `public` do projeto Astro
 > - Usar caminhos relativos (ex: `/images/post-cover.jpg`)
