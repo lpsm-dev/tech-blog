@@ -42,7 +42,7 @@ Sempre quis ter um blog pessoal para compartilhar o que aprendo e, ao mesmo temp
 
 Como já uso o [Obsidian](https://obsidian.md/) para organizar minhas notas e ideias (em markdown), pensei que seria uma ótima oportunidade para finalmente colocar esse projeto em prática e sair da procrastinação. Além disso, queria ter uma experiência prática de desenvolver esse blog do zero, sem utilizar plataformas prontas como Medium, Dev.to, etc. E sim, eu sei que isso pode ser um pouco mais trabalhoso, mas acredito que o aprendizado e a experiência valerão a pena, justamente por não ser um desenvolvedor front-end e sim o cara que arruma o deploy errado de uma sexta-feira à noite ⚰️, kkkkk. Brincadeiras a parte...
 
-Sendo assim, sejam muito bem-vindos a esse repositório. Fiquem à vontade para explorar, contribuir e, principalmente, me ajudar a melhorar esse projeto. Afinal, a ideia é aprender e compartilhar conhecimento, certo? 🚀
+Sendo assim, sejam muito bem-vindos a esse repositório. Fiquem à vontade para explorar, contribuir e, principalmente, me ajudar a melhorar esse projeto. 🚀
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
