@@ -81,10 +81,78 @@ Os posts estão localizados no diretório [posts](./posts) e são escritos em Ma
 
 - Crie um novo arquivo `.md` no diretório [posts](./posts).
 - Adicione o conteúdo do post no arquivo criado.
-- Adicione o frontmatter no início do arquivo. O frontmatter é um bloco de metadados que contém informações sobre o post, como título, data de publicação, autor, etc. Abaixo, um exemplo de frontmatter:
+- Adicione o frontmatter no início do arquivo. O frontmatter é um bloco de metadados que contém informações sobre o post, como título, data de publicação, autor, etc.
 - Salve o arquivo e faça um commit com a mensagem no formato [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 - Faça um push do commit para o repositório remoto.
 - Aguarde o pipeline de CI/CD ser acionado e o site ser atualizado.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# Frontmatter
+
+O frontmatter é um bloco de metadados que contém informações sobre o post. Ele é escrito no formato YAML e deve ser colocado no início do arquivo, antes do conteúdo do post. Aqui está um modelo de frontmatter para seu blog Astro, seguindo o esquema fornecido:
+
+```yaml
+---
+title: "Título do Post"
+subtitle: "Subtítulo Opcional"
+description: "Descrição breve do post"
+publish: true
+created_date: "2024-01-01T00:00:00.000Z"
+updated_date: "2024-01-01T00:00:00.000Z"
+featured_image: "/caminho/para/imagem.jpg"
+featured_image_alt: "Texto alternativo da imagem"
+slug: "titulo-do-post"
+tags:
+  - "tag1"
+  - "tag2"
+meta_title: "Título para SEO"
+meta_description: "Descrição para SEO"
+canonical_url: "https://site.com/post"
+og_title: "Título para Open Graph"
+og_description: "Descrição para Open Graph"
+og_image: "/caminho/para/og-image.jpg"
+og_type: "article"
+twitter_title: "Título para Twitter"
+twitter_description: "Descrição para Twitter"
+twitter_image: "/caminho/para/twitter-image.jpg"
+twitter_card: "summary_large_image"
+keywords:
+  - "keyword1"
+  - "keyword2"
+author: "Nome do Autor"
+reading_time: 10
+no_index: false
+---
+```
+
+| Campo | Descrição | Obrigatório? | Dicas/Formato |
+| --- | --- | --- | --- |
+| `title` | Título principal do post | **Sim** | Use 2-6 palavras-chave relevantes |
+| `subtitle` | Subtítulo do post | Não | Mantenha curto (até 15 palavras) |
+| `description` | Descrição resumida para previews | Não | Ideal entre 50-160 caracteres |
+| `publish` | Se o post deve ser publicado | Não | Padrão: `true` |
+| `created_date` | Data de criação do conteúdo | **Sim** | Formato ISO 8601: `"YYYY-MM-DDTHH:mm:ss.SSSZ"` |
+| `updated_date` | Data da última atualização | **Sim** | Atualizar sempre que fizer modificações relevantes |
+| `featured_image` | Imagem destacada do post | Não | Caminho relativo à pasta `public` (ex: `/posts/imagem.jpg`) |
+| `featured_image_alt` | Texto alternativo para a imagem | Não | Descrever conteúdo e contexto da imagem |
+| `slug` | URL amigável do post | Não | Gerar automaticamente do título se omitido |
+| `tags` | Lista de tags para categorização | Não | Usar letras minúsculas e hífens (ex: `machine-learning`) |
+| `meta_title` | Título para SEO | Não | Se omitido, usa `title` |
+| `meta_description` | Descrição para SEO | Não | Se omitido, usa `description` |
+| `canonical_url` | URL canônica para evitar conteúdo duplicado | Não | Usar formato absoluto (ex: `https://site.com/post`) |
+| `og_title` | Título para compartilhamento no Open Graph (Facebook) | Não | Ideal até 60 caracteres |
+| `og_description` | Descrição para Open Graph | Não | Ideal até 65 caracteres |
+| `og_image` | Imagem para Open Graph | Não | Tamanho recomendado: 1200x630px |
+| `og_type` | Tipo de conteúdo para Open Graph | Não | Padrão: `article` |
+| `twitter_title` | Título para Twitter Cards | Não | Máximo 70 caracteres |
+| `twitter_description` | Descrição para Twitter | Não | Máximo 200 caracteres |
+| `twitter_image` | Imagem para Twitter Cards | Não | Tamanho recomendado: 1200x675px (para `summary_large_image`) |
+| `twitter_card` | Tipo de card do Twitter | Não | Padrão: `summary_large_image` |
+| `keywords` | Palavras-chave para SEO | Não | 5-10 termos relevantes |
+| `author` | Autor do post | Não | Nome completo ou referência ao autor no sistema |
+| `reading_time` | Tempo estimado de leitura em minutos | Não | Pode ser calculado automaticamente |
+| `no_index` | Impede indexação por motores de busca | Não | Padrão: `false` (só habilitar para posts privados/rascunhos) |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
