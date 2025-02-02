@@ -16,7 +16,8 @@ Nesse repositório, organizo a estrutura do meu blog pessoal 🌐
 # Sumário
 
 <details>
-  <summary><strong>Clique aqui</strong></summary>
+  <summary><strong>Expandir</strong></summary>
+
 - [Visão Geral](#visão-geral)
 - [Estrutura de Pastas](#estrutura-de-pastas)
 - [Writing](#writing)
@@ -26,7 +27,9 @@ Nesse repositório, organizo a estrutura do meu blog pessoal 🌐
 - [Versionamento](#versionamento)
 - [Troubleshooting](#troubleshooting)
 - [Show your support](#show-your-support)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 </details>
 
 > [!WARNING]
