@@ -91,6 +91,13 @@ Os posts estão localizados no diretório [posts](./posts) e são escritos em Ma
 - Faça um push do commit para o repositório remoto.
 - Aguarde o pipeline de CI/CD ser acionado e o site ser atualizado.
 
+Dentro dessa pastas estou prezendo por utilizar subpastas para organizar os posts por categoria. Por exemplo:
+
+- finops
+- kubernetes
+- devops
+- aws
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Frontmatter
@@ -130,6 +137,8 @@ reading_time: 10
 no_index: false
 ---
 ```
+
+````
 
 | Campo | Descrição | Obrigatório? | Dicas/Formato |
 | --- | --- | --- | --- |
@@ -269,3 +278,4 @@ Feito com 💜 pelo **Time de DevOps** :wave: inspirado no [readme-md-generator]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- END_DOCS -->
+````
