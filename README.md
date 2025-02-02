@@ -232,8 +232,9 @@ Todo processo é detalhado para pensar em como as peças desse quebra-cabeça se
 
 # Features
 
-- Dark Mode: Built-in dark mode support.
-- Date-based Sorting: Chronological post organization.
+- Dark Mode: Alternância entre temas claro e escuro.
+- SEO: Otimização para mecanismos de busca.
+- Responsividade: Layout adaptável para diferentes dispositivos.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
