@@ -1,0 +1,20 @@
+# ========== Binários Convencionais ==========
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.gif binary
+*.svg binary
+*.zip binary
+*.psd binary
+
+# ========== Excalidraw ==========
+*.excalidraw binary
+*.excalidraw.json diff=json
+*.png filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
+*.gif filter=lfs diff=lfs merge=lfs -text
+*.svg filter=lfs diff=lfs merge=lfs -text
+*.excalidraw filter=lfs diff=lfs merge=lfs -text
