@@ -62,7 +62,7 @@ A estrutura geral de pastas do projeto é organizada da seguinte forma:
 
 ## Micro
 
-Detalhando agora a estrutura do projeto Astra, temos:
+Detalhando agora a estrutura do projeto [Astro](https://astro.build/), temos:
 
 ```
 obsidian-blogger/
