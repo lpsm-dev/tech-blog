@@ -242,10 +242,10 @@ Todo processo é detalhado para pensar em como as peças desse quebra-cabeça se
 Links relevantes para essa documentação:
 
 - [Astro](https://astro.build/)
-- [Obsidian](https://obsidian.md/)
-- [Markdown](https://www.markdownguide.org/)
-- [Jamstack Architecture](https://jamstack.org/)
 - [Frontmatter](https://hexo.io/pt-br/docs/front-matter)
+- [Jamstack Architecture](https://jamstack.org/)
+- [Markdown](https://www.markdownguide.org/)
+- [Obsidian](https://obsidian.md/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
