@@ -132,7 +132,7 @@ Para verificar o histórico de mudanças, acesse o arquivo [**CHANGELOG.md**](CH
 
 # Troubleshooting
 
-Se você tiver algum problema, abra uma [issue](https://github.com/lpsm-dev/tech-blog/issues/new/choose) nesse projeto.
+Se você tiver algum problema ou queria contribuir, abra uma [issue](https://github.com/lpsm-dev/tech-blog/issues/new/choose) nesse projeto.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
