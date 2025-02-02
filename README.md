@@ -7,7 +7,7 @@
 
 <img alt="image-header" src="https://github.com/lpsm-dev/lpsm-dev/blob/e5163de8877e63a74976f0c8371c8890762c0aa4/.github/assets/obsidian-with-astro.png" width="225"/>
 
-Nesse repositório, organizo a estrutura do meu blog pessoal
+Nesse repositório, organizo a estrutura do meu blog pessoal 🌐
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://www.conventionalcommits.org/en/v1.0.0/) [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://semantic-release.gitbook.io/semantic-release/usage/configuration) [![Built with Devbox](https://jetpack.io/img/devbox/shield_galaxy.svg)](https://jetpack.io/devbox/docs/contributor-quickstart/)
 
@@ -19,7 +19,7 @@ Nesse repositório, organizo a estrutura do meu blog pessoal
 - [Estrutura de Pastas](#estrutura-de-pastas)
 - [Comandos](#comandos)
 - [Features](#features)
-- [Pipeline Process](#pipeline-process)
+- [Pipeline](#pipeline)
 - [Referências](#referências)
 - [Versionamento](#versionamento)
 - [Troubleshooting](#troubleshooting)
@@ -89,7 +89,7 @@ Todos os comandos que podemos executados a partir da raiz do projeto em um termi
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Pipeline Process
+# Pipeline
 
 A forma como o projeto é construído e entregue é através de um pipeline de CI/CD utilizando o GitHub Actions. A seguir, temos um diagrama que ilustra o fluxo de trabalho desse pipeline:
 
@@ -130,6 +130,7 @@ Links relevantes para essa documentação:
 - [Astro](https://astro.build/)
 - [Obsidian](https://obsidian.md/)
 - [Markdown](https://www.markdownguide.org/)
+- [Jamstack Architecture](https://jamstack.org/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
