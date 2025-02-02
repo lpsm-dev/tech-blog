@@ -1,0 +1,100 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import BlogCard from "../components/BlogCard.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  tags?: string[];
+  posts?: Array<{
+    title: string;
+    description?: string;
+    date?: Date;
+    slug: string;
+  }>;
+}
+
+const { title, description, tags = [], posts = [] } = Astro.props;
+const isTagPage = posts.length > 0;
+---
+
+<BaseLayout title={title} description={description}>
+  {
+    isTagPage ? (
+      <div class="posts-grid">
+        {posts.map((post) => (
+          <BlogCard
+            title={post.title}
+            description={post.description}
+            date={post.date}
+            slug={post.slug}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="tags-grid">
+        {tags.map((tag) => (
+          <a href={`/tags/${tag}/`} class="tag-card">
+            #{tag}
+          </a>
+        ))}
+      </div>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
+    flex: 1;
+    margin-bottom: 2rem;
+  }
+
+  .tags-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  .tag-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    background: rgba(0, 123, 255, 0.1);
+    color: white;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0, 123, 255, 0.2);
+    margin: 0;
+  }
+
+  .tag-card:hover {
+    background: rgba(0, 123, 255, 0.2);
+    color: white;
+    transform: translateY(-1px);
+    border-color: rgba(0, 123, 255, 0.4);
+  }
+
+  .no-posts {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: rgb(var(--gray));
+    font-size: 1.25rem;
+    flex: 1;
+  }
+
+  @media (max-width: 768px) {
+    .posts-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

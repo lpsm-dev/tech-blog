@@ -40,10 +40,10 @@ const posts = (await getCollection("blog"))
         flex-direction: column;
       }
 
-      .blog-header {
+      .base-header {
         text-align: center;
-        margin-bottom: 4rem;
-        padding: 4rem 1rem;
+        margin-bottom: 2rem;
+        padding: 2rem 1rem;
         background: linear-gradient(
           180deg,
           rgba(var(--accent), 0.08) 0%,
@@ -52,7 +52,7 @@ const posts = (await getCollection("blog"))
         border-radius: 1.5rem;
       }
 
-      .blog-title {
+      .base-title {
         font-size: 3rem;
         font-weight: 800;
         color: rgb(var(--black));
@@ -60,7 +60,7 @@ const posts = (await getCollection("blog"))
         line-height: 1.2;
       }
 
-      .blog-description {
+      .base-description {
         font-size: 1.25rem;
         color: rgb(var(--gray));
         max-width: 600px;
@@ -110,11 +110,9 @@ const posts = (await getCollection("blog"))
   <body>
     <Header />
     <main>
-      <div class="blog-header">
-        <h1 class="blog-title">Posts</h1>
-        <p class="blog-description">
-          Explore minha coleção de artigos, pensamentos e tudo mais.
-        </p>
+      <div class="base-header">
+        <h1 class="base-title">Meus Posts</h1>
+        <p class="base-description">Explore a minha coleção de artigos.</p>
       </div>
       {
         posts.length > 0 ? (
