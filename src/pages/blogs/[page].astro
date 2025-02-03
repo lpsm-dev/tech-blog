@@ -1,0 +1,188 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../../components/organisms/BaseHead.astro";
+import Header from "../../components/organisms/Header.astro";
+import Footer from "../../components/organisms/Footer.astro";
+import BlogCard from "../../components/molecules/BlogCard.astro";
+import { getValidTimestamp } from "../../utils/date";
+import { paginatePosts } from "../../utils/pagination";
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("blog"))
+    .filter((post) => post.data.publish)
+    .sort((a, b) => {
+      const dateA = getValidTimestamp(a.data.created_date);
+      const dateB = getValidTimestamp(b.data.created_date);
+      return dateB - dateA;
+    });
+
+  const pages = paginatePosts(posts);
+
+  return pages.map((_, index) => ({
+    params: { page: (index + 1).toString() },
+    props: { page: index + 1, pages },
+  }));
+}
+
+const { page, pages } = Astro.props;
+const currentPage = parseInt(String(page), 10);
+const currentPosts = pages[currentPage - 1]?.posts || [];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Meus Posts"
+      description="Explore a minha coleção de artigos."
+    />
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+      }
+
+      main {
+        flex: 1;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .base-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 2rem 1rem;
+        background: linear-gradient(
+          180deg,
+          rgba(var(--accent), 0.08) 0%,
+          rgba(var(--accent), 0.02) 100%
+        );
+        border-radius: 1.5rem;
+      }
+
+      .base-title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: rgb(var(--black));
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .base-description {
+        font-size: 1.25rem;
+        color: rgb(var(--gray));
+        max-width: 600px;
+        line-height: 1.6;
+        margin: 0 auto;
+      }
+
+      .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 2rem;
+        flex: 1;
+        margin-bottom: 2rem;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .pagination a {
+        padding: 0.5rem 1rem;
+        background: rgba(var(--gray-light), 0.5);
+        color: rgb(var(--gray-dark));
+        border-radius: 0.5rem;
+        text-decoration: none;
+        transition: background 0.2s ease;
+      }
+
+      .pagination a:hover {
+        background: rgba(var(--gray-light), 0.7);
+      }
+
+      .pagination .current {
+        font-weight: bold;
+        background: rgba(var(--accent), 0.5);
+        color: white;
+      }
+
+      .no-posts {
+        text-align: center;
+        padding: 4rem 1rem;
+        color: rgb(var(--gray));
+        font-size: 1.25rem;
+        flex: 1;
+      }
+
+      @media (max-width: 768px) {
+        .blog-header {
+          padding: 3rem 1rem;
+          margin-bottom: 3rem;
+        }
+
+        .blog-title {
+          font-size: 2.25rem;
+        }
+
+        .blog-description {
+          font-size: 1.125rem;
+          padding: 0 1rem;
+        }
+
+        .posts-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <Header />
+    <main>
+      <div class="base-header">
+        <h1 class="base-title">Meus Posts</h1>
+        <p class="base-description">Explore a minha coleção de artigos.</p>
+      </div>
+      {
+        currentPosts.length > 0 ? (
+          <div class="posts-grid">
+            {currentPosts.map((post) => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description ?? undefined}
+                date={post.data.created_date ?? undefined}
+                slug={post.data.slug ?? post.id}
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="no-posts">No posts found. Check back soon!</div>
+        )
+      }
+      <div class="pagination">
+        {
+          Array.from({ length: pages.length }, (_, i) => (
+            <a
+              href={`/blogs/${i + 1}`}
+              class={i + 1 === currentPage ? "current" : ""}
+            >
+              {i + 1}
+            </a>
+          ))
+        }
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

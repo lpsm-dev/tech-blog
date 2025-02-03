@@ -3,6 +3,7 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/lpsm-dev/";
 export const SITE_TITLE = "Tech Blog";
 export const SITE_DESCRIPTION = "My personal blog about tech 🧘";
 export const EMAIL = "cloud-craft-solutions@proton.me";
+export const POSTS_PER_PAGE = 5;
 
 /*
  * About - Page titles and descriptions
