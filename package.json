@@ -5,6 +5,7 @@
   "scripts": {
     "astro": "astro",
     "build": "npm run check:astro && astro build",
+    "clean": "rm -rf node_modules dist",
     "check:astro": "astro check",
     "check:eslint": "eslint .",
     "check:prettier": "prettier --check .",

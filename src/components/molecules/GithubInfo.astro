@@ -1,5 +1,4 @@
 ---
-// Import necessary components and utilities
 import { Icon } from "astro-icon/components";
 const { url } = Astro.props;
 ---
@@ -49,8 +48,8 @@ const { url } = Astro.props;
 </github-info>
 
 <script>
-  import { formatNumber } from "../utils/format";
-  import { getRepoInfoFromUrl } from "../utils/github";
+  import { formatNumber } from "../../utils/format";
+  import { getRepoInfoFromUrl } from "../../utils/github";
 
   class GithubInfo extends HTMLElement {
     connectedCallback() {

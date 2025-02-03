@@ -1,0 +1,279 @@
+---
+import HeaderLink from "../atoms/HeaderLink.astro";
+import ThemeToggle from "../atoms/ThemeToggle.astro";
+import Search from "../atoms/Search.astro";
+import { GITHUB_REPO_URL, SITE_TITLE } from "../../consts";
+import { getUrl } from "../../utils/url";
+import "../../styles/pagefind-ui-custom.css";
+---
+
+<header>
+  <nav>
+    <div class="nav-wrapper">
+      <div class="nav-brand">
+        <a href={getUrl("/")} class="brand-link">
+          <div class="brand-icon">
+            <img
+              src={getUrl("/icon.png")}
+              alt="Obsidian Blogger Logo"
+              width="24"
+              height="24"
+            />
+          </div>
+          <span class="brand-text">{SITE_TITLE}</span>
+        </a>
+      </div>
+
+      <div class="nav-links">
+        <HeaderLink href={getUrl("/")}>Home</HeaderLink>
+        <HeaderLink href={getUrl("/blogs")}>Posts</HeaderLink>
+        <HeaderLink href={getUrl("/tags")}>Tags</HeaderLink>
+        <HeaderLink href={getUrl("/about")}>About</HeaderLink>
+        <HeaderLink href={getUrl("/projects")}>Projetos</HeaderLink>
+        <HeaderLink href={getUrl("/services")}>Serviços</HeaderLink>
+      </div>
+
+      <div class="nav-actions">
+        <Search />
+        <ThemeToggle />
+        <a
+          href={GITHUB_REPO_URL}
+          target="_blank"
+          class="social-link"
+          aria-label="GitHub"
+        >
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+            ></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(var(--gray-light), 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(var(--gray), 0.1);
+    transition: var(--theme-transition);
+  }
+
+  nav {
+    height: 4rem;
+    padding: 0 1.5rem;
+  }
+
+  .nav-wrapper {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: rgb(var(--black));
+    font-weight: 600;
+    padding: 0.5rem;
+    margin: -0.5rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+    min-width: 0;
+  }
+
+  .brand-link:hover {
+    background: rgba(var(--gray), 0.1);
+  }
+
+  .brand-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: rgba(var(--gray-light), 0.5);
+    border-radius: 0.85rem;
+    padding: 0.25rem;
+    flex-shrink: 0;
+    box-shadow:
+      0 2px 4px rgba(var(--gray), 0.1),
+      0 0 0 1px rgba(var(--gray), 0.05);
+  }
+
+  .brand-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.6rem;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+  }
+
+  .brand-link:hover .brand-icon img {
+    transform: scale(1.05);
+  }
+
+  .brand-text {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: rgb(var(--black));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .nav-links a {
+    position: relative;
+    padding: 0.5rem 0.75rem;
+    color: rgb(var(--gray-dark));
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover {
+    color: rgb(var(--black));
+    background: rgba(var(--gray), 0.1);
+  }
+
+  .nav-links a.active {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    color: rgb(var(--gray-dark));
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .social-link:hover {
+    color: rgb(var(--black));
+    background: rgba(var(--gray), 0.1);
+    transform: translateY(-1px);
+  }
+
+  .social-link svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* Tablet breakpoint */
+  @media (max-width: 768px) {
+    nav {
+      padding: 0 1rem;
+      height: 3.75rem;
+    }
+
+    .nav-wrapper {
+      gap: 1.5rem;
+    }
+
+    .brand-text {
+      font-size: 1.05rem;
+    }
+
+    .brand-icon {
+      width: 2.1rem;
+      height: 2.1rem;
+    }
+
+    .nav-links {
+      gap: 0.75rem;
+    }
+
+    .nav-links a {
+      padding: 0.45rem 0.65rem;
+      font-size: 0.925rem;
+    }
+  }
+
+  /* Mobile breakpoint */
+  @media (max-width: 480px) {
+    nav {
+      height: 3.5rem;
+      padding: 0 0.75rem;
+    }
+
+    .nav-wrapper {
+      gap: 0.75rem;
+    }
+
+    .brand-text {
+      font-size: 1rem;
+      max-width: 120px;
+    }
+
+    .brand-icon {
+      width: 2rem;
+      height: 2rem;
+      padding: 0.2rem;
+    }
+
+    .nav-links {
+      gap: 0.35rem;
+    }
+
+    .nav-links a {
+      padding: 0.4rem 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .nav-actions {
+      gap: 0.5rem;
+    }
+
+    .social-link {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+
+    .social-link svg {
+      width: 1.1rem;
+      height: 1.1rem;
+    }
+  }
+</style>

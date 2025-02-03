@@ -40,6 +40,16 @@ Entre as suas características, podemos destacar:
 - **Flexibilidade**: permite criar interfaces adaptáveis a diferentes dispositivos e contextos.
 - **Facilidade de manutenção**: torna mais fácil manter e atualizar a interface ao longo do tempo.
 
+## Componentes
+
+Os componentes do Atomic Design são divididos em cinco níveis:
+
+1. **Átomos**: são os componentes mais simples, como botões, inputs e textos.
+2. **Moléculas**: são a combinação de átomos para formar componentes mais complexos, como formulários e cards.
+3. **Organismos**: são a combinação de moléculas para formar componentes ainda mais complexos, como cabeçalhos e rodapés.
+4. **Templates**: são a combinação de organismos para formar layouts de páginas.
+5. **Páginas**: são as interfaces completas do sistema, formadas pela combinação de templates.
+
 # Conclusão
 
 Posso dizer que o Atomic Design é uma metodologia muito interessante e útil para o desenvolvimento de sistemas. Ainda estou estudando sobre o assunto, mas já estou vendo os benefícios que ela pode trazer. Recomendo que você também estude e experimente aplicar o Atomic Design nos seus projetos.

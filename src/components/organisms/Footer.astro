@@ -1,0 +1,172 @@
+---
+import { LINKEDIN_URL } from "../../consts";
+
+const today = new Date();
+---
+
+<footer>
+  <div class="footer-content">
+    <div class="social-links">
+      <a
+        href={LINKEDIN_URL}
+        target="_blank"
+        class="social-link"
+        aria-label="LinkedIn"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M20.447 2H3.553C2.693 2 2 2.693 2 3.553v16.895C2 21.307 2.693 22 3.553 22h16.895C21.307 22 22 21.307 22 20.447V3.553C22 2.693 21.307 2 20.447 2zM7.75 19.25H4.75V9h3v10.25zm-1.5-11.5a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5zM19.25 19.25h-3V14c0-1.25-.5-2-1.75-2s-1.75.75-1.75 2v5.25h-3V9h3v1.5h.05c.35-.65 1.25-1.5 2.45-1.5 1.8 0 3.25 1.5 3.25 3.75v6.5z"
+          ></path>
+        </svg>
+      </a>
+      <a href="/rss.xml" target="_blank" class="social-link" aria-label="RSS">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M4.5 3A1.5 1.5 0 0 0 3 4.5v1A1.5 1.5 0 0 0 4.5 7h1A1.5 1.5 0 0 0 7 5.5v-1A1.5 1.5 0 0 0 5.5 3h-1zM3 9a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H3zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H3zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H3zm4-8a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H7zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H7zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H7zm4-8a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1zm4-8a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1zm0 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="scroll-to-top">
+      <button
+        id="scroll-to-top"
+        class="scroll-button"
+        aria-label="Scroll to top"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="copyright">
+      &copy; {today.getFullYear()} lpsm-dev. Todos os direitos reservados.
+    </div>
+    <div class="copyright">
+      Construído com <a href="https://github.com/withastro/astro">Astro</a> v5.1.10
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding: 3rem 1rem;
+    background: rgba(var(--gray-light), 0.5);
+    color: rgb(var(--gray));
+    border-top: 1px solid rgba(var(--gray), 0.1);
+    position: relative;
+  }
+
+  .footer-content {
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: rgb(var(--gray-dark));
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+    background: rgba(var(--gray-light), 0.5);
+  }
+
+  .social-link:hover {
+    color: rgb(var(--black));
+    background: rgba(var(--gray), 0.1);
+    transform: translateY(-2px);
+  }
+
+  .social-link svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .scroll-to-top {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .scroll-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .scroll-button:hover {
+    background: black;
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .scroll-button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .copyright {
+    font-size: 0.9rem;
+    color: rgb(var(--gray));
+  }
+
+  @media (max-width: 720px) {
+    footer {
+      padding: 2rem 1rem;
+    }
+
+    .social-link {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+
+    .social-link svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .scroll-to-top {
+      right: 0.5rem;
+      bottom: 0.5rem;
+    }
+
+    .scroll-button {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+
+    .scroll-button svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+</style>
+
+<script>
+  document.getElementById("scroll-to-top").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
