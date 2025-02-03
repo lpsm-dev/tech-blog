@@ -41,7 +41,7 @@ const posts = (await getCollection("blog"))
       </section>
       <!-- Section 2 - Latest Posts -->
       <section class="latest-posts">
-        <h2>Latest Blog Posts</h2>
+        <h2>Latest Posts</h2>
         <div class="post-grid">
           {
             posts.map((post) => (
@@ -67,7 +67,7 @@ const posts = (await getCollection("blog"))
       }
 
       .hero {
-        padding: 4rem 1rem;
+        padding: 1rem 1rem;
         text-align: center;
         background: transparent;
         position: relative;
@@ -110,8 +110,6 @@ const posts = (await getCollection("blog"))
 
       .hero h1 {
         font-size: 4rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.1;
         color: rgb(var(--black));
         font-family: var(--font-heading);
         font-weight: 700;
@@ -192,7 +190,6 @@ const posts = (await getCollection("blog"))
       }
 
       .latest-posts {
-        padding: 2rem 1rem;
         max-width: 1200px;
         margin: 0 auto;
       }
