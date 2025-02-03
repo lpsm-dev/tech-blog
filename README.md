@@ -24,6 +24,7 @@ Hello Humans 👽! Nesse repositório, organizo a estrutura do meu projeto de bl
 - [Pipeline](#pipeline)
 - [Features](#features)
 - [Referências](#referências)
+- [Contribuição](#contribuicão)
 - [Versionamento](#versionamento)
 - [Troubleshooting](#troubleshooting)
 - [Show your support](#show-your-support)
@@ -248,6 +249,12 @@ Links relevantes para essa documentação:
 - [Jamstack Architecture](https://jamstack.org/)
 - [Markdown](https://www.markdownguide.org/)
 - [Obsidian](https://obsidian.md/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# Contribuição
+
+Gostaria de contribuir? Isso é ótimo! Temos um guia de contribuição para te ajudar. Clique [aqui](CONTRIBUTING.md) para lê-lo.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
