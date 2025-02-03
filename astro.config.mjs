@@ -16,6 +16,9 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [mermaid],
   },
+  build: {
+    format: "directory",
+  },
   integrations: [
     expressiveCode(),
     mdx(),

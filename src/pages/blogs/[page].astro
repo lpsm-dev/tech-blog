@@ -4,29 +4,21 @@ import BaseHead from "../../components/organisms/BaseHead.astro";
 import Header from "../../components/organisms/Header.astro";
 import Footer from "../../components/organisms/Footer.astro";
 import BlogCard from "../../components/molecules/BlogCard.astro";
-import { getValidTimestamp } from "../../utils/date";
 import { paginatePosts } from "../../utils/pagination";
+import { POSTS_PER_PAGE } from "../../consts";
 
 export async function getStaticPaths() {
-  const posts = (await getCollection("blog"))
-    .filter((post) => post.data.publish)
-    .sort((a, b) => {
-      const dateA = getValidTimestamp(a.data.created_date);
-      const dateB = getValidTimestamp(b.data.created_date);
-      return dateB - dateA;
-    });
-
-  const pages = paginatePosts(posts);
-
-  return pages.map((_, index) => ({
-    params: { page: (index + 1).toString() },
-    props: { page: index + 1, pages },
+  const posts = await getCollection("blog", ({ data }) => data.publish);
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+  return Array.from({ length: totalPages - 1 }, (_, i) => ({
+    params: { page: (i + 2).toString() },
+    props: { page: i + 2, totalPages },
   }));
 }
 
-const { page, pages } = Astro.props;
-const currentPage = parseInt(String(page), 10);
-const currentPosts = pages[currentPage - 1]?.posts || [];
+const { page, totalPages } = Astro.props;
+const posts = await getCollection("blog", ({ data }) => data.publish);
+const currentPosts = paginatePosts(posts, page);
 ---
 
 <!doctype html>
@@ -110,10 +102,9 @@ const currentPosts = pages[currentPage - 1]?.posts || [];
         background: rgba(var(--gray-light), 0.7);
       }
 
-      .pagination .current {
-        font-weight: bold;
-        background: rgba(var(--accent), 0.5);
-        color: white;
+      .pagination .disabled {
+        pointer-events: none;
+        opacity: 0.5;
       }
 
       .no-posts {
@@ -172,14 +163,25 @@ const currentPosts = pages[currentPage - 1]?.posts || [];
       }
       <div class="pagination">
         {
-          Array.from({ length: pages.length }, (_, i) => (
-            <a
-              href={`/blogs/${i + 1}`}
-              class={i + 1 === currentPage ? "current" : ""}
-            >
-              {i + 1}
+          page > 2 && (
+            <a href={`/blogs/${page - 1}`} class="previous">
+              Previous Page
             </a>
-          ))
+          )
+        }
+        {
+          page === 2 && (
+            <a href={`/blogs`} class="previous">
+              Previous Page
+            </a>
+          )
+        }
+        {
+          page < totalPages && (
+            <a href={`/blogs/${page + 1}`} class="next">
+              Next Page
+            </a>
+          )
         }
       </div>
     </main>

@@ -1,20 +1,167 @@
 ---
-import { getUrl } from "../utils/url";
+import { getCollection } from "astro:content";
+import BaseHead from "../components/organisms/BaseHead.astro";
+import Header from "../components/organisms/Header.astro";
+import Footer from "../components/organisms/Footer.astro";
+import BlogCard from "../components/molecules/BlogCard.astro";
+import { paginatePosts } from "../utils/pagination";
+import { POSTS_PER_PAGE } from "../consts";
 
-export async function get({ redirect }) {
-  return redirect(getUrl("/blogs/1"));
-}
+const posts = await getCollection("blog", ({ data }) => data.publish);
+const currentPosts = paginatePosts(posts, 1);
+const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=/blogs/1" />
+    <BaseHead
+      title="Meus Posts"
+      description="Explore a minha coleção de artigos."
+    />
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+      }
+
+      main {
+        flex: 1;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .base-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 2rem 1rem;
+        background: linear-gradient(
+          180deg,
+          rgba(var(--accent), 0.08) 0%,
+          rgba(var(--accent), 0.02) 100%
+        );
+        border-radius: 1.5rem;
+      }
+
+      .base-title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: rgb(var(--black));
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .base-description {
+        font-size: 1.25rem;
+        color: rgb(var(--gray));
+        max-width: 600px;
+        line-height: 1.6;
+        margin: 0 auto;
+      }
+
+      .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 2rem;
+        flex: 1;
+        margin-bottom: 2rem;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .pagination a {
+        padding: 0.5rem 1rem;
+        background: rgba(var(--gray-light), 0.5);
+        color: rgb(var(--gray-dark));
+        border-radius: 0.5rem;
+        text-decoration: none;
+        transition: background 0.2s ease;
+      }
+
+      .pagination a:hover {
+        background: rgba(var(--gray-light), 0.7);
+      }
+
+      .pagination .disabled {
+        pointer-events: none;
+        opacity: 0.5;
+      }
+
+      .no-posts {
+        text-align: center;
+        padding: 4rem 1rem;
+        color: rgb(var(--gray));
+        font-size: 1.25rem;
+        flex: 1;
+      }
+
+      @media (max-width: 768px) {
+        .blog-header {
+          padding: 3rem 1rem;
+          margin-bottom: 3rem;
+        }
+
+        .blog-title {
+          font-size: 2.25rem;
+        }
+
+        .blog-description {
+          font-size: 1.125rem;
+          padding: 0 1rem;
+        }
+
+        .posts-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+      }
+    </style>
   </head>
+
   <body>
-    <p>Redirecting to the first page of blogs...</p>
+    <Header />
+    <main>
+      <div class="base-header">
+        <h1 class="base-title">Meus Posts</h1>
+        <p class="base-description">Explore a minha coleção de artigos.</p>
+      </div>
+      {
+        currentPosts.length > 0 ? (
+          <div class="posts-grid">
+            {currentPosts.map((post) => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description ?? undefined}
+                date={post.data.created_date ?? undefined}
+                slug={post.data.slug ?? post.id}
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="no-posts">No posts found. Check back soon!</div>
+        )
+      }
+      <div class="pagination">
+        {
+          totalPages > 1 && (
+            <a href={`/blogs/2`} class="next">
+              Next Page
+            </a>
+          )
+        }
+      </div>
+    </main>
+    <Footer />
   </body>
 </html>
