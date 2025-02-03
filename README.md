@@ -5,7 +5,7 @@
 
 **Tech Blog**
 
-<img alt="image-header" src="https://github.com/lpsm-dev/lpsm-dev/blob/e5163de8877e63a74976f0c8371c8890762c0aa4/.github/assets/obsidian-with-astro.png" width="225"/>
+<img src="https://github.com/lpsm-dev/lpsm-dev/blob/e5163de8877e63a74976f0c8371c8890762c0aa4/.github/assets/obsidian-with-astro.png" width="225"/>
 
 Hello Humans 👽! Nesse repositório, organizo a estrutura do meu projeto de blog pessoal 🌐
 
