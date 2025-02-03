@@ -14,10 +14,9 @@ const posts = (await getCollection("blog"))
     const dateB = b.data.created_date?.valueOf() ?? 0;
     return dateB - dateA;
   })
-  .slice(0, 4);
+  .slice(0, 6);
 ---
 
-<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -25,13 +24,15 @@ const posts = (await getCollection("blog"))
   <body>
     <Header />
     <main>
-      <section class="hero">
+      <section>
         <!-- Section 1 - Welcome -->
-        <div class="hero-content">
-          <h1>Hey Humans! 🚀</h1>
-          <h2>Sejam bem vindos ao meu blog pessoal :)</h2>
+        <div class="base-header">
+          <h1 class="base-title">Hey Humans! 🚀</h1>
+          <p class="base-description">
+            Sejam bem vindos ao meu blog pessoal :)
+          </p>
           <br />
-          <p class="hero-description">
+          <p class="base-description">
             Aqui você encontra conteúdos dos mais diversos tipos, mas
             principalmente sobre tecnologia 💻. Se você é da área de TI e tem
             interesse em aprender mais, aqui é o lugar. Compartilhe com seus
@@ -61,9 +62,49 @@ const posts = (await getCollection("blog"))
     </main>
     <Footer />
     <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+      }
+
       main {
-        max-width: 100%;
-        padding: 0;
+        flex: 1;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .base-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 2rem 1rem;
+        background: linear-gradient(
+          180deg,
+          rgba(var(--accent), 0.08) 0%,
+          rgba(var(--accent), 0.02) 100%
+        );
+        border-radius: 1.5rem;
+      }
+
+      .base-title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: rgb(var(--black));
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .base-description {
+        font-size: 1.25rem;
+        color: rgb(var(--gray));
+        max-width: 600px;
+        line-height: 1.6;
+        margin: 0 auto;
       }
 
       .hero {
