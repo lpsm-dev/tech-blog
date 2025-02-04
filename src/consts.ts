@@ -8,9 +8,8 @@ export const POSTS_PER_PAGE = 4;
 /*
  * About - Page titles and descriptions
  */
-export const PAGE_ABOUT_TITLE = "Hey! Eu sou o Lucca";
-export const PAGE_ABOUT_DESCRIPTION =
-  "Conheça um pouco mais sobre mim e o que faço";
+export const PAGE_ABOUT_TITLE = "👋 Olá, eu sou o Lucca";
+export const PAGE_ABOUT_DESCRIPTION = "Conheça um pouco mais sobre mim";
 /*
  * Projects - Page titles and descriptions
  */
