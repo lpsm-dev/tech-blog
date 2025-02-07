@@ -3,7 +3,7 @@
 
 <a name="readme-top"></a>
 
-**Tech Blog**
+## Tech Blog
 
 <img src="https://github.com/lpsm-dev/lpsm-dev/blob/e5163de8877e63a74976f0c8371c8890762c0aa4/.github/assets/obsidian-with-astro.png" width="225"/>
 
