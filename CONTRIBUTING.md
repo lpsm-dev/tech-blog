@@ -1,8 +1,10 @@
 <!-- BEGIN_DOCS -->
 
-<div align="center">
-
 <a name="readme-top"></a>
+
+[◀ Voltar](README.md)
+
+<div align="center">
 
 <img alt="contributing" src="https://github.com/lpsm-dev/lpsm-dev/blob/98272299ea611ba50254b132490ea385149dc5cf/.github/assets/contributing.png" width="225"/>
 
@@ -10,12 +12,19 @@
 
 </div>
 
-Seja bem-vindo e obrigado por considerar contribuir com este projeto! Ler e seguir nossas diretrizes vai te ajudar a entrar com mais rapidez em nosso fluxo de trabalho, além tornar o processo de contribuição mais fácil e eficaz. Contamos com seu apoio!
+Obrigado por considerar contribuir com este projeto! Seguir nossas diretrizes facilitará seu onboarding e tornará sua colaboração mais eficaz.
 
-# Summary
+# Sumário
 
-- [Summary](#summary)
-- [Práticas](#práticas)
+<details>
+  <summary><strong>Expandir</strong></summary>
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Práticas](#pr%C3%A1ticas)
+  - [Geral](#geral)
+  - [Comunicação](#comunica%C3%A7%C3%A3o)
 - [Setup](#setup)
   - [DevBox](#devbox)
   - [Direnv](#direnv)
@@ -29,19 +38,25 @@ Seja bem-vindo e obrigado por considerar contribuir com este projeto! Ler e segu
   - [Reviewing](#reviewing)
 - [Versioning Process](#versioning-process)
 
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+</details>
 
 # Práticas
 
-**Geral**
+## Geral
 
-- Se você não conseguir continuar uma tarefa, informe imediatamente sua equipe. A comunicação rápida evita atrasos e permite que outras pessoas te ajudem a resolver os problemas com mais rapidez.
+- Sempre crie branchs descritivas, exemplo: `feature/nova-funcionalidade` ou `fix/corrige-bug`.
+- Evite commits muito grandes. Prefira commits pequenos e atômicos.
 - Não reinvente a roda. Se você pesquisou e viu que já existe uma solução bem estabelecida para o seu problema, use-a. Isso economiza tempo e recurso.
 
-**Comunicação**
+## Comunicação
 
+- Se você não conseguir continuar uma tarefa, informe imediatamente sua equipe. A comunicação rápida evita atrasos e permite que outras pessoas te ajudem a resolver os problemas com mais rapidez.
 - Minimize o uso de IA na comunicação diária com a equipe. Valorizamos interações reais e genuínas.
-- Seja objetivo na sua comunição quando precisa de ajuda (isso não significa ser rude rsrs).
+- Seja objetivo na sua comunição quando precisa de ajuda (isso não significa ser rude).
 - A comunicação assíncrona é uma grande aliada para equipes remotas. Para mais detalhes, clique [aqui](https://nohello.net/en/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -69,7 +84,7 @@ Siga essas etapas para configurar seu ambiente:
 - Instale o [devbox](https://www.jetify.com/devbox/docs/installing_devbox/):
 
 ```bash
-curl -fsSL <https://get.jetpack.io/devbox> | bash
+curl -fsSL https://get.jetpack.io/devbox | bash
 ```
 
 - Inicialize seu projeto:
@@ -200,17 +215,19 @@ feat(login): add route
 É o campo onde você diz o que foi feito no commit, porém de forma breve. Para isso, recomendamos que:
 
 - Priorize descrições em inglês.
-- Use o imperativo, tempo presente: "change", não "changed" ou "changed".
+- Use o imperativo, tempo presente: "change", não "changed" ou "changing".
 - Não coloque a primeira letra em maiúscula.
 - Não coloque ponto (.) no final.
 
 > [!NOTE] Cada tipo de commit tem um efeito sobre a próxima release que você for lançar.
 
+Existem mais opções, porém essas são as mais comuns. Para mais detalhes, consulte a [documentação oficial](https://www.conventionalcommits.org/en/v1.0.0/).
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # MR Process
 
-Ao criar um MR (merge request), é uma boa ideia definir o seu título seguindo a mesma convenção utilizada nas mensagens de commit. Dessa forma, se seu MR for sofrer um **squash** após a mesclagem, o maintainer poderá usar o título como a mensagem final do commit, criando um histórico formato, enxuto e linear.
+Ao criar um Merge Request (MR), recomenda-se definir o título conforme a mesma convenção adotada para mensagens de commit. Isso garante que, em caso de **squash merge**, o título do MR possa ser diretamente utilizado como a mensagem final do commit, preservando a padronização do histórico. Essa prática contribui para um log de alterações mais estruturado, conciso e linear, facilitando a rastreabilidade e automação de releases em fluxos de desenvolvimento que seguem padrões como **Conventional Commits**.
 
 ## Steps
 
@@ -240,8 +257,8 @@ git push origin sua-nova-branch
 
 - Abra uma solicitação de MR:
 
-  - No GitLab, navegue até o repositório e abra uma nova Merge Request da sua branch para a branch de produção `main`.
-  - Adicione uma descrição clara do que foi feito e qualquer informação relevante para a revisão.
+  - Navegue até o repositório e abra uma nova Merge Request da sua branch para a branch de produção `main`.
+  - Adicione uma descrição clara do que foi feito e qualquer informação relevante para o processo de review.
   - Defina o título usando commits convencionais.
   - Marque a opção de remover a branch de origem após a mesclagem.
   - Marque a opção para squash dos commits.
@@ -258,24 +275,35 @@ git push origin sua-nova-branch
 
 Seguir este processo garante que as alterações sejam revisadas adequadamente e que o código de produção permaneça estável e com qualidade.
 
-> [!NOTE] Se você tiver vários commits em seu PR que resolvem o mesmo problema, **squash os commits**.
+> [!NOTE] Se você tiver vários commits em seu PR, é recomendável usar a opção de squash para manter um histórico limpo e organizado.
 
 ## Reviewing
 
 Durante o processo de revisão do MR, siga essas políticas:
 
 - Seja respeitoso e construtivo.
-- Sempre realize a revisão em pares.
+- Busque realizar um code review completo, verificando a lógica, a qualidade do código e a conformidade com os padrões estabelecidos.
 - Sugira alterações em vez de simplesmente comentar os problemas encontrados.
 - Exigimos pelo menos um aprovador no MR, que não seja o autor.
 - Se não tiver certeza sobre algo, pergunte ao autor do MR.
 - Se você estiver satisfeito com as alterações, aprove o MR.
+- Preze por pair programming, sempre que possível.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Versioning Process
 
-Este projeto segue a especificação [SemVer](https://semver.org/). Consulte a documentação para obter mais detalhes.
+Esse projeto segue a especificação [SemVer](https://semver.org/). Ou seja, utilizamos um sistema de versionamento semântico para controlar as versões do projeto. Isso nos ajuda a comunicar melhor as mudanças feitas no código e a garantir a compatibilidade entre as versões. Esse sistema é composto por três números (`x.x.x`), que representam respectivamente:
+
+1. **Major**: Quando fazemos alterações incompatíveis com a versão atual. Ex: `1.2.0 → 2.0.0`
+2. **Minor**: Quando adicionamos funcionalidades de forma compatível com a versão atual. Ex: `1.2.0 → 1.3.0`
+3. **Patch**: Quando corrigimos bugs de forma compatível com a versão atual. Ex: `1.2.0 → 1.2.1`
+
+Nós usamos o [Semantic Release](https://semantic-release.gitbook.io/semantic-release/) para automatizar esse processo de versionamento. Ele analisa os commits desde a última versão e determina automaticamente o próximo número da versão com base nas alterações feitas. Isso garante que as versões sejam consistentes e sigam as regras do SemVer.
+
+Vale ressaltar que o Semantic Release é acionado automaticamente quando um MR é mesclado na branch `main` ou quando existe um commit direto na branch `main`. Portanto, é importante seguir as convenções de commit para garantir que as versões sejam geradas corretamente.
+
+> [!NOTE] O Semantic Release é um ferramental poderoso, e possui um sistema de plugins que podem ser configurados para atender as necessidades específicas do projeto. Para mais detalhes, consulte a [documentação oficial](https://semantic-release.gitbook.io/semantic-release/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- END_DOCS -->
