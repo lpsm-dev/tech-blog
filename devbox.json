@@ -3,7 +3,7 @@
   "packages": [
     "direnv@latest",
     "gitleaks@latest",
-    "pre-commit@latest",
+    "pre-commit@4.0.1",
     "yamllint@latest"
   ],
   "shell": {
