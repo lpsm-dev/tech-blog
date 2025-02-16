@@ -323,28 +323,6 @@ import { PAGE_ABOUT_TITLE, PAGE_ABOUT_DESCRIPTION } from "../consts";
     max-width: 800px;
     margin: auto;
   }
-  ul {
-    padding-left: 1.5rem;
-    color: #333;
-  }
-  li {
-    margin: 0.5rem 0;
-    line-height: 1.6;
-  }
-  li::marker,
-  .details li::before {
-    content: "▶️";
-    color: #2d3748;
-    margin-right: 0.5rem;
-  }
-  .certifications a {
-    color: #2b6cb0;
-    text-decoration: none;
-  }
-  .certifications a:hover {
-    text-decoration: underline;
-    color: #2c5282;
-  }
   .skills,
   .certifications {
     display: flex;
@@ -357,33 +335,32 @@ import { PAGE_ABOUT_TITLE, PAGE_ABOUT_DESCRIPTION } from "../consts";
     padding: 0;
     width: 45%;
   }
-  .skills li {
-    color: #4a5568;
+  .skills li,
+  .certifications li {
+    margin: 5px 0;
   }
+
   .education {
     display: grid;
     gap: 1.5rem;
   }
+
   .degree-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 0.5rem;
   }
+
   .institution {
-    color: #4a5568;
+    color: var(--accent-color);
     font-weight: 500;
     margin-bottom: 0.8rem;
   }
+
   .languages-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1.5rem;
-  }
-  .language h3 {
-    color: #2d3748;
-  }
-  .language p {
-    color: #718096;
   }
 </style>
