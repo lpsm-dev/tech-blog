@@ -1,0 +1,30 @@
+---
+interface Props {
+  size?: "sm" | "base" | "lg";
+  weight?: "normal" | "medium" | "semibold" | "bold";
+  class?: string;
+}
+
+const {
+  size = "base",
+  weight = "normal",
+  class: className,
+} = Astro.props;
+
+const sizes = {
+  sm: "text-sm",
+  base: "text-base",
+  lg: "text-lg",
+};
+
+const weights = {
+  normal: "font-normal",
+  medium: "font-medium",
+  semibold: "font-semibold",
+  bold: "font-bold",
+};
+---
+
+<p class:list={[sizes[size], weights[weight], className]}>
+  <slot />
+</p>

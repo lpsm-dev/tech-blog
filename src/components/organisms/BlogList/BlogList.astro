@@ -1,0 +1,33 @@
+---
+import { type CollectionEntry } from "astro:content";
+import BlogCard from "../../molecules/Card/BlogCard.astro";
+import Heading from "../../atoms/Typography/Heading.astro";
+
+interface Props {
+  title: string;
+  posts: CollectionEntry<"blog">[];
+}
+
+const { title, posts } = Astro.props;
+---
+
+<section class="blog-list">
+  <Heading level={2} class="section-title">{title}</Heading>
+  <div class="posts-grid">
+    {posts.map((post) => <BlogCard post={post} />)}
+  </div>
+</section>
+
+<style>
+  .blog-list {
+    @apply space-y-8;
+  }
+
+  .section-title {
+    @apply mb-6 text-center;
+  }
+
+  .posts-grid {
+    @apply grid gap-6 sm:grid-cols-2 lg:grid-cols-3;
+  }
+</style>

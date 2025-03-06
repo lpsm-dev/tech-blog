@@ -1,0 +1,210 @@
+---
+import { type CollectionEntry } from "astro:content";
+import FormattedDate from "../../atoms/FormattedDate.astro";
+import Heading from "../../atoms/Typography/Heading.astro";
+import Text from "../../atoms/Typography/Text.astro";
+import { getUrl } from "../../../utils/url";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const {
+  data: { title, description, created_date, slug },
+  id,
+} = post;
+---
+
+<article class="blog-card group">
+  <a href={getUrl(`/blogs/${slug || id}/`)} class="card-link">
+    <div class="card-content">
+      <div class="main-content">
+        <Heading level={3} class="title">{title}</Heading>
+        {description && <Text class="description">{description}</Text>}
+      </div>
+
+      <div class="footer">
+        {
+          created_date && (
+            <time class="date">
+              <FormattedDate date={created_date} />
+            </time>
+          )
+        }
+        <div class="read-more">
+          <span>Read More</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="arrow-icon"
+          >
+            <path d="M5 12h14m-7-7 7 7-7 7" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </a>
+</article>
+
+<style>
+  .blog-card {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid #000000;
+  }
+
+  /* Light theme styles */
+  [data-theme="light"] .blog-card {
+    background: rgb(var(--nord6));
+    box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.05),
+      0 2px 4px rgba(0, 0, 0, 0.03);
+  }
+
+  /* Dark theme styles */
+  [data-theme="dark"] .blog-card {
+    background: rgb(var(--nord1));
+    box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.2),
+      0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* Light theme text styles */
+  [data-theme="light"] .title {
+    color: rgb(var(--nord0));
+  }
+
+  [data-theme="light"] .description {
+    color: rgb(var(--nord2));
+  }
+
+  [data-theme="light"] .date {
+    color: rgb(var(--nord0));
+  }
+
+  /* Dark theme text styles */
+  [data-theme="dark"] .title {
+    color: rgb(var(--nord6));
+  }
+
+  [data-theme="dark"] .description {
+    color: rgb(var(--nord4));
+  }
+
+  [data-theme="dark"] .date {
+    color: rgb(var(--nord6));
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+    line-height: 1.3;
+  }
+
+  .description {
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #000000;
+  }
+
+  .date {
+    font-size: 0.875rem;
+    opacity: 0.8;
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(var(--nord8));
+    transition: all 0.3s ease;
+  }
+
+  .arrow-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .blog-card:hover .read-more {
+    color: rgb(var(--nord7));
+  }
+
+  .blog-card:hover .arrow-icon {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 768px) {
+    .blog-card {
+      border-width: 1px;
+    }
+
+    .card-content {
+      padding: 1.25rem;
+    }
+
+    .title {
+      font-size: 1.25rem;
+    }
+
+    .footer {
+      padding-top: 0.75rem;
+    }
+
+    .date {
+      font-size: 0.75rem;
+    }
+
+    .read-more {
+      font-size: 0.75rem;
+    }
+  }
+</style>

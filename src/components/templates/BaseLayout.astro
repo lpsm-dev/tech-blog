@@ -1,0 +1,154 @@
+---
+import BaseHead from "../organisms/BaseHead.astro";
+import Header from "../organisms/Header.astro";
+import Footer from "../organisms/Footer.astro";
+import Heading from "../atoms/Typography/Heading.astro";
+import Text from "../atoms/Typography/Text.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <div class="tech-background">
+      <div class="coding-animation"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <Header />
+    <main>
+      {Astro.url.pathname !== "/" && (
+        <div class="back-button-container">
+          <a href="/" class="back-button" aria-label="Back to home">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              stroke-width="2" 
+              stroke-linecap="round" 
+              stroke-linejoin="round"
+            >
+              <path d="m12 19-7-7 7-7"/>
+              <path d="M19 12H5"/>
+            </svg>
+            <span>Back to Home</span>
+          </a>
+        </div>
+      )}
+      <div class="page-header">
+        <div class="header-glow"></div>
+        <Heading level={1} class="page-title">{title}</Heading>
+        <Text size="lg" class="page-description">{description}</Text>
+      </div>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  body {
+    @apply min-h-screen flex flex-col bg-background text-foreground relative overflow-x-hidden;
+  }
+
+  .tech-background {
+    @apply fixed inset-0 z-[-1] overflow-hidden;
+  }
+
+  .coding-animation {
+    @apply absolute inset-0 opacity-10;
+    background-image: url("https://i.imgur.com/kJJ5Sck.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(1.2) contrast(1.2);
+    mix-blend-mode: screen;
+  }
+
+  .grid-overlay {
+    @apply absolute inset-0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+  }
+
+  main {
+    @apply flex-1 container mx-auto px-4 py-8 md:py-12 lg:py-16 relative;
+  }
+
+  .back-button-container {
+    @apply absolute left-4 top-0 z-10;
+  }
+
+  .back-button {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg text-foreground hover:text-accent transition-colors duration-200;
+    background: rgba(var(--gray-light), 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(var(--gray), 0.1);
+  }
+
+  .back-button svg {
+    @apply transition-transform duration-200;
+  }
+
+  .back-button:hover svg {
+    @apply -translate-x-1;
+  }
+
+  .back-button span {
+    @apply font-medium;
+  }
+
+  .page-header {
+    @apply relative mb-8 text-center space-y-4 p-8 pb-4 rounded-2xl backdrop-blur-sm;
+  }
+
+  .header-glow {
+    @apply absolute inset-0 opacity-20;
+    background: var(--gradient-2);
+    filter: blur(40px);
+    z-index: -1;
+  }
+
+  .page-title {
+    @apply text-4xl font-bold tracking-tight sm:text-5xl bg-clip-text text-transparent;
+    background-image: var(--gradient-1);
+  }
+
+  .page-description {
+    @apply mx-auto max-w-[700px] text-muted-foreground;
+  }
+
+  /* Dark mode adjustments */
+  :global([data-theme="dark"]) .grid-overlay {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+
+  :global([data-theme="dark"]) .coding-animation {
+    opacity: 0.15;
+    filter: brightness(0.8) contrast(1.2) hue-rotate(45deg);
+  }
+
+  @media (max-width: 768px) {
+    .back-button {
+      @apply px-3 py-1.5 text-sm;
+    }
+
+    .back-button svg {
+      @apply w-5 h-5;
+    }
+  }
+</style>

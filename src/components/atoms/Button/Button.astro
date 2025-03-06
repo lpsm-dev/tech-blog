@@ -1,0 +1,82 @@
+---
+interface Props {
+  type?: "button" | "submit" | "reset";
+  variant?: "primary" | "secondary" | "ghost";
+  size?: "sm" | "md" | "lg";
+  class?: string;
+  ariaLabel?: string;
+}
+
+const {
+  type = "button",
+  variant = "primary",
+  size = "md",
+  class: className,
+  ariaLabel,
+} = Astro.props;
+
+const baseStyles = "inline-flex items-center justify-center rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
+
+const variants = {
+  primary: "bg-gradient-to-r from-[rgb(var(--nord8))] to-[rgb(var(--nord9))] text-white hover:from-[rgb(var(--nord9))] hover:to-[rgb(var(--nord10))] shadow-lg shadow-[rgb(var(--nord8)_/_20%)] hover:shadow-[rgb(var(--nord8)_/_30%)]",
+  secondary: "bg-[rgb(var(--nord3))] text-[rgb(var(--nord6))] hover:bg-[rgb(var(--nord2))] dark:bg-[rgb(var(--nord2))] dark:text-[rgb(var(--nord6))] dark:hover:bg-[rgb(var(--nord1))]",
+  ghost: "bg-transparent hover:bg-[rgb(var(--nord3)_/_10%)] text-[rgb(var(--nord4))] hover:text-[rgb(var(--nord6))] dark:text-[rgb(var(--nord4))] dark:hover:text-[rgb(var(--nord6))]"
+};
+
+const sizes = {
+  sm: "h-9 px-4 text-sm",
+  md: "h-10 px-6 text-base",
+  lg: "h-11 px-8 text-lg"
+};
+---
+
+<button
+  type={type}
+  class:list={[
+    baseStyles,
+    variants[variant],
+    sizes[size],
+    className,
+  ]}
+  aria-label={ariaLabel}
+>
+  <slot />
+</button>
+
+<style>
+  button {
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    transition: all 0.2s ease;
+  }
+
+  button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(var(--nord6), 0.1) 50%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+  }
+
+  button:hover::before {
+    transform: translateX(100%);
+  }
+
+  button:active {
+    transform: translateY(0);
+  }
+</style>

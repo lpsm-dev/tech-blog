@@ -4,157 +4,328 @@ import { PAGE_SERVICES_TITLE, PAGE_SERVICES_DESCRIPTION } from "../consts";
 ---
 
 <BaseLayout title={PAGE_SERVICES_TITLE} description={PAGE_SERVICES_DESCRIPTION}>
-  <section>
+  <section class="services-content">
     <!-- Section 1 - Introduction -->
-    <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem;">
-      Com 10+ anos resolvendo desafios complexos em cloud e DevOps, ofereço não
-      apenas consultoria, mas <strong>resultados mensuráveis</strong>:
-      <ul style="margin: 1rem 0 2rem; padding-left: 1.5rem;">
+    <div class="intro-section">
+      <p class="intro-text">
+        Com 10+ anos resolvendo desafios complexos em cloud e DevOps, ofereço não apenas consultoria, mas <strong>resultados mensuráveis</strong>:
+      </p>
+      <ul class="metrics-list">
         <li>▶︎ Redução de 40-70% em custos de infraestrutura</li>
         <li>▶︎ Deploy até 15x mais rápido com pipelines otimizados</li>
         <li>▶︎ Zero downtime em migrações críticas</li>
       </ul>
-      Minha abordagem hands-on em <strong>Kubernetes, AWS e GitOps</strong> transforma
-      sua stack tecnológica em vantagem competitiva.
-    </p>
+      <p class="intro-text">
+        Minha abordagem hands-on em <strong>Kubernetes, AWS e GitOps</strong> transforma sua stack tecnológica em vantagem competitiva.
+      </p>
+    </div>
+
     <!-- Section 2 - Em que eu Acredito -->
-    <h2>🍃 Em que eu Acredito</h2>
-    <div>
-      <h3>Ferramentas não resolvem problemas. São as pessoas que resolvem</h3>
-      <p>
-        A maioria dos desafios tecnológicos não tem nada a ver com ferramentas -
-        tem a ver com processos. As ferramentas só funcionam quando as pessoas e
-        os fluxos de trabalho por trás delas funcionam.
-      </p>
-    </div>
-    <div>
-      <h3>Não acredito em "especialistas em tudo"</h3>
-      <p>
-        Já trabalhei em vários domínios, mas se você espera alguém que esteja
-        100% atualizado em tudo, continue procurando.
-      </p>
-    </div>
-    <div>
-      <h3>Não existe profissional super herói</h3>
-      <p>
-        Por diversas vezes na minha carreria presenciei a cultura do super
-        herói. Aquele profissional que resolve tudo, que não erra, que não
-        precisa de ajuda. Isso é um mito. Acredito que a colaboração e o
-        trabalho em equipe são essenciais para o sucesso de qualquer projeto.
-      </p>
-    </div>
-    <!-- Section 2 - Por que eu? -->
-    <h2>🚀 Por que minha consultoria é a escolha certa para o seu negócio?</h2>
-    <p>
-      Se sua empresa busca reduzir custos, otimizar operações e modernizar sua
-      infraestrutura sem dores de cabeça, minha consultoria entrega soluções sob
-      medida para acelerar resultados.
-    </p>
-    <div>
-      <h3>☁️ Arquitetura Cloud Eficiente</h3>
-      <p>
-        Infraestruturas escaláveis, resilientes e otimizadas para performance e
-        custo. Planejamento e implementação estratégica para garantir alta
-        disponibilidade e eficiência financeira.
-      </p>
-    </div>
-    <div>
-      <h3>⚙️ DevOps que Impulsiona a Entrega</h3>
-      <p>
-        Automação inteligente para fluxos de CI/CD, reduzindo tempo de deploy e
-        aumentando a confiabilidade dos lançamentos. Processos otimizados para
-        que sua equipe foque no que realmente importa: inovação.
-      </p>
-    </div>
-    <div>
-      <h3>🔄 Modernização sem Interrupções</h3>
-      <p>
-        Transformação para arquiteturas cloud-native e microserviços sem impacto
-        nas operações. Transições planejadas para garantir continuidade e
-        maximizar a eficiência do seu stack tecnológico.
-      </p>
-    </div>
-    <div>
-      <h3>🚢 Kubernetes e GitOps na Prática</h3>
-      <p>
-        Orquestração avançada de contêineres com Kubernetes para escalabilidade
-        e resiliência. Implementação de GitOps para garantir entregas contínuas,
-        infraestrutura declarativa e total rastreabilidade das mudanças.
-      </p>
-    </div>
-    <div>
-      <h3>🔐 Segurança e Compliance sem Barreiras</h3>
-      <p>
-        Implementação de políticas de segurança alinhadas às melhores práticas
-        do mercado, garantindo compliance sem comprometer a produtividade.
-        Segurança integrada, sem atritos.
-      </p>
-    </div>
-    <!-- Section 3 - Metodologia -->
-    <h2>🛠️ Minha Metodologia</h2>
-    <p>
-      Uma abordagem estratégica e prática para transformar sua infraestrutura
-      com eficiência e previsibilidade.
-    </p>
-    <ul
-      style="border-left: 4px solid rgb(var(--accent)); padding-left: 1.5rem;"
-    >
-      <li style="margin-bottom: 1.5rem;">
-        <strong>🔍 Diagnóstico Preciso:</strong> Análise técnica aprofundada aliada
-        à visão de negócios para identificar desafios críticos e oportunidades de
-        otimização.
-      </li>
-      <li style="margin-bottom: 1.5rem;">
-        <strong>🗺️ Roadmap Estratégico:</strong> Planejamento estruturado com milestones
-        claros e ações priorizadas para garantir eficiência e previsibilidade na
-        execução.
-      </li>
-      <li style="margin-bottom: 1.5rem;">
-        <strong>⚙️ Execução Hands-On:</strong> Muito além de consultoria, atuo diretamente
-        na implementação, garantindo entregas ágeis e funcionais.
-      </li>
-      <li>
-        <strong>📈 Suporte Contínuo:</strong> Acompanhamento pós-entrega por 6 meses
-        para garantir que a solução se mantenha eficiente e alinhada às necessidades
-        do negócio.
-      </li>
-    </ul>
-    <br />
-    <!-- Section 4 - CTA -->
-    <div>
-      <h2>⏳ Não adie mais, maximize seus resultados agora</h2>
-      <p>
-        A cada semana sem otimização, sua empresa perde tempo, dinheiro e
-        eficiência.
-        <strong>Vamos transformar sua infraestrutura juntos?</strong>
-        Agende agora uma <strong>consultoria gratuita</strong> e descubra como reduzir
-        custos e escalar com segurança.
-      </p>
-      <div style="margin-top: 1.5rem; text-align: center;">
-        <div
-          style="
-            background: white;
-            color: black;
-            padding: 0.5rem;
-            border-radius: 12px;
-            display: inline-block;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"
-        >
-          <a
-            href="mailto:cloud-craft-solutions@proton.me?subject=Quero%20otimizar%20minha%20infraestrutura&body=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria.%20Podemos%20marcar%20uma%20conversa?"
-            style="background: rgb(var(--accent));
-                 color: black;
-                 padding: 0.5rem 1rem;
-                 border-radius: 30px;
-                 text-decoration: none;
-                 font-weight: bold;
-                 font-size: 0.9rem;
-                 display: inline-block;"
-          >
-            📩 Entrar em contato →
-          </a>
+    <div class="beliefs-section">
+      <h2 class="section-title">🍃 Em que eu Acredito</h2>
+      <div class="beliefs-grid">
+        <div class="belief-card">
+          <h3>Ferramentas não resolvem problemas. São as pessoas que resolvem</h3>
+          <p>A maioria dos desafios tecnológicos não tem nada a ver com ferramentas - tem a ver com processos. As ferramentas só funcionam quando as pessoas e os fluxos de trabalho por trás delas funcionam.</p>
+        </div>
+        <div class="belief-card">
+          <h3>Não acredito em "especialistas em tudo"</h3>
+          <p>Já trabalhei em vários domínios, mas se você espera alguém que esteja 100% atualizado em tudo, continue procurando.</p>
+        </div>
+        <div class="belief-card">
+          <h3>Não existe profissional super herói</h3>
+          <p>Por diversas vezes na minha carreria presenciei a cultura do super herói. Aquele profissional que resolve tudo, que não erra, que não precisa de ajuda. Isso é um mito. Acredito que a colaboração e o trabalho em equipe são essenciais para o sucesso de qualquer projeto.</p>
         </div>
       </div>
     </div>
+
+    <!-- Section 3 - Por que eu? -->
+    <div class="why-me-section">
+      <h2 class="section-title">🚀 Por que minha consultoria é a escolha certa para o seu negócio?</h2>
+      <p class="section-description">Se sua empresa busca reduzir custos, otimizar operações e modernizar sua infraestrutura sem dores de cabeça, minha consultoria entrega soluções sob medida para acelerar resultados.</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>☁️ Arquitetura Cloud Eficiente</h3>
+          <p>Infraestruturas escaláveis, resilientes e otimizadas para performance e custo. Planejamento e implementação estratégica para garantir alta disponibilidade e eficiência financeira.</p>
+        </div>
+        <div class="service-card">
+          <h3>⚙️ DevOps que Impulsiona a Entrega</h3>
+          <p>Automação inteligente para fluxos de CI/CD, reduzindo tempo de deploy e aumentando a confiabilidade dos lançamentos. Processos otimizados para que sua equipe foque no que realmente importa: inovação.</p>
+        </div>
+        <div class="service-card">
+          <h3>🔄 Modernização sem Interrupções</h3>
+          <p>Transformação para arquiteturas cloud-native e microserviços sem impacto nas operações. Transições planejadas para garantir continuidade e maximizar a eficiência do seu stack tecnológico.</p>
+        </div>
+        <div class="service-card">
+          <h3>🚢 Kubernetes e GitOps na Prática</h3>
+          <p>Orquestração avançada de contêineres com Kubernetes para escalabilidade e resiliência. Implementação de GitOps para garantir entregas contínuas, infraestrutura declarativa e total rastreabilidade das mudanças.</p>
+        </div>
+        <div class="service-card">
+          <h3>🔐 Segurança e Compliance sem Barreiras</h3>
+          <p>Implementação de políticas de segurança alinhadas às melhores práticas do mercado, garantindo compliance sem comprometer a produtividade. Segurança integrada, sem atritos.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 - Metodologia -->
+    <div class="methodology-section">
+      <h2 class="section-title">🛠️ Minha Metodologia</h2>
+      <p class="section-description">Uma abordagem estratégica e prática para transformar sua infraestrutura com eficiência e previsibilidade.</p>
+      
+      <div class="methodology-steps">
+        <div class="step-card">
+          <div class="step-icon">🔍</div>
+          <h3>Diagnóstico Preciso</h3>
+          <p>Análise técnica aprofundada aliada à visão de negócios para identificar desafios críticos e oportunidades de otimização.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">🗺️</div>
+          <h3>Roadmap Estratégico</h3>
+          <p>Planejamento estruturado com milestones claros e ações priorizadas para garantir eficiência e previsibilidade na execução.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">⚙️</div>
+          <h3>Execução Hands-On</h3>
+          <p>Muito além de consultoria, atuo diretamente na implementação, garantindo entregas ágeis e funcionais.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">📈</div>
+          <h3>Suporte Contínuo</h3>
+          <p>Acompanhamento pós-entrega por 6 meses para garantir que a solução se mantenha eficiente e alinhada às necessidades do negócio.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5 - CTA -->
+    <div class="cta-section">
+      <h2 class="section-title">⏳ Não adie mais, maximize seus resultados agora</h2>
+      <p class="cta-text">
+        A cada semana sem otimização, sua empresa perde tempo, dinheiro e eficiência.
+        <strong>Vamos transformar sua infraestrutura juntos?</strong>
+      </p>
+      <p class="cta-subtext">
+        Agende agora uma <strong>consultoria gratuita</strong> e descubra como reduzir custos e escalar com segurança.
+      </p>
+      <a href="mailto:cloud-craft-solutions@proton.me?subject=Quero%20otimizar%20minha%20infraestrutura&body=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria.%20Podemos%20marcar%20uma%20conversa?" class="cta-button">
+        📩 Entrar em contato
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14m-7-7 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
   </section>
 </BaseLayout>
+
+<style>
+  .services-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .intro-section {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: rgba(var(--nord3), 0.1);
+    border-radius: 1rem;
+    border: 1px solid rgba(var(--nord4), 0.1);
+  }
+
+  .intro-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: rgb(var(--nord4));
+  }
+
+  .metrics-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .metrics-list li {
+    font-size: 1.1rem;
+    color: rgb(var(--nord8));
+    padding: 1rem;
+    background: rgba(var(--nord3), 0.2);
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease;
+  }
+
+  .metrics-list li:hover {
+    transform: translateX(10px);
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: rgb(var(--nord6));
+    background: linear-gradient(135deg, rgb(var(--nord8)), rgb(var(--nord7)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: rgb(var(--nord4));
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .beliefs-section,
+  .why-me-section,
+  .methodology-section {
+    margin-bottom: 4rem;
+  }
+
+  .beliefs-grid,
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .belief-card,
+  .service-card {
+    padding: 2rem;
+    background: rgba(var(--nord3), 0.1);
+    border-radius: 1rem;
+    border: 1px solid rgba(var(--nord4), 0.1);
+    transition: transform 0.2s ease;
+  }
+
+  .belief-card:hover,
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .belief-card h3,
+  .service-card h3 {
+    font-size: 1.25rem;
+    color: rgb(var(--nord8));
+    margin-bottom: 1rem;
+  }
+
+  .methodology-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .step-card {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(var(--nord3), 0.1);
+    border-radius: 1rem;
+    border: 1px solid rgba(var(--nord4), 0.1);
+    transition: transform 0.2s ease;
+  }
+
+  .step-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .step-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .step-card h3 {
+    color: rgb(var(--nord8));
+    margin-bottom: 1rem;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(var(--nord8), 0.1), rgba(var(--nord7), 0.1));
+    border-radius: 1rem;
+    margin-top: 4rem;
+  }
+
+  .cta-text {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: rgb(var(--nord6));
+  }
+
+  .cta-subtext {
+    font-size: 1.1rem;
+    color: rgb(var(--nord4));
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgb(var(--nord0));
+    background: linear-gradient(135deg, rgb(var(--nord7)), rgb(var(--nord8)));
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--nord8), 0.2);
+  }
+
+  .cta-button svg {
+    transition: transform 0.2s ease;
+  }
+
+  .cta-button:hover svg {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 768px) {
+    .services-content {
+      padding: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+    }
+
+    .intro-text,
+    .cta-text {
+      font-size: 1.1rem;
+    }
+
+    .metrics-list li {
+      font-size: 1rem;
+    }
+
+    .belief-card,
+    .service-card,
+    .step-card {
+      padding: 1.5rem;
+    }
+
+    .cta-section {
+      padding: 2rem 1rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

@@ -1,89 +1,99 @@
 ---
-import { Icon } from "astro-icon/components";
 const { url } = Astro.props;
 ---
 
 <github-info class="github-card" data-url={url}>
-  <div class="card-header">
-    <div class="repo-info">
+  <div class="card-content">
+    <div class="card-header">
       <h3 class="repo-name">
-        <span>
-          <span class="loading loading-spinner loading-xs"></span>
-        </span>
+        <span class="repo-name-text">Loading...</span>
       </h3>
       <p class="repo-description">
-        <span class="loading loading-spinner loading-xs"></span>
+        <span class="repo-description-text">Loading...</span>
       </p>
+    </div>
+
+    <div class="card-stats">
       <div class="repo-language">
-        <p>
-          <Icon name="ri:code-line" class="icon" />
-          Linguagem:
-          <span>
-            <span class="loading loading-spinner loading-xs"></span>
-          </span>
-        </p>
+        <div class="language-wrapper">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon"
+          >
+            <path d="m18 16 4-4-4-4"></path>
+            <path d="m6 8-4 4 4 4"></path>
+            <path d="m14.5 4-5 16"></path>
+          </svg>
+          <span class="repo-language-text">Loading...</span>
+        </div>
+      </div>
+
+      <div class="stats-container">
+        <div class="stat-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon"
+          >
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span class="repo-stars-text">0</span>
+        </div>
+        <div class="stat-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon"
+          >
+            <path d="M7 7H3a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h4"></path>
+            <path d="M14 7h4a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-4"></path>
+            <path d="M7 22h10"></path>
+            <path d="M7 17h10"></path>
+            <path d="M7 2h10"></path>
+            <path d="M7 12h10"></path>
+          </svg>
+          <span class="repo-forks-text">0</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="card-stats">
-    <div class="stat-item">
-      <Icon name="ri:star-line" class="icon" />
-      <span class="stat-value">
-        <span class="loading loading-spinner loading-xs"></span>
-      </span>
-    </div>
-    <div class="stat-item">
-      <Icon name="ri:git-fork-line" class="icon" />
-      <span class="stat-value">
-        <span class="loading loading-spinner loading-xs"></span>
-      </span>
-    </div>
+    <a href={url} target="_blank" rel="noopener noreferrer" class="github-button">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="button-icon"
+      >
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+      </svg>
+      GitHub Repository
+    </a>
   </div>
-
-  <a href={url} target="_blank" rel="noopener noreferrer" class="github-button">
-    <Icon name="ri:github-fill" class="button-icon" />
-    GitHub Repository
-  </a>
 </github-info>
-
-<script>
-  import { formatNumber } from "../../utils/format";
-  import { getRepoInfoFromUrl } from "../../utils/github";
-
-  class GithubInfo extends HTMLElement {
-    connectedCallback() {
-      const repoUrl = this.dataset.url;
-      if (!repoUrl) return;
-
-      const { owner, repo } = getRepoInfoFromUrl(repoUrl);
-      const apiUrl = `https://api.github.com/repos/${owner}/${repo}`;
-
-      fetch(apiUrl)
-        .then((response) => {
-          if (!response.ok) throw new Error("Failed to fetch repository info.");
-          return response.json();
-        })
-        .then((data) => {
-          this.querySelector(".repo-name span")!.textContent = data.name;
-          this.querySelector(".repo-description span")!.textContent =
-            data.description || "No description provided.";
-          this.querySelector(".repo-language span")!.textContent =
-            data.language || "N/A";
-          this.querySelectorAll(".stat-value").forEach((span, index) => {
-            span.textContent = formatNumber(
-              index === 0 ? data.stargazers_count : data.forks_count,
-            );
-          });
-        })
-        .catch((error) => {
-          console.error("Error fetching repository info:", error);
-        });
-    }
-  }
-
-  customElements.define("github-info", GithubInfo);
-</script>
 
 <style>
   .github-card {
@@ -91,75 +101,102 @@ const { url } = Astro.props;
     flex-direction: column;
     position: relative;
     border-radius: 20px;
-    background: rgb(var(--card-bg));
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.05),
-      0 2px 4px -1px rgba(0, 0, 0, 0.03);
     overflow: hidden;
     padding: 1.5rem;
     text-decoration: none;
     color: inherit;
+    transition: transform 0.3s ease;
+    border: 1px solid rgb(var(--nord3));
   }
 
-  .repo-name {
-    color: rgb(var(--black)) !important;
+  [data-theme="light"] .github-card {
+    background: rgb(var(--nord6));
+    color: rgb(var(--nord0));
+    box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.05),
+      0 2px 4px rgba(0, 0, 0, 0.03);
   }
 
-  .repo-description {
-    color: rgb(var(--gray)) !important;
-    margin-top: 0.5rem;
+  [data-theme="dark"] .github-card {
+    background: rgb(var(--nord1));
+    color: rgb(var(--nord6));
+    box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.2),
+      0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .repo-language {
-    color: rgb(var(--gray)) !important;
-    margin-top: 0.5rem;
+  .github-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .card-content {
     display: flex;
-    align-items: center;
-  }
-
-  .repo-language p {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0;
-  }
-
-  .stat-item {
-    color: rgb(var(--gray)) !important;
-  }
-
-  .stat-value {
-    color: rgb(var(--black)) !important;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .card-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    text-align: center;
   }
 
-  .repo-info {
-    flex: 1;
+  .repo-name {
+    color: inherit;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .repo-description {
+    color: inherit;
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    opacity: 0.8;
   }
 
   .card-stats {
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(var(--nord3), 0.1);
+    border-radius: 12px;
+  }
+
+  .repo-language {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .language-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: rgb(var(--nord8));
+    padding: 0.5rem 1rem;
+    background: rgba(var(--nord3), 0.1);
+    border-radius: 9999px;
+  }
+
+  .stats-container {
+    display: flex;
     gap: 1.5rem;
-    padding-top: 1rem;
-    margin-bottom: 1rem;
-    border-top: 1px solid rgba(var(--black), 0.06);
+    justify-content: center;
   }
 
   .stat-item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-size: 0.875rem;
   }
 
   .icon {
     width: 1.2rem;
     height: 1.2rem;
-    color: rgb(var(--gray));
   }
 
   .github-button {
@@ -167,23 +204,25 @@ const { url } = Astro.props;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: rgb(var(--accent));
-    color: white;
+    background: rgb(var(--nord3));
+    color: rgb(var(--nord6));
     padding: 0.75rem 1rem;
     border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.2s ease;
-    margin-top: auto;
-    border: none;
     cursor: pointer;
     font-size: 1rem;
-    border: 2px solid transparent;
+    border: none;
+  }
+
+  [data-theme="light"] .github-button {
+    background: rgb(var(--nord4));
+    color: rgb(var(--nord0));
   }
 
   .github-button:hover {
-    background-color: rgb(var(--accent-dark));
-    border-color: rgb(var(--accent));
+    transform: translateY(-2px);
   }
 
   .button-icon {
@@ -197,9 +236,89 @@ const { url } = Astro.props;
       padding: 1.25rem;
     }
 
+    .repo-name {
+      font-size: 1.25rem;
+    }
+
     .github-button {
       padding: 0.6rem 0.8rem;
       font-size: 0.9rem;
     }
   }
 </style>
+
+<script>
+  import { formatNumber } from "../../utils/format";
+  import { getRepoInfoFromUrl } from "../../utils/github";
+
+  class GithubInfo extends HTMLElement {
+    constructor() {
+      super();
+      this.init();
+    }
+
+    async init() {
+      const repoUrl = this.dataset.url;
+      if (!repoUrl) return;
+
+      try {
+        const { owner, repo } = getRepoInfoFromUrl(repoUrl);
+        const apiUrl = `https://api.github.com/repos/${owner}/${repo}`;
+
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error("Failed to fetch repository info.");
+        
+        const data = await response.json();
+        
+        // Update repository name
+        const nameElement = this.querySelector(".repo-name-text");
+        if (nameElement) nameElement.textContent = data.name;
+
+        // Update repository description
+        const descElement = this.querySelector(".repo-description-text");
+        if (descElement) {
+          descElement.textContent = data.description || "No description provided.";
+        }
+
+        // Update repository language
+        const langElement = this.querySelector(".repo-language-text");
+        if (langElement) {
+          langElement.textContent = data.language || "N/A";
+        }
+
+        // Update stars count
+        const starsElement = this.querySelector(".repo-stars-text");
+        if (starsElement) {
+          starsElement.textContent = formatNumber(data.stargazers_count);
+        }
+
+        // Update forks count
+        const forksElement = this.querySelector(".repo-forks-text");
+        if (forksElement) {
+          forksElement.textContent = formatNumber(data.forks_count);
+        }
+      } catch (error) {
+        console.error("Error fetching repository info:", error);
+        this.showError();
+      }
+    }
+
+    showError() {
+      const elements = {
+        name: this.querySelector(".repo-name-text"),
+        description: this.querySelector(".repo-description-text"),
+        language: this.querySelector(".repo-language-text"),
+        stars: this.querySelector(".repo-stars-text"),
+        forks: this.querySelector(".repo-forks-text"),
+      };
+
+      if (elements.name) elements.name.textContent = "Error loading repository";
+      if (elements.description) elements.description.textContent = "Failed to fetch repository information";
+      if (elements.language) elements.language.textContent = "N/A";
+      if (elements.stars) elements.stars.textContent = "0";
+      if (elements.forks) elements.forks.textContent = "0";
+    }
+  }
+
+  customElements.define("github-info", GithubInfo);
+</script>

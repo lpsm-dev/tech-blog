@@ -4,7 +4,6 @@ import ThemeToggle from "../atoms/ThemeToggle.astro";
 import Search from "../atoms/Search.astro";
 import { GITHUB_REPO_URL, SITE_TITLE } from "../../consts";
 import { getUrl } from "../../utils/url";
-import "../../styles/pagefind-ui-custom.css";
 ---
 
 <header>
@@ -13,18 +12,81 @@ import "../../styles/pagefind-ui-custom.css";
       <div class="nav-brand">
         <a href={getUrl("/")} class="brand-link">
           <div class="brand-icon">
-            <img
-              src={getUrl("/icon.png")}
-              alt="Obsidian Blogger Logo"
-              width="24"
-              height="24"
-            />
+            <svg 
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg" 
+              class="cyber-icon"
+            >
+              <!-- Circuit board pattern -->
+              <path 
+                d="M4 4h16v16H4V4z" 
+                stroke="currentColor" 
+                stroke-width="2"
+                class="board"
+              />
+              <!-- Circuit traces -->
+              <path 
+                d="M8 8h8M8 12h8M8 16h8M12 8v8" 
+                stroke="currentColor" 
+                stroke-width="1.5"
+                class="traces"
+              />
+              <!-- Connection points -->
+              <circle cx="8" cy="8" r="1.5" fill="currentColor" class="point" />
+              <circle cx="16" cy="8" r="1.5" fill="currentColor" class="point" />
+              <circle cx="8" cy="16" r="1.5" fill="currentColor" class="point" />
+              <circle cx="16" cy="16" r="1.5" fill="currentColor" class="point" />
+              <circle cx="12" cy="12" r="2" fill="currentColor" class="center" />
+            </svg>
           </div>
           <span class="brand-text">{SITE_TITLE}</span>
         </a>
       </div>
 
-      <div class="nav-links">
+      <button 
+        id="mobile-menu-button" 
+        class="mobile-menu-button" 
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="nav-links"
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="24" 
+          height="24" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          class="menu-icon"
+        >
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="24" 
+          height="24" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          class="close-icon"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div id="nav-links" class="nav-links">
         <HeaderLink href={getUrl("/")}>Home</HeaderLink>
         <HeaderLink href={getUrl("/blogs")}>Posts</HeaderLink>
         <HeaderLink href={getUrl("/tags")}>Tags</HeaderLink>
@@ -59,11 +121,23 @@ import "../../styles/pagefind-ui-custom.css";
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(var(--gray-light), 0.85);
+    background: linear-gradient(
+      135deg,
+      rgb(var(--nord1)) 0%,
+      rgb(var(--nord2)) 100%
+    );
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(var(--gray), 0.1);
-    transition: var(--theme-transition);
+    border-bottom: 1px solid rgba(var(--nord3), 0.2);
+  }
+
+  [data-theme="light"] header {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--nord4)) 0%,
+      rgb(var(--nord5)) 100%
+    );
+    border-bottom: 1px solid rgba(var(--nord3), 0.1);
   }
 
   nav {
@@ -92,7 +166,7 @@ import "../../styles/pagefind-ui-custom.css";
     align-items: center;
     gap: 0.75rem;
     text-decoration: none;
-    color: rgb(var(--black));
+    color: rgb(var(--nord6));
     font-weight: 600;
     padding: 0.5rem;
     margin: -0.5rem;
@@ -102,7 +176,7 @@ import "../../styles/pagefind-ui-custom.css";
   }
 
   .brand-link:hover {
-    background: rgba(var(--gray), 0.1);
+    color: rgb(var(--nord4));
   }
 
   .brand-icon {
@@ -111,36 +185,78 @@ import "../../styles/pagefind-ui-custom.css";
     justify-content: center;
     width: 2.25rem;
     height: 2.25rem;
-    background: rgba(var(--gray-light), 0.5);
+    background: rgba(var(--nord3), 0.3);
     border-radius: 0.85rem;
     padding: 0.25rem;
     flex-shrink: 0;
-    box-shadow:
-      0 2px 4px rgba(var(--gray), 0.1),
-      0 0 0 1px rgba(var(--gray), 0.05);
   }
 
-  .brand-icon img {
+  .cyber-icon {
     width: 100%;
     height: 100%;
-    border-radius: 0.6rem;
-    object-fit: cover;
-    transition: transform 0.2s ease;
+    color: rgb(var(--nord8));
   }
 
-  .brand-link:hover .brand-icon img {
-    transform: scale(1.05);
+  .cyber-icon .board {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .cyber-icon .traces {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .cyber-icon .point {
+    animation: blink 1.5s ease-in-out infinite alternate;
+  }
+
+  .cyber-icon .center {
+    animation: rotate 4s linear infinite;
   }
 
   .brand-text {
     font-size: 1.125rem;
     font-weight: 600;
     letter-spacing: -0.01em;
-    color: rgb(var(--black));
+    color: rgb(var(--nord6));
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     min-width: 0;
+  }
+
+  /* Mobile Menu Button */
+  .mobile-menu-button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: transparent;
+    border: none;
+    border-radius: 0.5rem;
+    color: rgb(var(--nord6));
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-menu-button:hover {
+    background: rgba(var(--nord3), 0.3);
+  }
+
+  .mobile-menu-button .menu-icon {
+    display: block;
+  }
+
+  .mobile-menu-button .close-icon {
+    display: none;
+  }
+
+  .mobile-menu-button[aria-expanded="true"] .menu-icon {
+    display: none;
+  }
+
+  .mobile-menu-button[aria-expanded="true"] .close-icon {
+    display: block;
   }
 
   .nav-links {
@@ -154,7 +270,7 @@ import "../../styles/pagefind-ui-custom.css";
   .nav-links a {
     position: relative;
     padding: 0.5rem 0.75rem;
-    color: rgb(var(--gray-dark));
+    color: rgb(var(--nord6));
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
@@ -164,13 +280,24 @@ import "../../styles/pagefind-ui-custom.css";
   }
 
   .nav-links a:hover {
-    color: rgb(var(--black));
-    background: rgba(var(--gray), 0.1);
+    color: rgb(var(--nord4));
+    background: rgba(var(--nord3), 0.3);
   }
 
   .nav-links a.active {
-    color: var(--accent);
+    color: rgb(var(--nord8));
     font-weight: 600;
+  }
+
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgb(var(--nord8));
+    border-radius: 1px;
   }
 
   .nav-actions {
@@ -185,14 +312,14 @@ import "../../styles/pagefind-ui-custom.css";
     justify-content: center;
     width: 2rem;
     height: 2rem;
-    color: rgb(var(--gray-dark));
+    color: rgb(var(--nord6));
     border-radius: 0.5rem;
     transition: all 0.2s ease;
   }
 
   .social-link:hover {
-    color: rgb(var(--black));
-    background: rgba(var(--gray), 0.1);
+    color: rgb(var(--nord4));
+    background: rgba(var(--nord3), 0.3);
     transform: translateY(-1px);
   }
 
@@ -208,25 +335,76 @@ import "../../styles/pagefind-ui-custom.css";
     }
 
     .nav-wrapper {
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
-    .brand-text {
-      font-size: 1.05rem;
-    }
-
-    .brand-icon {
-      width: 2.1rem;
-      height: 2.1rem;
+    .mobile-menu-button {
+      display: flex;
+      order: 1;
     }
 
     .nav-links {
-      gap: 0.75rem;
+      position: fixed;
+      inset: 3.75rem 0 0 0;
+      height: calc(100vh - 3.75rem);
+      flex-direction: column;
+      align-items: stretch;
+      background: linear-gradient(
+        135deg,
+        rgb(var(--nord1)) 0%,
+        rgb(var(--nord2)) 100%
+      );
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 2rem;
+      gap: 1rem;
+      transform: translateX(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-top: 1px solid rgba(var(--nord3), 0.2);
+    }
+
+    [data-theme="light"] .nav-links {
+      background: linear-gradient(
+        135deg,
+        rgb(var(--nord4)) 0%,
+        rgb(var(--nord5)) 100%
+      );
+      border-top: 1px solid rgba(var(--nord3), 0.1);
+    }
+
+    .nav-links[data-visible="true"] {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
     }
 
     .nav-links a {
-      padding: 0.45rem 0.65rem;
-      font-size: 0.925rem;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.125rem;
+      background: rgba(var(--nord3), 0.1);
+      border: 1px solid rgba(var(--nord3), 0.2);
+      border-radius: 0.75rem;
+    }
+
+    .nav-links a:hover {
+      background: rgba(var(--nord3), 0.2);
+      transform: translateY(-2px);
+    }
+
+    .nav-links a.active {
+      background: rgba(var(--nord8), 0.1);
+      border-color: rgba(var(--nord8), 0.3);
+    }
+
+    .nav-links a.active::after {
+      display: none;
+    }
+
+    .nav-actions {
+      order: 2;
     }
   }
 
@@ -251,13 +429,20 @@ import "../../styles/pagefind-ui-custom.css";
       padding: 0.2rem;
     }
 
+    .mobile-menu-button {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+
     .nav-links {
-      gap: 0.35rem;
+      top: 3.5rem;
+      height: calc(100vh - 3.5rem);
+      padding: 1.5rem;
     }
 
     .nav-links a {
-      padding: 0.4rem 0.5rem;
-      font-size: 0.875rem;
+      padding: 0.875rem;
+      font-size: 1rem;
     }
 
     .nav-actions {
@@ -274,4 +459,94 @@ import "../../styles/pagefind-ui-custom.css";
       height: 1.1rem;
     }
   }
+
+  @keyframes pulse {
+    0%, 100% { 
+      stroke-width: 2;
+      opacity: 1;
+    }
+    50% { 
+      stroke-width: 2.5;
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes glow {
+    from {
+      stroke: rgb(var(--nord8));
+      stroke-width: 1.5;
+    }
+    to {
+      stroke: rgb(var(--nord7));
+      stroke-width: 2;
+    }
+  }
+
+  @keyframes blink {
+    from {
+      opacity: 0.5;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 </style>
+
+<script>
+  function initMobileMenu() {
+    const menuButton = document.getElementById('mobile-menu-button');
+    const navLinks = document.getElementById('nav-links');
+
+    if (!menuButton || !navLinks) return;
+
+    function toggleMenu() {
+      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+      navLinks.setAttribute('data-visible', (!isExpanded).toString());
+      
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = !isExpanded ? 'hidden' : '';
+    }
+
+    menuButton.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const isMenuOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      if (isMenuOpen && !navLinks.contains(e.target) && !menuButton.contains(e.target)) {
+        toggleMenu();
+      }
+    });
+
+    // Close menu when pressing Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+        toggleMenu();
+      }
+    });
+
+    // Close menu when resizing to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && menuButton.getAttribute('aria-expanded') === 'true') {
+        toggleMenu();
+      }
+    });
+  }
+
+  // Initialize menu
+  initMobileMenu();
+
+  // Re-initialize after Astro page transitions
+  document.addEventListener('astro:after-swap', initMobileMenu);
+</script>

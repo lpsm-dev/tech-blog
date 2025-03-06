@@ -3,11 +3,11 @@ import { getCollection } from "astro:content";
 import BaseHead from "../components/organisms/BaseHead.astro";
 import Header from "../components/organisms/Header.astro";
 import Footer from "../components/organisms/Footer.astro";
-import BlogCard from "../components/molecules/BlogCard.astro";
+import BlogCard from "../components/molecules/Card/BlogCard.astro";
 import { paginatePosts } from "../utils/pagination";
 import { POSTS_PER_PAGE } from "../consts";
 
-const posts = await getCollection("blog", ({ data }) => data.publish);
+const posts = await getCollection("blog", ({ data }) => data.publish !== false);
 const currentPosts = paginatePosts(posts, 1);
 const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
 ---
@@ -19,6 +19,50 @@ const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
       title="Meus Posts"
       description="Explore a minha coleção de artigos."
     />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="base-header">
+        <h1 class="base-title">Meus Posts</h1>
+        <p class="base-description">Explore a minha coleção de artigos.</p>
+      </div>
+      {
+        currentPosts.length > 0 ? (
+          <div class="post-grid">
+            {currentPosts.map((post) => (
+              <BlogCard post={post} />
+            ))}
+          </div>
+        ) : (
+          <div class="no-posts">No posts found. Check back soon!</div>
+        )
+      }
+      <div class="pagination">
+        {
+          totalPages > 1 && (
+            <a href={`/blogs/2`} class="next">
+              Next Page
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="arrow-icon"
+              >
+                <path d="M5 12h14m-7-7 7 7-7 7"></path>
+              </svg>
+            </a>
+          )
+        }
+      </div>
+    </main>
+    <Footer />
     <style>
       body {
         min-height: 100vh;
@@ -65,37 +109,73 @@ const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
         margin: 0 auto;
       }
 
-      .posts-grid {
+      .post-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
-        flex: 1;
-        margin-bottom: 2rem;
+        margin-top: 2rem;
       }
 
       .pagination {
         display: flex;
         justify-content: center;
         gap: 1rem;
-        margin-top: 2rem;
+        margin-top: 3rem;
       }
 
       .pagination a {
-        padding: 0.5rem 1rem;
-        background: rgba(var(--gray-light), 0.5);
-        color: rgb(var(--gray-dark));
-        border-radius: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 2rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: rgb(var(--nord6));
+        background: rgb(var(--nord1));
+        border: 3px solid rgb(var(--nord3));
+        border-radius: 1rem;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
         text-decoration: none;
-        transition: background 0.2s ease;
+        box-shadow: 
+          0 4px 6px rgba(0, 0, 0, 0.1),
+          0 2px 4px rgba(0, 0, 0, 0.06);
+      }
+
+      [data-theme="light"] .pagination a {
+        color: rgb(var(--nord0));
+        background: rgb(var(--nord6));
+        border-color: rgb(var(--nord4));
+      }
+
+      .pagination a::before {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        background: linear-gradient(45deg, rgb(var(--nord7)), rgb(var(--nord8)));
+        border-radius: inherit;
+        z-index: -2;
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
 
       .pagination a:hover {
-        background: rgba(var(--gray-light), 0.7);
+        transform: translateY(-2px);
+        border-color: transparent;
       }
 
-      .pagination .disabled {
-        pointer-events: none;
-        opacity: 0.5;
+      .pagination a:hover::before {
+        opacity: 1;
+      }
+
+      .arrow-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .pagination a:hover .arrow-icon {
+        transform: translateX(4px);
       }
 
       .no-posts {
@@ -121,47 +201,16 @@ const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
           padding: 0 1rem;
         }
 
-        .posts-grid {
+        .post-grid {
           grid-template-columns: 1fr;
           gap: 1.5rem;
         }
+
+        .pagination a {
+          padding: 0.875rem 1.75rem;
+          font-size: 1rem;
+        }
       }
     </style>
-  </head>
-
-  <body>
-    <Header />
-    <main>
-      <div class="base-header">
-        <h1 class="base-title">Meus Posts</h1>
-        <p class="base-description">Explore a minha coleção de artigos.</p>
-      </div>
-      {
-        currentPosts.length > 0 ? (
-          <div class="posts-grid">
-            {currentPosts.map((post) => (
-              <BlogCard
-                title={post.data.title}
-                description={post.data.description ?? undefined}
-                date={post.data.created_date ?? undefined}
-                slug={post.data.slug ?? post.id}
-              />
-            ))}
-          </div>
-        ) : (
-          <div class="no-posts">No posts found. Check back soon!</div>
-        )
-      }
-      <div class="pagination">
-        {
-          totalPages > 1 && (
-            <a href={`/blogs/2`} class="next">
-              Next Page
-            </a>
-          )
-        }
-      </div>
-    </main>
-    <Footer />
   </body>
 </html>

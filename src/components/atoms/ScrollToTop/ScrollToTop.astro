@@ -1,0 +1,119 @@
+---
+---
+
+<button
+  id="scroll-to-top"
+  class="scroll-button"
+  aria-label="Scroll to top"
+  type="button"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="m17 14-5-5-5 5"/>
+  </svg>
+</button>
+
+<style>
+  .scroll-button {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: 2px solid hsl(var(--primary));
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(1rem);
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.1),
+      0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+  }
+
+  .scroll-button:hover {
+    transform: translateY(-2px);
+    background: hsl(var(--primary) / 0.9);
+    box-shadow: 
+      0 8px 20px rgba(0, 0, 0, 0.15),
+      0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .scroll-button:active {
+    transform: translateY(0);
+  }
+
+  .scroll-button.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .scroll-button svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2.5;
+  }
+
+  @media (max-width: 640px) {
+    .scroll-button {
+      right: 1rem;
+      bottom: 1rem;
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+
+    .scroll-button svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+</style>
+
+<script>
+  const scrollButton = document.getElementById("scroll-to-top");
+  let lastScrollTop = 0;
+  const scrollThreshold = 200;
+
+  function toggleScrollButton() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > scrollThreshold) {
+      scrollButton?.classList.add("visible");
+    } else {
+      scrollButton?.classList.remove("visible");
+    }
+    
+    lastScrollTop = scrollTop;
+  }
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+  // Add event listeners
+  window.addEventListener("scroll", toggleScrollButton, { passive: true });
+  scrollButton?.addEventListener("click", scrollToTop);
+
+  // Initialize button state
+  toggleScrollButton();
+</script>

@@ -28,20 +28,7 @@ const { title, description, date, slug } = Astro.props;
             </time>
           )
         }
-        <div class="read-more">
-          Read More
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path d="M5 12h14m-7-7 7 7-7 7"></path>
-          </svg>
-        </div>
+        <div class="read-more">Read More</div>
       </div>
     </div>
   </a>
@@ -50,42 +37,39 @@ const { title, description, date, slug } = Astro.props;
 <style>
   .blog-card {
     position: relative;
-    border-radius: 20px;
-    background: rgb(var(--card-bg));
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.05),
-      0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 1rem;
+    background: rgb(var(--nord1));
     overflow: hidden;
+    transition: all 0.3s ease;
+    border: 3px solid rgb(var(--nord0));
+    box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1),
+      0 2px 4px rgba(0, 0, 0, 0.06),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   }
 
-  @media (prefers-color-scheme: dark) {
-    .blog-card {
-      background: rgb(var(--card-bg));
-    }
+  [data-theme="dark"] .blog-card {
+    border-color: rgb(var(--nord4));
+    background: rgb(var(--nord1));
   }
 
-  .blog-card::after {
-    content: "";
+  .blog-card::before {
+    content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      160deg,
-      rgba(var(--accent), 0.02) 0%,
-      rgba(var(--accent), 0.04) 100%
-    );
+    inset: -3px;
+    background: linear-gradient(45deg, rgb(var(--nord7)), rgb(var(--nord8)));
+    border-radius: inherit;
+    z-index: -2;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
 
   .blog-card:hover {
     transform: translateY(-4px);
-    box-shadow:
-      0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: transparent;
   }
 
-  .blog-card:hover::after {
+  .blog-card:hover::before {
     opacity: 1;
   }
 
@@ -96,96 +80,88 @@ const { title, description, date, slug } = Astro.props;
   }
 
   .card-content {
-    position: relative;
-    z-index: 1;
-    padding: 1rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
     height: 100%;
+    position: relative;
+    z-index: 1;
   }
 
   .main-content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
 
   .title {
     font-size: 1.5rem;
     font-weight: 700;
-    line-height: 1.2;
-    margin-top: 0.5rem;
-    color: rgb(var(--black));
-    transition: color 0.2s ease;
+    color: rgb(var(--nord6));
+    transition: color 0.3s ease;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  [data-theme="dark"] .title {
+    color: rgb(var(--nord4));
   }
 
   .blog-card:hover .title {
-    color: rgb(var(--accent));
+    color: rgb(var(--nord8));
   }
 
   .description {
-    color: rgb(var(--gray));
+    color: rgb(var(--nord4));
     line-height: 1.6;
+    margin: 0;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
   }
 
+  [data-theme="dark"] .description {
+    color: rgb(var(--nord4));
+  }
+
   .footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
     padding-top: 1rem;
-    border-top: 1px solid rgba(var(--black), 0.06);
+    border-top: 1px solid rgba(var(--nord3), 0.2);
   }
 
   .date {
     font-size: 0.875rem;
-    color: rgb(var(--gray));
+    color: rgb(var(--nord4));
   }
 
   .read-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: rgb(var(--accent));
-    transition: gap 0.3s ease;
-  }
-
-  .read-more svg {
-    transition: transform 0.3s ease;
+    color: rgb(var(--nord8));
+    transition: all 0.3s ease;
   }
 
   .blog-card:hover .read-more {
-    gap: 0.75rem;
-  }
-
-  .blog-card:hover .read-more svg {
-    transform: translateX(4px);
+    color: rgb(var(--nord7));
   }
 
   @media (max-width: 768px) {
     .blog-card {
-      border-radius: 16px;
+      border-width: 2px;
     }
 
     .card-content {
       padding: 1.25rem;
-      gap: 1rem;
     }
 
     .title {
       font-size: 1.25rem;
-    }
-
-    .footer {
-      padding-top: 0.875rem;
     }
   }
 </style>

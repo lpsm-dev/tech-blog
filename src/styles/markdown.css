@@ -1,0 +1,264 @@
+/* Markdown Content Styling */
+
+.prose {
+  max-width: 65ch;
+  margin: 0 auto;
+  color: rgb(var(--nord4));
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+[data-theme="light"] .prose {
+  color: rgb(var(--nord1));
+}
+
+/* Headings */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: rgb(var(--nord6));
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 2.5em 0 1em;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+[data-theme="light"] .prose h1,
+[data-theme="light"] .prose h2,
+[data-theme="light"] .prose h3,
+[data-theme="light"] .prose h4,
+[data-theme="light"] .prose h5,
+[data-theme="light"] .prose h6 {
+  color: rgb(var(--nord0));
+}
+
+/* Vertical bars for each heading level */
+.prose h1::before,
+.prose h2::before,
+.prose h3::before,
+.prose h4::before,
+.prose h5::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  bottom: 0.1em;
+  width: 4px;
+  border-radius: 2px;
+}
+
+/* Different colors for each heading level */
+.prose h1::before {
+  background: rgb(var(--nord8)); /* Frost Blue */
+}
+
+.prose h2::before {
+  background: rgb(var(--nord14)); /* Aurora Green */
+}
+
+.prose h3::before {
+  background: rgb(var(--nord13)); /* Aurora Yellow */
+}
+
+.prose h4::before {
+  background: rgb(var(--nord12)); /* Aurora Orange */
+}
+
+.prose h5::before {
+  background: rgb(var(--nord15)); /* Aurora Purple */
+}
+
+.prose h1 {
+  font-size: 2.5em;
+  margin-top: 0;
+}
+
+.prose h2 {
+  font-size: 1.75em;
+}
+
+.prose h3 {
+  font-size: 1.5em;
+}
+
+.prose h4 {
+  font-size: 1.25em;
+}
+
+.prose h5 {
+  font-size: 1.125em;
+}
+
+/* Paragraphs and Lists */
+.prose p {
+  margin: 1.5em 0;
+}
+
+.prose ul,
+.prose ol {
+  margin: 1.5em 0;
+  padding-left: 1.5em;
+}
+
+.prose li {
+  margin: 0.5em 0;
+  padding-left: 0.5em;
+}
+
+.prose ul {
+  list-style-type: none;
+}
+
+.prose ul li {
+  position: relative;
+}
+
+.prose ul li::before {
+  content: '▶';
+  color: rgb(var(--nord8));
+  position: absolute;
+  left: -1.2em;
+  font-size: 0.8em;
+}
+
+/* Code Blocks */
+.prose pre {
+  background: rgb(var(--nord0));
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  overflow-x: auto;
+  border: 1px solid rgb(var(--nord3));
+}
+
+[data-theme="light"] .prose pre {
+  background: rgb(var(--nord5));
+  border-color: rgb(var(--nord4));
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  background: rgba(var(--nord3), 0.2);
+  color: rgb(var(--nord8));
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  color: rgb(var(--nord4));
+  border-radius: 0;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  margin: 2em 0;
+  padding: 1em 1.5em;
+  border-left: 4px solid rgb(var(--nord8));
+  background: rgba(var(--nord3), 0.1);
+  border-radius: 0 0.75rem 0.75rem 0;
+  font-style: italic;
+}
+
+.prose blockquote p {
+  margin: 0.5em 0;
+}
+
+/* Links */
+.prose a {
+  color: rgb(var(--nord8));
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.prose a:hover {
+  color: rgb(var(--nord7));
+  border-bottom-color: rgb(var(--nord7));
+}
+
+/* Images */
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 2em 0;
+  border: 1px solid rgb(var(--nord3));
+}
+
+/* Tables */
+.prose table {
+  width: 100%;
+  margin: 2em 0;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.prose th {
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75em;
+  border-bottom: 2px solid rgb(var(--nord3));
+  color: rgb(var(--nord8));
+}
+
+.prose td {
+  padding: 0.75em;
+  border-bottom: 1px solid rgba(var(--nord3), 0.2);
+}
+
+/* Horizontal Rule */
+.prose hr {
+  margin: 3em 0;
+  border: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgb(var(--nord3)),
+    transparent
+  );
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .prose {
+    font-size: 1rem;
+  }
+
+  .prose h1 {
+    font-size: 2em;
+  }
+
+  .prose h2 {
+    font-size: 1.5em;
+  }
+
+  .prose h3 {
+    font-size: 1.25em;
+  }
+
+  .prose h4 {
+    font-size: 1.15em;
+  }
+
+  .prose h5 {
+    font-size: 1.1em;
+  }
+
+  .prose pre {
+    padding: 1rem;
+  }
+
+  .prose blockquote {
+    padding: 0.75em 1em;
+  }
+}

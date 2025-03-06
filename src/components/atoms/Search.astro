@@ -1,6 +1,5 @@
 ---
 import PageFindSearch from "astro-pagefind/components/Search";
-import { Icon } from "astro-icon/components";
 ---
 
 <button
@@ -11,7 +10,10 @@ import { Icon } from "astro-icon/components";
   aria-expanded="false"
   class="inline-flex items-center space-x-10 rounded-full px-6 py-2 text-sm font-bold text-black transition-colors hover:text-blue-600 border border-gray-300 hover:border-gray-400 min-w-[120px] w-auto justify-between bg-white hover:bg-gray-50"
 >
-  <Icon name="search" class="h-5 w-5" />
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"></circle>
+    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
   <span class="hidden lg:block">Buscar</span>
 </button>
 
