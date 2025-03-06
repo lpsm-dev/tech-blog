@@ -9,9 +9,16 @@ const today = new Date();
   <div class="footer-content">
     <div class="cta-section">
       <h2 class="cta-title">Pronto para Transformar sua Stack Tecnológica?</h2>
-      <p class="cta-description">Vamos colaborar para construir algo incrível juntos.</p>
+      <p class="cta-description">
+        Vamos colaborar para construir algo incrível juntos.
+      </p>
       <div class="cta-buttons">
-        <a href={LINKEDIN_URL} target="_blank" class="cta-button primary" aria-label="Conectar no LinkedIn">
+        <a
+          href={LINKEDIN_URL}
+          target="_blank"
+          class="cta-button primary"
+          aria-label="Conectar no LinkedIn"
+        >
           <svg viewBox="0 0 24 24" aria-hidden="true" class="button-icon">
             <path
               fill="currentColor"
@@ -20,7 +27,12 @@ const today = new Date();
           </svg>
           Conectar no LinkedIn
         </a>
-        <a href="/rss.xml" target="_blank" class="cta-button secondary" aria-label="Assinar RSS">
+        <a
+          href="/rss.xml"
+          target="_blank"
+          class="cta-button secondary"
+          aria-label="Assinar RSS"
+        >
           <svg viewBox="0 0 24 24" aria-hidden="true" class="button-icon">
             <path
               fill="currentColor"
@@ -39,7 +51,11 @@ const today = new Date();
         &copy; {today.getFullYear()} lpsm-dev. Todos os direitos reservados.
       </div>
       <div class="powered-by">
-        Construído com <a href="https://astro.build" target="_blank" rel="noopener">Astro</a> e ❤️
+        Construído com <a
+          href="https://astro.build"
+          target="_blank"
+          rel="noopener">Astro</a
+        > e ❤️
       </div>
     </div>
   </div>
@@ -184,4 +200,3 @@ const today = new Date();
     }
   }
 </style>
-```

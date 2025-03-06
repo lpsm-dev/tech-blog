@@ -8,7 +8,10 @@ import { paginatePosts } from "../../utils/pagination";
 import { POSTS_PER_PAGE } from "../../consts";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog", ({ data }) => data.publish !== false);
+  const posts = await getCollection(
+    "blog",
+    ({ data }) => data.publish !== false,
+  );
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
   return Array.from({ length: totalPages - 1 }, (_, i) => ({
     params: { page: (i + 2).toString() },
@@ -105,7 +108,7 @@ const currentPosts = paginatePosts(posts, page);
         overflow: hidden;
         transition: all 0.3s ease;
         text-decoration: none;
-        box-shadow: 
+        box-shadow:
           0 4px 6px rgba(0, 0, 0, 0.1),
           0 2px 4px rgba(0, 0, 0, 0.06);
       }
@@ -117,10 +120,14 @@ const currentPosts = paginatePosts(posts, page);
       }
 
       .pagination a::before {
-        content: '';
+        content: "";
         position: absolute;
         inset: -3px;
-        background: linear-gradient(45deg, rgb(var(--nord7)), rgb(var(--nord8)));
+        background: linear-gradient(
+          45deg,
+          rgb(var(--nord7)),
+          rgb(var(--nord8))
+        );
         border-radius: inherit;
         z-index: -2;
         opacity: 0;
@@ -218,7 +225,7 @@ const currentPosts = paginatePosts(posts, page);
                 stroke-linejoin="round"
                 class="arrow-icon prev"
               >
-                <path d="M19 12H5m7-7-7 7 7 7"></path>
+                <path d="M19 12H5m7-7-7 7 7 7" />
               </svg>
               Previous Page
             </a>
@@ -239,7 +246,7 @@ const currentPosts = paginatePosts(posts, page);
                 stroke-linejoin="round"
                 class="arrow-icon prev"
               >
-                <path d="M19 12H5m7-7-7 7 7 7"></path>
+                <path d="M19 12H5m7-7-7 7 7 7" />
               </svg>
               Previous Page
             </a>
@@ -261,7 +268,7 @@ const currentPosts = paginatePosts(posts, page);
                 stroke-linejoin="round"
                 class="arrow-icon"
               >
-                <path d="M5 12h14m-7-7 7 7-7 7"></path>
+                <path d="M5 12h14m-7-7 7 7-7 7" />
               </svg>
             </a>
           )
@@ -271,4 +278,3 @@ const currentPosts = paginatePosts(posts, page);
     <Footer />
   </body>
 </html>
-```
