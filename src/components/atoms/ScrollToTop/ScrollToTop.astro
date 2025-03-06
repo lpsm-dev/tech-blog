@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <button
@@ -18,7 +19,7 @@
     stroke-linecap="round"
     stroke-linejoin="round"
   >
-    <path d="m17 14-5-5-5 5"/>
+    <path d="m17 14-5-5-5 5"></path>
   </svg>
 </button>
 
@@ -41,7 +42,7 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(1rem);
-    box-shadow: 
+    box-shadow:
       0 4px 12px rgba(0, 0, 0, 0.1),
       0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 50;
@@ -50,7 +51,7 @@
   .scroll-button:hover {
     transform: translateY(-2px);
     background: hsl(var(--primary) / 0.9);
-    box-shadow: 
+    box-shadow:
       0 8px 20px rgba(0, 0, 0, 0.15),
       0 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -88,32 +89,27 @@
 
 <script>
   const scrollButton = document.getElementById("scroll-to-top");
-  let lastScrollTop = 0;
   const scrollThreshold = 200;
 
   function toggleScrollButton() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
+
     if (scrollTop > scrollThreshold) {
       scrollButton?.classList.add("visible");
     } else {
       scrollButton?.classList.remove("visible");
     }
-    
-    lastScrollTop = scrollTop;
   }
 
   function scrollToTop() {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   }
 
-  // Add event listeners
   window.addEventListener("scroll", toggleScrollButton, { passive: true });
   scrollButton?.addEventListener("click", scrollToTop);
 
-  // Initialize button state
   toggleScrollButton();
 </script>

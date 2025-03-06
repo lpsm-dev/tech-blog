@@ -12,56 +12,59 @@ import { getUrl } from "../../utils/url";
       <div class="nav-brand">
         <a href={getUrl("/")} class="brand-link">
           <div class="brand-icon">
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg" 
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
               class="cyber-icon"
             >
               <!-- Circuit board pattern -->
-              <path 
-                d="M4 4h16v16H4V4z" 
-                stroke="currentColor" 
+              <path
+                d="M4 4h16v16H4V4z"
+                stroke="currentColor"
                 stroke-width="2"
-                class="board"
-              />
+                class="board"></path>
               <!-- Circuit traces -->
-              <path 
-                d="M8 8h8M8 12h8M8 16h8M12 8v8" 
-                stroke="currentColor" 
+              <path
+                d="M8 8h8M8 12h8M8 16h8M12 8v8"
+                stroke="currentColor"
                 stroke-width="1.5"
-                class="traces"
-              />
+                class="traces"></path>
               <!-- Connection points -->
-              <circle cx="8" cy="8" r="1.5" fill="currentColor" class="point" />
-              <circle cx="16" cy="8" r="1.5" fill="currentColor" class="point" />
-              <circle cx="8" cy="16" r="1.5" fill="currentColor" class="point" />
-              <circle cx="16" cy="16" r="1.5" fill="currentColor" class="point" />
-              <circle cx="12" cy="12" r="2" fill="currentColor" class="center" />
+              <circle cx="8" cy="8" r="1.5" fill="currentColor" class="point"
+              ></circle>
+              <circle cx="16" cy="8" r="1.5" fill="currentColor" class="point"
+              ></circle>
+              <circle cx="8" cy="16" r="1.5" fill="currentColor" class="point"
+              ></circle>
+              <circle cx="16" cy="16" r="1.5" fill="currentColor" class="point"
+              ></circle>
+              <circle cx="12" cy="12" r="2" fill="currentColor" class="center"
+              ></circle>
             </svg>
           </div>
           <span class="brand-text">{SITE_TITLE}</span>
         </a>
       </div>
 
-      <button 
-        id="mobile-menu-button" 
-        class="mobile-menu-button" 
+      <button
+        id="mobile-menu-button"
+        class="mobile-menu-button"
         aria-label="Toggle menu"
         aria-expanded="false"
         aria-controls="nav-links"
       >
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="24" 
-          height="24" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          stroke-width="2" 
-          stroke-linecap="round" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
           stroke-linejoin="round"
           class="menu-icon"
         >
@@ -69,15 +72,15 @@ import { getUrl } from "../../utils/url";
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="24" 
-          height="24" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          stroke-width="2" 
-          stroke-linecap="round" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
           stroke-linejoin="round"
           class="close-icon"
         >
@@ -290,7 +293,7 @@ import { getUrl } from "../../utils/url";
   }
 
   .nav-links a.active::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -4px;
     left: 0;
@@ -461,11 +464,12 @@ import { getUrl } from "../../utils/url";
   }
 
   @keyframes pulse {
-    0%, 100% { 
+    0%,
+    100% {
       stroke-width: 2;
       opacity: 1;
     }
-    50% { 
+    50% {
       stroke-width: 2.5;
       opacity: 0.8;
     }
@@ -505,48 +509,51 @@ import { getUrl } from "../../utils/url";
 
 <script>
   function initMobileMenu() {
-    const menuButton = document.getElementById('mobile-menu-button');
-    const navLinks = document.getElementById('nav-links');
+    const menuButton = document.getElementById("mobile-menu-button");
+    const navLinks = document.getElementById("nav-links");
 
     if (!menuButton || !navLinks) return;
 
     function toggleMenu() {
-      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', (!isExpanded).toString());
-      navLinks.setAttribute('data-visible', (!isExpanded).toString());
-      
-      // Prevent body scroll when menu is open
-      document.body.style.overflow = !isExpanded ? 'hidden' : '';
+      const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+      menuButton.setAttribute("aria-expanded", (!isExpanded).toString());
+      navLinks.setAttribute("data-visible", (!isExpanded).toString());
+
+      document.body.style.overflow = !isExpanded ? "hidden" : "";
     }
 
-    menuButton.addEventListener('click', toggleMenu);
+    menuButton.addEventListener("click", toggleMenu);
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      const isMenuOpen = menuButton.getAttribute('aria-expanded') === 'true';
-      if (isMenuOpen && !navLinks.contains(e.target) && !menuButton.contains(e.target)) {
+    document.addEventListener("click", (e) => {
+      const isMenuOpen = menuButton.getAttribute("aria-expanded") === "true";
+      if (
+        isMenuOpen &&
+        !navLinks.contains(e.target as Node) &&
+        !menuButton.contains(e.target as Node)
+      ) {
         toggleMenu();
       }
     });
 
-    // Close menu when pressing Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" &&
+        menuButton.getAttribute("aria-expanded") === "true"
+      ) {
         toggleMenu();
       }
     });
 
-    // Close menu when resizing to desktop
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && menuButton.getAttribute('aria-expanded') === 'true') {
+    window.addEventListener("resize", () => {
+      if (
+        window.innerWidth > 768 &&
+        menuButton.getAttribute("aria-expanded") === "true"
+      ) {
         toggleMenu();
       }
     });
   }
 
-  // Initialize menu
   initMobileMenu();
-
-  // Re-initialize after Astro page transitions
-  document.addEventListener('astro:after-swap', initMobileMenu);
+  document.addEventListener("astro:after-swap", initMobileMenu);
 </script>
