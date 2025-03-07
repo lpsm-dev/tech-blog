@@ -47,11 +47,9 @@ Aqui você encontrará a estrutura do meu blog pessoal (Astro + Obsidian). Fique
 
 # Visão Geral
 
-Este repositório tem como objetivo documentar e compartilhar a construção do meu blog pessoal, desenvolvido do zero utilizando o framework Astro. Além de servir como um espaço para divulgar o que aprendo, esse projeto também me permite praticar escrita e aprofundar meus conhecimentos em desenvolvimento web, mesmo não sendo um desenvolvedor front-end.
-
 ## Objetivo
 
-Os principais objetivos deste repositório são:
+Esse repositório tem como objetivo documentar e compartilhar a construção do meu blog pessoal, desenvolvido do zero utilizando o framework Astro. Além de servir como um espaço para divulgar o que aprendo, esse projeto também me permite praticar escrita e aprofundar meus conhecimentos em desenvolvimento web, mesmo não sendo um desenvolvedor front-end.
 
 - **Criar e manter um blog pessoal**: Utilizando o Astro para gerar um site estático, sem depender de plataformas prontas como Medium ou Dev.to.
 - **Aprimorar habilidades técnicas e de escrita**: Documentando aprendizados de forma organizada e acessível.
