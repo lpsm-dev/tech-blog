@@ -47,11 +47,28 @@ Aqui você encontrará a estrutura do meu blog pessoal (Astro + Obsidian). Fique
 
 # Visão Geral
 
-Sempre quis ter um blog pessoal para compartilhar o que aprendo e, ao mesmo tempo, praticar minhas habilidades de escrita. Porém, sabe como é, normalmente a gente acaba adiando esse tipo de projeto por falta de tempo ou prioridade. Mas, recentemente, descobri o [Astro](https://astro.build/), um framework para construção de sites estáticos que me chamou bastante atenção. Não sendo um desenvolvedor front-end, vi em sua proposta uma simplicidade enorme para um fluxo de trabalho que eu poderia me adaptar facilmente.
+Este repositório tem como objetivo documentar e compartilhar a construção do meu blog pessoal, desenvolvido do zero utilizando o framework Astro. Além de servir como um espaço para divulgar o que aprendo, esse projeto também me permite praticar escrita e aprofundar meus conhecimentos em desenvolvimento web, mesmo não sendo um desenvolvedor front-end.
 
-Como já uso o [Obsidian](https://obsidian.md/) para organizar minhas notas e ideias (em markdown), pensei que seria uma ótima oportunidade para finalmente colocar esse projeto em prática e sair da procrastinação. Além disso, queria ter uma experiência prática de desenvolver esse blog do zero, sem utilizar plataformas prontas como Medium, Dev.to, etc. E sim, eu sei que isso pode ser um pouco mais trabalhoso, mas acredito que o aprendizado e a experiência valerão a pena, justamente por não ser um desenvolvedor front-end e sim o cara que arruma o deploy errado de uma sexta-feira à noite ⚰️, kkkkk. Brincadeiras a parte...
+## Objetivo
 
-Sendo assim, sejam muito bem-vindos a esse repositório. Fiquem à vontade para explorar, contribuir e, principalmente, me ajudar a melhorar esse projeto. 🚀
+Os principais objetivos deste repositório são:
+
+- **Criar e manter um blog pessoal**: Utilizando o Astro para gerar um site estático, sem depender de plataformas prontas como Medium ou Dev.to.
+- **Aprimorar habilidades técnicas e de escrita**: Documentando aprendizados de forma organizada e acessível.
+- **Explorar integração com o Obsidian**: Aproveitando minha rotina de anotações em Markdown para facilitar a publicação de conteúdos.
+- **Compartilhar conhecimento e incentivar contribuições**: Tornando o projeto colaborativo para receber feedbacks e sugestões da comunidade.
+
+## Contexto e Motivação
+
+Sempre quis ter um blog para compartilhar o que aprendo e exercitar minha escrita, mas, como muitos projetos pessoais, essa ideia foi ficando para depois, seja por falta de tempo ou prioridade.
+
+Recentemente, conheci o Astro, um framework para construção de sites estáticos que me chamou bastante atenção por sua simplicidade e eficiência. Como não sou desenvolvedor front-end, encontrar uma ferramenta acessível e fácil de adaptar ao meu fluxo de trabalho foi um grande incentivo para iniciar esse projeto.
+
+Além disso, já utilizo o Obsidian para organizar minhas notas em Markdown, então a possibilidade de integrá-lo ao blog tornou a ideia ainda mais interessante. Decidi também que queria construir tudo do zero, sem depender de plataformas prontas, para ter uma experiência prática e aprender mais no processo.
+
+Claro, sei que isso pode dar mais trabalho, mas acredito que o aprendizado vai compensar—mesmo que minha especialidade seja mais corrigir deploys quebrados na sexta-feira à noite do que criar interfaces, kkkkk.
+
+Sendo assim, sejam muito bem-vindos a este repositório! Sintam-se à vontade para explorar, contribuir e ajudar a melhorar esse projeto. 🚀
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
