@@ -37,7 +37,7 @@ jobs:
           SITE_URL: https://blog.lpsm.cloud
           BASE_URL: /
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: dist
   deploy:
