@@ -52,51 +52,51 @@
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
       "resolved": "github:NixOS/nixpkgs/02032da4af073d0f6110540c8677f16d4be0117f?lastModified=1741037377&narHash=sha256-SvtvVKHaUX4Owb%2BPasySwZsoc5VUeTf1px34BByiOxw%3D"
     },
-    "gitleaks@8.28.0": {
-      "last_modified": "2025-07-22T02:38:50Z",
-      "resolved": "github:NixOS/nixpkgs/83e677f31c84212343f4cc553bab85c2efcad60a#gitleaks",
+    "gitleaks@8.30.0": {
+      "last_modified": "2025-12-31T03:27:36Z",
+      "resolved": "github:NixOS/nixpkgs/f665af0cdb70ed27e1bd8f9fdfecaf451260fc55#gitleaks",
       "source": "devbox-search",
-      "version": "8.28.0",
+      "version": "8.30.0",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/rjaqzp0jdwaa0f110ff2fxhwxavi7260-gitleaks-8.28.0",
+              "path": "/nix/store/5lacsgai6r9rfrvg7956590bk5313pzz-gitleaks-8.30.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/rjaqzp0jdwaa0f110ff2fxhwxavi7260-gitleaks-8.28.0"
+          "store_path": "/nix/store/5lacsgai6r9rfrvg7956590bk5313pzz-gitleaks-8.30.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/kxgcbrr8sjxwy7m35irqq3mkl1zz0j9c-gitleaks-8.28.0",
+              "path": "/nix/store/af40x7x578bckk67hw63478lv5yvl5zi-gitleaks-8.30.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/kxgcbrr8sjxwy7m35irqq3mkl1zz0j9c-gitleaks-8.28.0"
+          "store_path": "/nix/store/af40x7x578bckk67hw63478lv5yvl5zi-gitleaks-8.30.0"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/vqhd8miy536hlg0xnpz2xkbmcg7mllnv-gitleaks-8.28.0",
+              "path": "/nix/store/ib6gsr6h39l0mam1lky7s2ajj61wrrgd-gitleaks-8.30.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/vqhd8miy536hlg0xnpz2xkbmcg7mllnv-gitleaks-8.28.0"
+          "store_path": "/nix/store/ib6gsr6h39l0mam1lky7s2ajj61wrrgd-gitleaks-8.30.0"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/zqc2zzkxmx70f3syf84flg212b8yrrw1-gitleaks-8.28.0",
+              "path": "/nix/store/lh9k58x4grgnfandj8nkqc84mw1ibhm0-gitleaks-8.30.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/zqc2zzkxmx70f3syf84flg212b8yrrw1-gitleaks-8.28.0"
+          "store_path": "/nix/store/lh9k58x4grgnfandj8nkqc84mw1ibhm0-gitleaks-8.30.0"
         }
       }
     },
